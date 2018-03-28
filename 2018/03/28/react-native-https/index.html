@@ -5,15 +5,21 @@
   
 
   
-  <title>马建</title>
+  <title>React Native 自签名Https处理 | 马建</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="马建">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="问题描述现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。 IOS处">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native 自签名Https处理">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/react-native-https/index.html">
 <meta property="og:site_name" content="马建">
+<meta property="og:description" content="问题描述现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。 IOS处">
 <meta property="og:locale" content="cn">
+<meta property="og:image" content="http://yoursite.com/2018/03/28/react-native-https/react-native-https/26fa978f-a83b-4e49-b6b3-dab541da890c.png">
+<meta property="og:updated_time" content="2018-03-28T12:27:32.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="马建">
+<meta name="twitter:title" content="React Native 自签名Https处理">
+<meta name="twitter:description" content="问题描述现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。 IOS处">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/28/react-native-https/react-native-https/26fa978f-a83b-4e49-b6b3-dab541da890c.png">
   
     <link rel="alternate" href="/atom.xml" title="马建" type="application/atom+xml">
   
@@ -60,46 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/28/test/" class="article-date">
-  <time datetime="2018-03-28T12:25:06.000Z" itemprop="datePublished">2018-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/test/">test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/2018/03/28/test/winter_activities_banner.jpg" alt="hhh"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/test/" data-id="cjfb2tj300002b6uxmiy6l0rs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-react-native-https" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-react-native-https" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/28/react-native-https/" class="article-date">
   <time datetime="2018-03-28T07:43:22.000Z" itemprop="datePublished">2018-03-28</time>
@@ -112,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/react-native-https/">React Native 自签名Https处理</a>
+    <h1 class="article-title" itemprop="name">
+      React Native 自签名Https处理
     </h1>
   
 
@@ -161,56 +128,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/28/hello-world/" class="article-date">
-  <time datetime="2018-03-28T01:53:02.483Z" itemprop="datePublished">2018-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2018/03/28/test/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          test
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2018/03/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/hello-world/" data-id="cjfb2tj2s0000b6uxueixipr8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         

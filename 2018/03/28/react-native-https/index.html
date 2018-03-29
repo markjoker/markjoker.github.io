@@ -1,98 +1,213 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
+    
 
-  
-  <title>React Native 自签名Https处理 | 马建</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。 IOS处">
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>React Native 自签名Https处理 | 随手记 | 不积跬步无以至千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#03a9f4">
+    
+    
+    <meta name="keywords" content="React Native">
+    <meta name="description" content="问题描述现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。 IOS处">
+<meta name="keywords" content="React Native">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native 自签名Https处理">
 <meta property="og:url" content="http://yoursite.com/2018/03/28/react-native-https/index.html">
-<meta property="og:site_name" content="马建">
+<meta property="og:site_name" content="随手记">
 <meta property="og:description" content="问题描述现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。 IOS处">
-<meta property="og:locale" content="cn">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/03/28/react-native-https/26fa978f-a83b-4e49-b6b3-dab541da890c.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/28/react-native-https/794c1115-612a-4e30-ac96-f1c2c8e8648f.png">
-<meta property="og:updated_time" content="2018-03-28T13:15:22.499Z">
+<meta property="og:updated_time" content="2018-03-29T03:12:26.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native 自签名Https处理">
 <meta name="twitter:description" content="问题描述现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。 IOS处">
 <meta name="twitter:image" content="http://yoursite.com/2018/03/28/react-native-https/26fa978f-a83b-4e49-b6b3-dab541da890c.png">
-  
-    <link rel="alternate" href="/atom.xml" title="马建" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    
+        <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">马建</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">马建</h5>
+          <a href="mailto:markjoker@126.com" title="markjoker@126.com" class="mail">markjoker@126.com</a>
+        </hgroup>
       </div>
     </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-react-native-https" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/28/react-native-https/" class="article-date">
-  <time datetime="2018-03-28T07:43:22.000Z" itemprop="datePublished">2018-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-  
-    <h1 class="article-title" itemprop="name">
-      React Native 自签名Https处理
-    </h1>
-  
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/cv"  >
+                <i class="icon icon-lg icon-file"></i>
+                简历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
 
-      </header>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">React Native 自签名Https处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">React Native 自签名Https处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-28T07:43:22.000Z" itemprop="datePublished" class="page-time">
+  2018-03-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。<br>当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。</p>
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">问题描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IOS处理"><span class="post-toc-number">2.</span> <span class="post-toc-text">IOS处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">Android处理</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-react-native-https"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">React Native 自签名Https处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-28 15:43:22" datetime="2018-03-28T07:43:22.000Z"  itemprop="datePublished">2018-03-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>现在绝大多数网站已转为https方式浏览，但很多情况下https的证书并不是CA颁发的合法证书，而是通过公司或个人自签名产生的证书。当我们在开发移动应用时，对于这种自签名证书，通常是需要额外的通过证书来校验访问的合法性。<br>当我们再开发React Native应用时，由于框架封装了网络请求库，造成我们无法自定义相关逻辑。本文的主要目的就是记录一下再开发过程中遇到此类问题是怎么解决的。</p>
 <h2 id="IOS处理"><a href="#IOS处理" class="headerlink" title="IOS处理"></a>IOS处理</h2><ol>
 <li>使用Xcode打开ios代码</li>
-<li>在<code>Libraries</code>下展开 <code>RCTNetwork.xcodeproj</code> 找到 <code>RCTHTTPRequestHandler.m</code> 文件<br><img src="/2018/03/28/react-native-https/26fa978f-a83b-4e49-b6b3-dab541da890c.png" alt="logo"></li>
+<li>在<code>Libraries</code>下展开 <code>RCTNetwork.xcodeproj</code> 找到 <code>RCTHTTPRequestHandler.m</code> 文件<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2018/03/28/react-native-https/26fa978f-a83b-4e49-b6b3-dab541da890c.png" alt="logo" title="">
+                </div>
+                <div class="image-caption">logo</div>
+            </figure></li>
 <li><p>在文件中找到下面代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> mark - NSURLSession delegate</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -103,7 +218,13 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSAppTransportSecurity<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>NSAllowsArbitraryLoads<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="/2018/03/28/react-native-https/794c1115-612a-4e30-ac96-f1c2c8e8648f.png" alt="info.plist"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2018/03/28/react-native-https/794c1115-612a-4e30-ac96-f1c2c8e8648f.png" alt="info.plist" title="">
+                </div>
+                <div class="image-caption">info.plist</div>
+            </figure>
 <ol start="6">
 <li>完成配置，重新打包即可<h2 id="Android处理"><a href="#Android处理" class="headerlink" title="Android处理"></a>Android处理</h2>Android下React Native使用OKHTTP作为网络请求库，由于npm在安装react-native时已经编译过相关第三方依赖库，所以要改动依赖库中的代码，我们需要下载ReactAndroid的源代码，修改OKHTTP源码后重新编译。所以过程相对IOS会复杂很多，下面我们开始一步步来完成相关工作。</li>
 <li>下载NDK，解压<br> NDK官方<a href="https://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip" target="_blank" rel="noopener">下载地址</a></li>
@@ -121,103 +242,292 @@
 </li>
 </ol>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/28/react-native-https/" data-id="cjfb468vt0000mluxws4c571s" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
+        </div>
+
+        <blockquote class="post-copyright">
     
-<nav id="article-nav">
-  
-  
-    <a href="/2018/03/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Hello World</div>
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-29T03:12:26.453Z" itemprop="dateUpdated">2018-03-29 11:12:26</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/28/react-native-https/" target="_blank" rel="external">http://yoursite.com/2018/03/28/react-native-https/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="马建">
+            马建
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React Native</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/28/react-native-https/&title=《React Native 自签名Https处理》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/28/react-native-https/&title=《React Native 自签名Https处理》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/28/react-native-https/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React Native 自签名Https处理》 — 随手记&url=http://yoursite.com/2018/03/28/react-native-https/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/28/react-native-https/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
     </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/29/android-8-0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 8.0 功能和 API</h4>
+      </a>
+    </div>
   
 </nav>
 
-  
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
 
-</section>
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
         
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
     </div>
-  </div>
+</div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
         
-          <li>
-            <a href="/2018/03/28/react-native-https/">React Native 自签名Https处理</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/28/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
     </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 马建<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div class="bottom">
+        <p><span>马建 &copy; 2015 - 2018</span>
+            <span>
+                
+            </span>
+        </p>
     </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
 
-  </div>
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/28/react-native-https/&title=《React Native 自签名Https处理》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/28/react-native-https/&title=《React Native 自签名Https处理》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/28/react-native-https/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React Native 自签名Https处理》 — 随手记&url=http://yoursite.com/2018/03/28/react-native-https/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/28/react-native-https/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3aS47DIBBFUe9/0+5ppMj4voKORHEZRZaDfTKoUJ/rwuv+WLXr35/5bsuWDBkytmXcw/V0z/cOTzuPd0if+0iVIUPGAQzyEuPPBEyC73j/x+syZMiQAV53vM/4dflzZciQISMNuOROkr6S4CtDhgwZJJnkNa5aAP1RLi5DhowNGbzq/vvP/9LfkCFDxlaMO1xpiS29UlsyZMjozeABjpfvx7sVE1Qy/CFDhozDGLUxi1rI5qE8rhrKkCGjBSMt8adtgJlyGz+SypAh4wRGLSlNQ2p6ECQNABkyZJzDIAln+mByoOQDHC/hW4YMGa0ZacjjYZSE71p38qr96jJkyNiWMR/y0iNj2gRFIyAyZMg4gLHqJUjDIG2Roj8DGTJktGbwlJI3D0joXDt8JkOGjBMYtawwDYirmqDkh5YhQ0YnRhpYeXEtbUlONQ9kyJDRmsEPfDzgrkqAayMaMmTI6Mrgo13zQxirhi1eym0yZMhox6gllvMHPn4cDAqCMmTIaMogX+P3k3ZmGsTRt2TIkHEwgzQaeQCtNSGCJFaGDBkHMGoHOz6oURvvCHJxGTJktGPc4eLpLh/hqv1YLzIZMmQ0YvCVprUzDYC0mSpDhowTGGmQ5UW62thEMeDKkCHjAEZaCOMP5q1KHvplyJAho3a6rB0f49ddG3BlyJDRmkHuT6+kjYS4vyFDhozNGelQRTpCURsC43vKkCGjNyM9d6WDqiTdTctwC46PMmTI2IPxBzxsLLomXXTBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '瞎！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
 </body>
 </html>

@@ -24,17 +24,17 @@
 <meta name="keywords" content="Android,Oreo,Android8.0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 8.0 功能和 API">
-<meta property="og:url" content="http://yoursite.com/2017/12/29/android-8-0/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/08/29/android-8-0/index.html">
 <meta property="og:site_name" content="随手记">
 <meta property="og:description" content="用户体验 通知在 Android 8.0 中，我们已重新设计通知，以便为管理通知行为和设置提供更轻松和更统一的方式。这些变更包括：-通知渠道：Android 8.0 引入了通知渠道，其允许您为要显示的每种通知类型创建用户可自定义的渠道。用户界面将通知渠道称之为通知类别。要了解如何实现通知渠道的信息，请参阅通知渠道指南。-通知标志：Android 8.0 引入了对在应用启动器图标上显示通知标志的支持">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2017/12/29/android-8-0/notification-long-press.png">
-<meta property="og:image" content="http://yoursite.com/2017/12/29/android-8-0/keyboard-navigation-clusters.png">
-<meta property="og:updated_time" content="2018-03-29T12:18:40.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/08/29/android-8-0/notification-long-press.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/29/android-8-0/keyboard-navigation-clusters.png">
+<meta property="og:updated_time" content="2018-03-30T03:04:15.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 8.0 功能和 API">
 <meta name="twitter:description" content="用户体验 通知在 Android 8.0 中，我们已重新设计通知，以便为管理通知行为和设置提供更轻松和更统一的方式。这些变更包括：-通知渠道：Android 8.0 引入了通知渠道，其允许您为要显示的每种通知类型创建用户可自定义的渠道。用户界面将通知渠道称之为通知类别。要了解如何实现通知渠道的信息，请参阅通知渠道指南。-通知标志：Android 8.0 引入了对在应用启动器图标上显示通知标志的支持">
-<meta name="twitter:image" content="http://yoursite.com/2017/12/29/android-8-0/notification-long-press.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/29/android-8-0/notification-long-press.png">
     
         <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
     
@@ -154,8 +154,8 @@
         <h1 class="title">Android 8.0 功能和 API</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-12-29T11:47:18.000Z" itemprop="datePublished" class="page-time">
-  2017-12-29
+                <time datetime="2017-08-29T11:47:18.000Z" itemprop="datePublished" class="page-time">
+  2017-08-29
 </time>
 
 
@@ -185,7 +185,7 @@
     <div class="post-card">
         <h1 class="post-card-title">Android 8.0 功能和 API</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-12-29 19:47:18" datetime="2017-12-29T11:47:18.000Z"  itemprop="datePublished">2017-12-29</time>
+            <time class="post-time" title="2017-08-29 19:47:18" datetime="2017-08-29T11:47:18.000Z"  itemprop="datePublished">2017-08-29</time>
 
             
 
@@ -199,7 +199,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="用户体验"><a href="#用户体验" class="headerlink" title="用户体验"></a>用户体验</h1><hr>
-<h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><p><img src="/2017/12/29/android-8-0/notification-long-press.png" alt="Drawing" style="width: 200px;float:right"><br>在 Android 8.0 中，我们已重新设计通知，以便为管理通知行为和设置提供更轻松和更统一的方式。这些变更包括：<br>-<strong>通知渠道</strong>：Android 8.0 引入了通知渠道，其允许您为要显示的每种通知类型创建用户可自定义的渠道。用户界面将通知渠道称之为通知类别。要了解如何实现通知渠道的信息，请参阅<a href="https://developer.android.com/preview/features/notification-channels.html" target="_blank" rel="noopener">通知渠道</a>指南。<br>-<strong>通知标志</strong>：Android 8.0 引入了对在应用启动器图标上显示通知标志的支持。通知标志可反映某个应用是否存在与其关联、并且用户尚未予以清除也未对其采取行动的通知。通知标志也称为通知点。要了解如何调整通知标志，请参阅<a href="https://developer.android.com/preview/features/notification-badges.html" target="_blank" rel="noopener">通知标志</a>指南。<br>-<strong>休眠</strong>：用户可以将通知置于休眠状态，以便稍后重新显示它。重新显示时通知的重要程度与首次显示时相同。应用可以移除或更新已休眠的通知，但更新休眠的通知并不会使其重新显示。<br>-<strong>通知超时</strong>：现在，使用 <code>setTimeoutAfter()</code>创建通知时您可以设置超时。您可以使用此函数指定一个持续时间，超过该持续时间后，通知应取消。如果需要，您可以在指定的超时持续时间之前取消通知。<br>-<strong>通知设置</strong>：当您使用 <code>Notification.INTENT_CATEGORY_NOTIFICATION_PREFERENCESIntent</code> 从通知创建指向应用通知设置的链接时，您可以调用 <code>setSettingsText()</code> 来设置要显示的文本。此系统可以提供以下 <code>Extra</code> 数据和 <code>Intent</code>，用于过滤应用必须向用户显示的设置：<code>EXTRA_CHANNEL_ID</code>、<code>NOTIFICATION_TAG 和 NOTIFICATION_ID</code>。<br>-<strong>通知清除</strong>：系统现在可区分通知是由用户清除，还是由应用移除。要查看清除通知的方式，您应实现 <code>NotificationListenerService</code> 类的新 <code>onNotificationRemoved()</code> 函数。<br>-<strong>背景颜色</strong>：您现在可以设置和启用通知的背景颜色。只能在用户必须一眼就能看到的持续任务的通知中使用此功能。例如，您可以为与驾车路线或正在进行的通话有关的通知设置背景颜色。您还可以使用 <code>Notification.Builder.setColor()</code> 设置所需的背景颜色。这样做将允许您使用 <code>Notification.Builder.setColorized()</code> 启用通知的背景颜色设置。<br>-<strong>消息样式</strong>：现在，使用 <code>MessagingStyle</code> 类的通知可在其折叠形式中显示更多内容。对于与消息有关的通知，您应使用 <code>MessagingStyle</code> 类。您还可以使用新的 <code>addHistoricMessage()</code> 函数，通过向与消息相关的通知添加历史消息为会话提供上下文。</p>
+<h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><p><img src="/2017/08/29/android-8-0/notification-long-press.png" alt="Drawing" style="width: 200px;float:right"><br>在 Android 8.0 中，我们已重新设计通知，以便为管理通知行为和设置提供更轻松和更统一的方式。这些变更包括：<br>-<strong>通知渠道</strong>：Android 8.0 引入了通知渠道，其允许您为要显示的每种通知类型创建用户可自定义的渠道。用户界面将通知渠道称之为通知类别。要了解如何实现通知渠道的信息，请参阅<a href="https://developer.android.com/preview/features/notification-channels.html" target="_blank" rel="noopener">通知渠道</a>指南。<br>-<strong>通知标志</strong>：Android 8.0 引入了对在应用启动器图标上显示通知标志的支持。通知标志可反映某个应用是否存在与其关联、并且用户尚未予以清除也未对其采取行动的通知。通知标志也称为通知点。要了解如何调整通知标志，请参阅<a href="https://developer.android.com/preview/features/notification-badges.html" target="_blank" rel="noopener">通知标志</a>指南。<br>-<strong>休眠</strong>：用户可以将通知置于休眠状态，以便稍后重新显示它。重新显示时通知的重要程度与首次显示时相同。应用可以移除或更新已休眠的通知，但更新休眠的通知并不会使其重新显示。<br>-<strong>通知超时</strong>：现在，使用 <code>setTimeoutAfter()</code>创建通知时您可以设置超时。您可以使用此函数指定一个持续时间，超过该持续时间后，通知应取消。如果需要，您可以在指定的超时持续时间之前取消通知。<br>-<strong>通知设置</strong>：当您使用 <code>Notification.INTENT_CATEGORY_NOTIFICATION_PREFERENCESIntent</code> 从通知创建指向应用通知设置的链接时，您可以调用 <code>setSettingsText()</code> 来设置要显示的文本。此系统可以提供以下 <code>Extra</code> 数据和 <code>Intent</code>，用于过滤应用必须向用户显示的设置：<code>EXTRA_CHANNEL_ID</code>、<code>NOTIFICATION_TAG 和 NOTIFICATION_ID</code>。<br>-<strong>通知清除</strong>：系统现在可区分通知是由用户清除，还是由应用移除。要查看清除通知的方式，您应实现 <code>NotificationListenerService</code> 类的新 <code>onNotificationRemoved()</code> 函数。<br>-<strong>背景颜色</strong>：您现在可以设置和启用通知的背景颜色。只能在用户必须一眼就能看到的持续任务的通知中使用此功能。例如，您可以为与驾车路线或正在进行的通话有关的通知设置背景颜色。您还可以使用 <code>Notification.Builder.setColor()</code> 设置所需的背景颜色。这样做将允许您使用 <code>Notification.Builder.setColorized()</code> 启用通知的背景颜色设置。<br>-<strong>消息样式</strong>：现在，使用 <code>MessagingStyle</code> 类的通知可在其折叠形式中显示更多内容。对于与消息有关的通知，您应使用 <code>MessagingStyle</code> 类。您还可以使用新的 <code>addHistoricMessage()</code> 函数，通过向与消息相关的通知添加历史消息为会话提供上下文。</p>
 <h2 id="自动填充框架"><a href="#自动填充框架" class="headerlink" title="自动填充框架"></a>自动填充框架</h2><p>帐号创建、登录和信用卡交易需要时间并且容易出错。在使用要求执行此类重复性任务的应用时，用户很容易遭受挫折。<br>Android 8.0 通过引入自动填充框架，简化了登录和信用卡表单之类表单的填写工作。在用户选择接受自动填充之后，新老应用都可使用自动填充框架。<br>您可以采取某些措施，优化您的应用使用此框架的方式。如需了解详细信息，请参阅<a href="https://developer.android.com/preview/features/autofill.html" target="_blank" rel="noopener">自动填充框架概览</a>。</p>
 <h2 id="画中画模式"><a href="#画中画模式" class="headerlink" title="画中画模式"></a>画中画模式</h2><p>Android 8.0 允许以画中画 (PIP) 模式启动操作组件。PIP 是一种特殊的多窗口模式，最常用于视频播放。目前，PIP 模式可用于 Android TV，而 Android 8.0 则让该功能可进一步用于其他 Android 设备。<br>当某个 Activity 处于 PIP 模式时，它会处于暂停状态，但仍应继续显示内容。因此，您应确保您的应用在 <code>onPause()</code> 处理程序中进行处理时不会暂停播放。相反，您应在 onStop() 中暂停播放视频，并在 <code>onStart()</code> 中继续播放。如需了解详细信息，请参阅<a href="https://developer.android.com/guide/topics/ui/multi-window.html#lifecycle" target="_blank" rel="noopener">多窗口生命周期</a>。<br>要指定您的 Activity 可以使用 PIP 模式，请在清单中将 android:supportsPictureInPicture 设置为 true。（从 Android 8.0 开始，如果您打算在 Android TV 或其他 Android 设备上支持 PIP 模式，则无需将 android:resizeableActivity 设置为 true；只有在您的 Activity 支持其他多窗口模式时，才需要设置 android:resizeableActivity。）</p>
 <h2 id="API-变更"><a href="#API-变更" class="headerlink" title="API 变更"></a>API 变更</h2><p>Android 8.0 引入一种新的对象 PictureInPictureParams，您可以将该对象传递给 PIP 函数来指定某个 Activity 在其处于 PIP 模式时的行为。此对象还指定了各种属性，例如操作组件的首选纵横比。</p>
@@ -246,7 +246,7 @@
 <h2 id="输入和导航"><a href="#输入和导航" class="headerlink" title="输入和导航"></a>输入和导航</h2><h3 id="键盘导航键区"><a href="#键盘导航键区" class="headerlink" title="键盘导航键区"></a>键盘导航键区</h3><p>如果您的应用中，某个操作组件使用一种复杂的视图层次结构，可考虑将多组界面元素组成一个键区，简化键盘导航这些元素的操作。用户可以在 Chromebook 设备上按 Meta+Tab 或 Search+Tab，在不同键区之间导航。键区的一些范例包括：侧面板、导航栏、主内容区域和可能包含多个子元素的元素。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/12/29/android-8-0/keyboard-navigation-clusters.png" alt="包含 5 个键区的操作组件" title="">
+                    <img src="/2017/08/29/android-8-0/keyboard-navigation-clusters.png" alt="包含 5 个键区的操作组件" title="">
                 </div>
                 <div class="image-caption">包含 5 个键区的操作组件</div>
             </figure><br>要将一个 <code>View</code> 或 <code>ViewGroup</code> 元素设置为一个键区，请在元素的布局 XML 文件中将 <code>android:keyboardNavigationCluster</code> 属性设置为 true，或者将 true 传递至应用界面逻辑中的 <code>setKeyboardNavigationCluster()</code>。</p>
@@ -419,12 +419,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-29T12:18:40.000Z" itemprop="dateUpdated">2018-03-29 20:18:40</time>
+    最后更新时间：<time datetime="2018-03-30T03:04:15.606Z" itemprop="dateUpdated">2018-03-30 11:04:15</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/12/29/android-8-0/" target="_blank" rel="external">http://yoursite.com/2017/12/29/android-8-0/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/29/android-8-0/" target="_blank" rel="external">http://yoursite.com/2017/08/29/android-8-0/</a>
         
     </div>
     
@@ -455,7 +455,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -465,22 +465,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&source=desc" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&source=desc" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/29/android-8-0/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/29/android-8-0/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 8.0 功能和 API》 — 随手记&url=http://yoursite.com/2017/12/29/android-8-0/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 8.0 功能和 API》 — 随手记&url=http://yoursite.com/2017/08/29/android-8-0/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/29/android-8-0/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/29/android-8-0/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -503,9 +503,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/03/28/react-native-https/" id="post-prev" class="post-nav-link">
+      <a href="/2017/09/15/android-8-0-changes/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">React Native 自签名Https处理</h4>
+        <h4 class="title">Android 8.0 行为变更</h4>
       </a>
     </div>
   
@@ -600,7 +600,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/12/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -610,22 +610,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/12/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&source=desc" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/29/android-8-0/&title=《Android 8.0 功能和 API》 — 随手记&source=desc" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/12/29/android-8-0/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/29/android-8-0/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 8.0 功能和 API》 — 随手记&url=http://yoursite.com/2017/12/29/android-8-0/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 8.0 功能和 API》 — 随手记&url=http://yoursite.com/2017/08/29/android-8-0/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/12/29/android-8-0/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/29/android-8-0/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -636,7 +636,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPElEQVR42u3aQW7DMAwF0dz/0inQVYDU8nzSCWpqtApSR/bzgiVFPh54PX/X6+fXb8iV779632G98wVLhgwZt2U8l+voBvyB1mB+35M9ZciQsQEjDbJHj77ec30lucvh9zJkyJCBt+bhlfxVhgwZMjoMksatwyj/rQwZMmTwYrJ29FYL3B+sxWXIkHFDRq0x8J3PH+9vyJAh498znuHiaRxP8tIg+8fdZciQMZpxVQHJ07X+VEiQ4cqQIWMEg5Sj/ZGL2v7BC5UhQ8ZoRq0NSVqSnE1SxrjclSFDxlAGD4h85IIMWPCmJmoMyJAhYxtGbfCLlLjXFsxBRS5DhozbMtZBsN8G4C+FhNrDFypDhoxtGJ3wlzYmr91ThgwZ+zBqTUdUWILjM9IWPZkZkSFDxmhGOjxBwnQKI22Ak4ArQ4aMoQw+MJEWqKQc5YUxSlVlyJAxlFELrLXUsDNacRLiZciQsQ2jn/Bd1ZLkYxYyZMjYgcHTQb74jeMcdt02kCFDxmhGOgaRBmU+BNZvf8qQIWMeg4xekSDIkfw1BYMXMmTI2IbBU7dawclzufhQT4YMGaMZaXGYFpy1YJ22DWTIkDGb0QmdfCyjcw1KHGXIkDGa0UnaOLWWepJHlyFDxj4MPtbAS1mSUNZamyedWBkyZIxm8IN+ElJTMP8PcIiUIUOGDPBw/GCuFohRaihDhgwZpZZkbZgsfh4ZMmRswOBFLA+7tVSyVmbLkCFjNqPWGCABtLZ/7RhOhgwZQxk/esVGvGodUIEAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3aS27DMAwFwNz/0um2RWr7kVQLWB6vAieNPCrA8KPXK77e367P+0evP6/PTyarLLswMDBuy3ifXvljnd9P7uTv/kLFwMB4AOMogvU+Uw24599zvi4GBgZG/oiTgDvZPgwMDIzzxZKC8yKlC5JLDAwMjDx09oLveUhNtm9xLY6BgXFDRt51///XfzLfwMDAuBXjXbySsFh9rF74/rEiBgbG1ow8wE1ICSBPHA9XwcDA2JRRbahVj3blpW+1qXf4f8DAwHgAI1l4UgZXvz8admJgYDySkTfik+MUhSy1+G6zDsbAwLgVIwmFqwYGvaZbocTFwMDYlFE9WpE39PNwXEUWeoEYGBhbM3rNrxzce5KLIhYDA2NTxqRN1ht8VsG9jcPAwNiJkbfY8vv5SHI+Io12CwMD4+aMydBxFa86yFyWFGJgYNyKkadu1VZ+7+BXHoKjXw8MDIyNGL3jF3mpOSl9o4EBBgbG1ow8mVvbLOu18y6eBAMDY1PGpMU2WXh+jKOwDAYGxkaMtUPKvK2Wb8HhX2FgYDyA0WuHTZpxzZFkviQGBsYDGL1BY94m623NRRWOgYGxHaPX9B919YJQWz2igYGBsTejmndV07tJ4Vo+bIGBgbE1o9osa7bDlgbccucPAwNjC8Y88E0aavkvwOEnMTAwMIKwmITIXoIYbQoGBgZGMCToDQMmA9HDwxYYGBibMibDgEl5PEkQMTAwnsOolo4TXjWJ7KWVGBgYGzG+AD8TIuB4cEdcAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

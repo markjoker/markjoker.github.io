@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android 8.0 行为变更 | 随手记 | 不积跬步无以至千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#03a9f4">
+    
+    
+    <meta name="keywords" content="Android,Oreo,Android8.0">
+    <meta name="description" content="Android 8.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 其中大部分变更会影响所有应用，而不论应用针对的是何种版本的 Android。不过，有几项变更仅影响针对 Android 8.0 的应用。为清楚起见，本页面分为两个部分：针对所有 API 级别的应用和针对 Android 8.0 的应用。 针对所有">
+<meta name="keywords" content="Android,Oreo,Android8.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 8.0 行为变更">
+<meta property="og:url" content="http://yoursite.com/2017/09/15/android-8-0-changes/index.html">
+<meta property="og:site_name" content="随手记">
+<meta property="og:description" content="Android 8.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 其中大部分变更会影响所有应用，而不论应用针对的是何种版本的 Android。不过，有几项变更仅影响针对 Android 8.0 的应用。为清楚起见，本页面分为两个部分：针对所有 API 级别的应用和针对 Android 8.0 的应用。 针对所有">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-30T03:08:27.824Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 8.0 行为变更">
+<meta name="twitter:description" content="Android 8.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 其中大部分变更会影响所有应用，而不论应用针对的是何种版本的 Android。不过，有几项变更仅影响针对 Android 8.0 的应用。为清楚起见，本页面分为两个部分：针对所有 API 级别的应用和针对 Android 8.0 的应用。 针对所有">
+    
+        <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">马建</h5>
+          <a href="mailto:markjoker@126.com" title="markjoker@126.com" class="mail">markjoker@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/cv"  >
+                <i class="icon icon-lg icon-file"></i>
+                简历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 8.0 行为变更</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 8.0 行为变更</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-15T03:02:23.000Z" itemprop="datePublished" class="page-time">
+  2017-09-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#针对所有-API-级别的应用"><span class="post-toc-number">1.</span> <span class="post-toc-text">针对所有 API 级别的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后台执行限制"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">后台执行限制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-后台位置限制"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Android 后台位置限制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用快捷键"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">应用快捷键</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语言区域和国际化"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">语言区域和国际化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提醒窗口"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">提醒窗口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入和导航"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">输入和导航</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网页表单自动填充"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">网页表单自动填充</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无障碍功能"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">无障碍功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络连接和-HTTP-S-连接"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">网络连接和 HTTP(S) 连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#蓝牙"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">蓝牙</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无缝连接"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">无缝连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安全性"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">安全性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#隐私性"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">隐私性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#记录未捕获的异常"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">记录未捕获的异常</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#联系人提供程序使用情况统计方法的变更"><span class="post-toc-number">1.15.</span> <span class="post-toc-text">联系人提供程序使用情况统计方法的变更</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#集合的处理"><span class="post-toc-number">1.16.</span> <span class="post-toc-text">集合的处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-企业版"><span class="post-toc-number">1.17.</span> <span class="post-toc-text">Android 企业版</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#针对-Android-8-0-的应用"><span class="post-toc-number">2.</span> <span class="post-toc-text">针对 Android 8.0 的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提醒窗口-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">提醒窗口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内容变更通知"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">内容变更通知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#视图焦点"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">视图焦点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安全性-1"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">安全性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#帐号访问和可检测性"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">帐号访问和可检测性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#隐私性-1"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">隐私性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#权限"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">权限</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#媒体"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">媒体</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原生库"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">原生库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#集合的处理-1"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">集合的处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类加载行为"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">类加载行为</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-android-8-0-changes"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 8.0 行为变更</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-15 11:02:23" datetime="2017-09-15T03:02:23.000Z"  itemprop="datePublished">2017-09-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Android 8.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。</p>
+<p>其中大部分变更会影响所有应用，而不论应用针对的是何种版本的 Android。不过，有几项变更仅影响针对 Android 8.0 的应用。为清楚起见，本页面分为两个部分：<strong>针对所有 API 级别的应用</strong>和<strong>针对 Android 8.0 的应用</strong>。</p>
+<h1 id="针对所有-API-级别的应用"><a href="#针对所有-API-级别的应用" class="headerlink" title="针对所有 API 级别的应用"></a>针对所有 API 级别的应用</h1><hr>
+<p>这些行为变更适用于 在 Android 8.0 平台上运行的 所有应用，无论这些应用是针对哪个 API 级别构建。所有开发者都应查看这些变更，并修改其应用以正确支持这些变更（如果适用）。</p>
+<h2 id="后台执行限制"><a href="#后台执行限制" class="headerlink" title="后台执行限制"></a>后台执行限制</h2><p>Android 8.0 为提高电池续航时间而引入的变更之一是，当您的应用进入<strong>已缓存</strong>状态时，如果没有活动的<strong>组件</strong>，系统将解除应用具有的所有唤醒锁。</p>
+<p>此外，为提高设备性能，系统会限制未在前台运行的应用的某些行为。具体而言：</p>
+<ul>
+<li>现在，在后台运行的应用对后台服务的访问受到限制。</li>
+<li>应用无法使用其清单注册大部分隐式广播（即，并非专门针对此应用的广播）。</li>
+</ul>
+<p>默认情况下，这些限制仅适用于针对 O 的应用。不过，用户可以从 Settings 屏幕为任意应用启用这些限制，即使应用并不是以 O 为目标平台。<br>Android 8.0 还对特定函数做出了以下变更：</p>
+<ul>
+<li>如果针对 Android 8.0 的应用尝试在不允许其创建后台服务的情况下使用 <code>startService()</code> 函数，则该函数将引发一个 <code>IllegalStateException</code>。</li>
+<li>新的 <code>Context.startForegroundService()</code> 函数将启动一个前台服务。现在，即使应用在后台运行，系统也允许其调用 <code>Context.startForegroundService()</code>。不过，应用必须在创建服务后的五秒内调用该服务的 <code>startForeground()</code> 函数。<br>如需了解详细信息，请参阅<a href="https://developer.android.com/preview/features/background.html" target="_blank" rel="noopener">后台执行限制</a>。</li>
+</ul>
+<h2 id="Android-后台位置限制"><a href="#Android-后台位置限制" class="headerlink" title="Android 后台位置限制"></a>Android 后台位置限制</h2><p>为节约电池电量、保持良好的用户体验和确保系统健康运行，在运行 Android 8.0 的设备上使用后台应用时，降低了后台应用接收位置更新的频率。此行为变更会影响包括 Google Play 服务在内的所有接收位置更新的应用。</p>
+<p>此类变更会影响以下 API：</p>
+<ul>
+<li>Fused Location Provider (FLP)</li>
+<li>Geofencing</li>
+<li>GNSS Measurements</li>
+<li>Location Manager</li>
+<li>Wi-Fi Manager</li>
+</ul>
+<p>为确保您的应用按预期方式运行，请完成以下步骤：</p>
+<ul>
+<li>查看您的应用的逻辑，并确保您使用的是最新的位置 API。</li>
+<li>测试您的应用是否在每个用例中都表现出预期行为。</li>
+<li>考虑使用 Fused Location Provider (FLP) 或地理围栏来处理依赖于用户当前位置的用例。</li>
+</ul>
+<p>如需了解此类变更的详细信息，请参阅后台位置限制。</p>
+<h2 id="应用快捷键"><a href="#应用快捷键" class="headerlink" title="应用快捷键"></a>应用快捷键</h2><p>Android 8.0 对应用快捷方式做出了以下变更：</p>
+<ul>
+<li><code>com.android.launcher.action.INSTALL_SHORTCUT</code> 广播不再会对您的应用有任何影响，因为它现在是私有的隐式广播。相反，您应使用 <code>ShortcutManager</code> 类中的 <code>requestPinShortcut()</code> 函数创建应用快捷方式。</li>
+<li>现在，<code>ACTION_CREATE_SHORTCUT</code> Intent 可以创建可使用 <code>ShortcutManager</code> 类进行管理的应用快捷方式。此 Intent 还可以创建不与 <code>ShortcutManager</code> 交互的旧版启动器快捷方式。在以前，此 Intent 只能创建旧版启动器快捷方式。</li>
+<li>现在，使用 <code>requestPinShortcut()</code> 创建的快捷方式和在处理 <code>ACTION_CREATE_SHORTCUT Intent</code> 的操作组件中创建的快捷方式均已转换为功能齐全的应用快捷方式。因此，应用现在可以使用 ShortcutManager 中的函数来更新这些快捷方式。</li>
+<li>旧版快捷方式仍然保留了它们在旧版 Android 中的功能，但您必须在应用中手动将它们转换成应用快捷方式。</li>
+</ul>
+<p>如需了解有关应用快捷方式变更的更多信息，请参阅<a href="https://developer.android.com/preview/features/pinning-shortcuts-widgets.html" target="_blank" rel="noopener">固定快捷方式和微件预览功能指南</a>。</p>
+<h2 id="语言区域和国际化"><a href="#语言区域和国际化" class="headerlink" title="语言区域和国际化"></a>语言区域和国际化</h2><p>Android 7.0（API 级别 24）引入能指定默认类别语言区域的概念，但是某些 API 在本应使用默认 <code>DISPLAY</code> 类别语言区域时，仍然使用不带参数的通用 <code>Locale.getDefault()</code> 函数。现在，在 Android 8.0 中，以下函数使用 <code>Locale.getDefault(Category.DISPLAY)</code> 来代替 <code>Locale.getDefault()</code>：</p>
+<ul>
+<li><code>Currency.getDisplayName()</code></li>
+<li><code>Currency.getSymbol()</code></li>
+<li><code>Locale.getDisplayScript()</code></li>
+</ul>
+<p>当为 <code>Locale</code> 参数指定的 <code>displayScript</code> 值不可用时，<code>Locale.getDisplayScript(Locale)</code> 同样回退到 <code>Locale.getDefault()</code>。</p>
+<p>与语言区域和国际化有关的其他变更如下：</p>
+<ul>
+<li>调用 <code>Currency.getDisplayName(null)</code> 会引发 <code>NullPointerException</code>，以与文档规定的行为保持一致。</li>
+<li><p>时区名称的分析方法发生变化。之前，Android 设备使用在启动时取样的系统时钟值，缓存用于分析日期时间的时区名称。因此，如果在启动时或其他较为罕见的情况下系统时钟出错，可能对分析产生负面影响。<br>现在，一般情况下，在分析时区名称时分析逻辑将使用 ICU 和当前系统时钟值。此项变更可提供更加准确的结果，如果您的应用使用 <code>SimpleDateFormat</code> 等类，此结果可能与之前的 Android 版本不同。</p>
+</li>
+<li><p>Android 8.0 将 ICU 的版本更新至版本 58。</p>
+</li>
+</ul>
+<h2 id="提醒窗口"><a href="#提醒窗口" class="headerlink" title="提醒窗口"></a>提醒窗口</h2><p>如果应用使用 <code>SYSTEM_ALERT_WINDOW</code> 权限并且尝试使用以下窗口类型之一来在其他应用和系统窗口上方显示提醒窗口：</p>
+<ul>
+<li><code>TYPE_PHONE</code></li>
+<li><code>TYPE_PRIORITY_PHONE</code></li>
+<li><code>TYPE_SYSTEM_ALERT</code></li>
+<li><code>TYPE_SYSTEM_OVERLAY</code></li>
+<li><code>TYPE_SYSTEM_ERROR</code></li>
+</ul>
+<p>…那么，这些窗口将始终显示在使用 <code>TYPE_APPLICATION_OVERLAY</code> 窗口类型的窗口下方。如果应用针对的是 Android 8.0，则应用会使用 <code>TYPE_APPLICATION_OVERLAY</code> 窗口类型来显示提醒窗口。</p>
+<p>如需了解详细信息，请参阅针对 Android 8.0 的应用的行为变更内的<a href="https://developer.android.com/about/versions/oreo/android-8.0-changes.html#cwt" target="_blank" rel="noopener">提醒窗口的常用窗口类型</a>部分。</p>
+<h2 id="输入和导航"><a href="#输入和导航" class="headerlink" title="输入和导航"></a>输入和导航</h2><p>随着 Android 应用出现在 Chrome 操作系统和平板电脑等其他大尺寸设备上，我们看到，用户在 Android 应用中又重新开始使用键盘导航。在 Android 8.0 中，我们又再次使用键盘作为导航输入设备，从而为基于箭头键和 Tab 键的导航构建了一种更可靠并且可预测的模型。</p>
+<p>尤其要指出的是，我们对元素焦点行为做出以下变更：</p>
+<ul>
+<li><p>现在，如果您没有为 View 对象（前景或背景图片）定义任何焦点状态颜色，框架会为 View 设置默认的焦点突出显示颜色。此焦点突出显示标志是基于操作组件主题背景的涟漪图片。<br>如果您不希望 View 对象在接收焦点时使用此默认突出显示标志，请在包含 View 的布局 XML 文件中将 android:defaultFocusHighlightEnabled 属性设置为 false，或者将 false 传递至应用界面逻辑中的 setDefaultFocusHighlightEnabled()。</p>
+</li>
+<li><p>要测试键盘输入对界面元素焦点有何影响，您可以启用 <strong>Drawing &gt; Show layout bounds</strong> 开发者选项。在 Android 8.0 中，此选项在当前具有焦点的元素上显示一个“X”图标。</p>
+</li>
+</ul>
+<p>另外，Android 8.0 中的所有工具栏元素自动组成<a href="https://developer.android.com/preview/api-overview.html#kbnc" target="_blank" rel="noopener">键盘导航键区</a>用户可以更加轻松地导航进入和离开每个作为一个整体的工具栏。</p>
+<p>如需详细了解如何在您的应用中改善对键盘导航的支持，请阅读<a href="https://developer.android.com/training/keyboard-input/navigation.html" target="_blank" rel="noopener">支持键盘导航</a>南。</p>
+<h2 id="网页表单自动填充"><a href="#网页表单自动填充" class="headerlink" title="网页表单自动填充"></a>网页表单自动填充</h2><p>现在，Android 自动填充框架提供对自动填充功能的内置支持，对于安装到运行 Android 8.0 的设备上的应用，与 WebView 对象相关的下列函数已经发生变化：</p>
+<p><strong>WebSettings</strong></p>
+<ul>
+<li><code>getSaveFormData()</code> 函数现在返回 false。之前，此函数返回 true。</li>
+<li>调用 <code>setSaveFormData()</code> 不再有任何效果。<br><strong>WebViewDatabase</strong></li>
+<li>调用 <code>clearFormData()</code> 不再有任何效果。</li>
+<li><code>hasFormData()</code> 函数现在返回 false。之前，当表单包含数据时，此函数返回 true。</li>
+</ul>
+<h2 id="无障碍功能"><a href="#无障碍功能" class="headerlink" title="无障碍功能"></a>无障碍功能</h2><p>现在，无障碍服务可识别应用的 <code>TextView</code> 对象内部的所有 <code>ClickableSpan</code> 实例。</p>
+<p>如需了解有关如何让您的应用更便于访问的更多信息，请参阅<a href="https://developer.android.com/guide/topics/ui/accessibility/index.html" target="_blank" rel="noopener">无障碍功能</a>。</p>
+<h2 id="网络连接和-HTTP-S-连接"><a href="#网络连接和-HTTP-S-连接" class="headerlink" title="网络连接和 HTTP(S) 连接"></a>网络连接和 HTTP(S) 连接</h2><p>Android 8.0 对网络连接和 HTTP(S) 连接行为做出了以下变更：</p>
+<ul>
+<li>无正文的 OPTIONS 请求具有 Content-Length: 0 标头。之前，这些请求没有 Content-Length 标头。</li>
+<li>HttpURLConnection 在包含斜线的主机或颁发机构名称后面附加一条斜线，使包含空路径的网址规范化。例如，它将 <a href="http://example.com" target="_blank" rel="noopener">http://example.com</a> 转化为 <a href="http://example.com/。" target="_blank" rel="noopener">http://example.com/。</a></li>
+<li>通过 ProxySelector.setDefault() 设置的自定义代理选择器仅针对所请求的网址（架构、主机和端口）。因此，仅可根据这些值选择代理。传递至自定义代理选择器的网址不包含所请求的网址的路径、查询参数或片段。</li>
+<li><p>URI 不能包含空白标签。<br>之前，平台支持一种权宜方法，即允许主机名称中包含空白标签，但这是对 URI 的非法使用。此权宜方法只是为了确保与旧版 libcore 兼容。开发者如果对 API 使用不当，将会看到一条 ADB 消息：“URI example..com 的主机名包含空白标签。此格式不正确，将不被未来的 Android 版本所接受。”Android 8.0 废除了此权宜方法；系统对格式错误的 URI 会返回 null。</p>
+</li>
+<li><p>Android 8.0 在实现 HttpsURLConnection 时不会执行不安全的 TLS/SSL 协议版本回退。</p>
+</li>
+<li><p>对隧道 HTTP(S) 连接处理进行了如下变更：</p>
+<ul>
+<li>在通过连接建立隧道 HTTP(S) 连接时，系统会在 Host 行中正确放置端口号 (:443) 并将此信息发送至中间服务器。之前，端口号仅出现在 CONNECT 行中。</li>
+<li>系统不再将隧道连接请求中的 user-agent 和 proxy-authorization 标头发送至代理服务器。<br>在建立隧道时，系统不再将隧道 Http(s)URLConnection 中的 proxy-authorization 标头发送至代理。相反，由系统生成 proxy-authorization 标头，在代理响应初始请求发送 HTTP 407 后将其发送至此代理。<br>同样地，系统不再将 user-agent 标头由隧道连接请求复制到建立隧道的代理请求。相反，库为此请求生成 user-agent 标头。</li>
+</ul>
+</li>
+<li><p>如果之前执行的 connect() 函数失败，·send(java.net.DatagramPacket)· 函数将会引发 SocketException。</p>
+<ul>
+<li>如果存在内部错误，·DatagramSocket.connect()· 会引发 pendingSocketException。对于 Android 8.0 之前的版本，即使 send() 调用成功，后续的 recv() 调用也会引发 SocketException。为确保一致性，现在这两个调用均会引发 SocketException。</li>
+</ul>
+</li>
+<li>在回退到 TCP Echo 协议之前，InetAddress.isReachable() 会尝试执行 ICMP。<ul>
+<li>对于某些屏蔽端口 7 (TCP Echo) 的主机（例如 google.com），如果它们接受 ICMP Echo 协议，现在也许能够访问它们。</li>
+<li>对于确实无法访问的主机，此项变更意味着调用需要两倍的时间才能返回结果。</li>
+</ul>
+</li>
+</ul>
+<h2 id="蓝牙"><a href="#蓝牙" class="headerlink" title="蓝牙"></a>蓝牙</h2><p>Android 8.0 对 <code>ScanRecord.getBytes()</code> 函数检索的数据长度做出以下变更：</p>
+<ul>
+<li><code>getBytes()</code> 函数对于所接收的字节数不作任何假定。因此，应用不应受所返回的任何最小或最大字节数的影响。相反，应用应当计算所返回数组的长度。</li>
+<li>兼容蓝牙 5 的设备返回的数据长度可能会超出之前最大约 60 个字节的限制。</li>
+<li>如果远程设备未提供扫描响应，则也可能返回少于 60 个字节的数据。</li>
+</ul>
+<h2 id="无缝连接"><a href="#无缝连接" class="headerlink" title="无缝连接"></a>无缝连接</h2><p>Android 8.0 对 WLAN 设置进行了多项改进，这样可以更轻松地选择能够提供最佳用户体验的 WLAN 网络。具体变更包括：</p>
+<ul>
+<li>稳定性和可靠性改进。</li>
+<li>更加直观的界面。</li>
+<li>一个合并的 WLAN 首选项菜单。</li>
+<li>当附近存在优质的已保存网络时在兼容设备上自动激活 WLAN。</li>
+</ul>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><p>Android 8.0 包含以下与安全性有关的变更：</p>
+<ul>
+<li>此平台不再支持 SSLv3。</li>
+<li>在与未正确实现 TLS 协议版本协商的服务器建立 HTTPS 连接时，<code>HttpsURLConnection</code> 不再尝试回退到之前的 TLS 协议版本并重试的权宜方法。</li>
+<li>Android 8.0 将使用安全计算 (SECCOMP) 过滤器来过滤所有应用。允许的系统调用列表仅限于通过 bionic 公开的系统调用。此外，还提供了其他几个后向兼容的系统调用，但我们不建议使用这些系统调用。</li>
+<li>现在，您的应用的 <code>WebView</code> 对象将在多进程模式下运行。网页内容在独立的进程中处理，此进程与包含应用的进程相隔离，以提高安全性。</li>
+<li>您无法再假定 APK 驻留在名称以 -1 或 -2 结尾的目录中。应用应使用 <code>sourceDir</code> 获取此目录，而不能直接使用目录格式。</li>
+<li>如需了解与使用原生库有关的安全性增强的信息，请参阅<a href="https://developer.android.com/about/versions/oreo/android-8.0-changes.html#nl" target="_blank" rel="noopener">原生库</a>。</li>
+</ul>
+<p>有关提升应用安全性的其他准则，请参阅<a href="https://developer.android.com/topic/security/index.html" target="_blank" rel="noopener">面向 Android 开发者的安全性</a>。</p>
+<h2 id="隐私性"><a href="#隐私性" class="headerlink" title="隐私性"></a>隐私性</h2><p>Android 8.0 对平台做出了以下与隐私性有关的变更。</p>
+<ul>
+<li><p>现在，平台改变了标识符的处理方式。</p>
+<ul>
+<li>对于在 OTA 之前安装到某个版本 Android 8.0（API 级别 26）的应用，除非在 OTA 后卸载并重新安装，否则 <code>ANDROID_ID</code> 的值将保持不变。要在 OTA 后在卸载期间保留值，开发者可以使用<code>密钥/值备份</code>关联旧值和新值。</li>
+<li>对于安装在运行 Android 8.0 的设备上的应用，<code>ANDROID_ID</code> 的值现在将根据应用签署密钥和用户确定作用域。应用签署密钥、用户和设备的每个组合都具有唯一的 <code>ANDROID_ID</code> 值。因此，在相同设备上运行但具有不同签署密钥的应用将不会再看到相同的 Android ID（即使对于同一用户来说，也是如此）。</li>
+<li>只要签署密钥相同（并且应用未在 OTA 之前安装到某个版本的 O），<code>ANDROID_ID</code> 的值在软件包卸载或重新安装时就不会发生变化。</li>
+<li>即使系统更新导致软件包签署密钥发生变化，<code>ANDROID_ID</code> 的值也不会变化。<br>要借助一个简单的标准系统实现应用获利，请使用广告 ID。广告 ID 是 Google Play 服务针对广告服务提供的唯一 ID，此 ID 可由用户重置。</li>
+</ul>
+</li>
+<li><p>查询 net.hostname 系统属性返回的结果为空。</p>
+</li>
+</ul>
+<h2 id="记录未捕获的异常"><a href="#记录未捕获的异常" class="headerlink" title="记录未捕获的异常"></a>记录未捕获的异常</h2><p>如果某个应用安装的 <code>Thread.UncaughtExceptionHandler</code> 未移交给默认的 <code>Thread.UncaughtExceptionHandler</code>，则当出现未捕获的异常时，系统不会终止应用。从 Android 8.0 开始，在此情况下系统将记录异常堆栈跟踪情况；在之前的平台版本中，系统不会记录异常堆栈跟踪情况。</p>
+<p>我们建议，自定义 <code>Thread.UncaughtExceptionHandler</code> 实现始终移交给默认处理程序处理；遵循此建议的应用不受 Android 8.0 此项变更的影响。</p>
+<h2 id="联系人提供程序使用情况统计方法的变更"><a href="#联系人提供程序使用情况统计方法的变更" class="headerlink" title="联系人提供程序使用情况统计方法的变更"></a>联系人提供程序使用情况统计方法的变更</h2><p>在之前版本的 Android 中，联系人提供程序组件允许开发者获取每个联系人的使用情况数据。此使用情况数据揭示了与某个联系人相关联的每个电子邮件地址和每个电话号码的信息，包括与该联系人联系的次数以及上次联系该联系人的时间。请求 <code>READ_CONTACTS</code> 权限的应用可以读取此数据。</p>
+<p>如果应用请求 <code>READ_CONTACTS</code> 权限，它们仍可以读取此数据。从 Android 8.0 开始，使用情况数据查询会返回近似值，而不是精确值。不过，Android 系统内部仍然会保留精确值，因此，此变更不会影响 auto-complete API。</p>
+<p>此行为变更会影响以下查询参数：</p>
+<ul>
+<li><code>TIMES_CONTACTED</code></li>
+<li><code>TIMES_USED</code></li>
+<li><code>LAST_TIME_CONTACTED</code></li>
+<li><code>LAST_TIME_USED</code></li>
+</ul>
+<h2 id="集合的处理"><a href="#集合的处理" class="headerlink" title="集合的处理"></a>集合的处理</h2><p>现在，<code>AbstractCollection.removeAll()</code> 和 <code>AbstractCollection.retainAll()</code> 始终引发 <code>NullPointerException</code>；之前，当集合为空时不会引发 <code>NullPointerException</code>。此项变更使行为符合文档要求。</p>
+<h2 id="Android-企业版"><a href="#Android-企业版" class="headerlink" title="Android 企业版"></a>Android 企业版</h2><p>Android 8.0 更改了企业应用（包括设备规范控制器 (DPC)）的某些 API 和功能的行为。这些变更包括：</p>
+<ul>
+<li>新增多种行为，帮助应用支持完全托管设备中的工作资料。</li>
+<li>变更系统更新处理、应用验证和身份验证方式，以提高设备和系统的完整性。</li>
+<li>改进用户在配置、通知、“最近使用的应用”屏幕和 Always on VPN 方面的体验。</li>
+</ul>
+<p>如需查看 Android 8.0 中的所有企业版变更和了解它们可能给您的应用带来的影响，请阅读企业中的 Android。</p>
+<h1 id="针对-Android-8-0-的应用"><a href="#针对-Android-8-0-的应用" class="headerlink" title="针对 Android 8.0 的应用"></a>针对 Android 8.0 的应用</h1><hr>
+<p>这些行为变更专门应用于针对 O 平台或更高平台版本的应用。针对 Android 8.0 或更高平台版本进行编译，或将 targetSdkVersion 设为 Android 8.0 或更高版本的应用开发者必须修改其应用以正确支持这些行为（如果适用）。</p>
+<h2 id="提醒窗口-1"><a href="#提醒窗口-1" class="headerlink" title="提醒窗口"></a>提醒窗口</h2><p>使用 <code>SYSTEM_ALERT_WINDOW</code> 权限的应用无法再使用以下窗口类型来在其他应用和系统窗口上方显示提醒窗口：</p>
+<ul>
+<li><code>TYPE_PHONE</code></li>
+<li><code>TYPE_PRIORITY_PHONE</code></li>
+<li><code>TYPE_SYSTEM_ALERT</code></li>
+<li><code>TYPE_SYSTEM_OVERLAY</code></li>
+<li><code>TYPE_SYSTEM_ERROR</code></li>
+</ul>
+<p>相反，应用必须使用名为 <code>TYPE_APPLICATION_OVERLAY</code> 的新窗口类型。</p>
+<p>使用 <code>TYPE_APPLICATION_OVERLAY</code> 窗口类型显示应用的提醒窗口时，请记住新窗口类型的以下特性：</p>
+<ul>
+<li>应用的提醒窗口始终显示在状态栏和输入法等关键系统窗口的下面。</li>
+<li>系统可以移动使用 TYPE_APPLICATION_OVERLAY 窗口类型的窗口或调整其大小，以改善屏幕显示效果。</li>
+<li>通过打开通知栏，用户可以访问设置来阻止应用显示使用 TYPE_APPLICATION_OVERLAY 窗口类型显示的提醒窗口。</li>
+</ul>
+<h2 id="内容变更通知"><a href="#内容变更通知" class="headerlink" title="内容变更通知"></a>内容变更通知</h2><p>Android 8.0 更改了 <code>ContentResolver.notifyChange()</code> 和 <code>registerContentObserver(Uri, boolean, ContentObserver)</code> 在针对 Android 8.0 的应用中的行为方式。</p>
+<p>现在，这些 API 需要在所有 URI 中为颁发机构定义一个有效的 <code>ContentProvider</code>。使用相关权限定义一个有效的 <code>ContentProvider</code> 可帮助您的应用防范来自恶意应用的内容变更，并防止将可能的私密数据泄露给恶意应用。</p>
+<h2 id="视图焦点"><a href="#视图焦点" class="headerlink" title="视图焦点"></a>视图焦点</h2><p>可点击的 View 对象现在默认也可以成为焦点。如果您希望 View 对象可点击但不可成为焦点，请在包含 View 的布局 XML 文件中将 <code>android:focusable</code> 属性设置为 false，或者将 false 传递至应用界面逻辑中的 <code>setFocusable()</code>。</p>
+<h2 id="安全性-1"><a href="#安全性-1" class="headerlink" title="安全性"></a>安全性</h2><p>如果您的应用的网络安全性配置选择退出对明文流量的支持，那么您的应用的 <code>WebView</code> 对象无法通过 HTTP 访问网站。每个 <code>WebView</code> 对象必须转而使用 HTTPS。</p>
+<p>有关提升应用安全性的其他准则，请参阅<a href="https://developer.android.com/topic/security/index.html" target="_blank" rel="noopener">面向 Android 开发者的安全性</a>。</p>
+<h2 id="帐号访问和可检测性"><a href="#帐号访问和可检测性" class="headerlink" title="帐号访问和可检测性"></a>帐号访问和可检测性</h2><p>除非身份验证器拥有用户帐号或用户授予访问权限，否则，应用将无法再访问用户帐号。仅拥有 <code>GET_ACCOUNTS</code> 权限尚不足以访问用户帐号。要获得帐号访问权限，应用应使用 <code>AccountManager.newChooseAccountIntent()</code> 或特定于身份验证器的函数。获得帐号访问权限后，应用可以调用 <code>AccountManager.getAccounts()</code> 来访问帐号。</p>
+<p>Android 8.0 已弃用 <code>LOGIN_ACCOUNTS_CHANGED_ACTION</code>。相反，应用在运行时应使用 <code>addOnAccountsUpdatedListener()</code> 获取帐号更新信息。</p>
+<p>有关新增 API 和增加的帐号访问和可检测性函数的信息，请参阅此文档的“新增 API”部分中的帐号访问和可检测性。</p>
+<h2 id="隐私性-1"><a href="#隐私性-1" class="headerlink" title="隐私性"></a>隐私性</h2><p>以下变更影响 Android 8.0 的隐私性。</p>
+<ul>
+<li>系统属性 net.dns1、net.dns2、net.dns3 和 net.dns4 不再可用，此项变更可加强平台的隐私性。</li>
+<li>要获取 DNS 服务器之类的网络连接信息，具有 <code>ACCESS_NETWORK_STATE</code> 权限的应用可以注册 <code>NetworkRequest</code> 或 <code>NetworkCallback</code> 对象。这些类在 Android 5.0（API 级别 21）及更高版本中提供。</li>
+<li>Build.SERIAL 已弃用。需要知道硬件序列号的应用应改为使用新的 <code>Build.getSerial()</code> 函数，该函数要求具有 <code>READ_PHONE_STATE</code> 权限。</li>
+<li><code>LauncherApps</code> API 不再允许工作资料应用获取有关主个人资料的信息。当某个用户在托管配置文件中时，<code>LauncherApps</code> API 的行为就像同一配置文件组的其他配置文件中未安装任何应用一样。和之前一样，尝试访问无关联的个人资料会引发 SecurityExceptions。</li>
+</ul>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>在 Android 8.0 之前，如果应用在运行时请求权限并且被授予该权限，系统会错误地将属于同一权限组并且在清单中注册的其他权限也一起授予应用。</p>
+<p>对于针对 Android 8.0 的应用，此行为已被纠正。系统只会授予应用明确请求的权限。然而，一旦用户为应用授予某个权限，则所有后续对该权限组中权限的请求都将被自动批准。</p>
+<p>例如，假设某个应用在其清单中列出 <code>READ_EXTERNAL_STORAGE</code> 和 <code>WRITE_EXTERNAL_STORAGE</code>。应用请求 <code>READ_EXTERNAL_STORAGE</code>，并且用户授予了该权限。如果该应用针对的是 API 级别 24 或更低级别，系统还会同时授予 <code>WRITE_EXTERNAL_STORAGE</code>，因为该权限也属于同一 STORAGE 权限组并且也在清单中注册过。如果该应用针对的是 Android 8.0，则系统此时仅会授予 <code>READ_EXTERNAL_STORAGE</code>；不过，如果该应用后来又请求 <code>WRITE_EXTERNAL_STORAGE</code>，则系统会立即授予该权限，而不会提示用户。</p>
+<h2 id="媒体"><a href="#媒体" class="headerlink" title="媒体"></a>媒体</h2><ul>
+<li>框架会执行音频闪避。进行 <code>AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK</code> 时，应用不会失去焦点。新的 API 适用于需要暂停而不是闪避的应用。请注意，此行为无法在 Android 8.0 1 版本中实现。</li>
+<li>当用户打电话时，活动的媒体流将在通话期间静音。</li>
+<li>所有与音频相关的 API 都应使用 <code>AudioAttributes</code> 而不是音频流类型来说明音频播放用例。仅为音量控制继续使用音频流类型。流类型（例如，已弃用的 <code>AudioTrack constructor</code>）的其他用途仍然有效，但是系统会将其记录为错误。</li>
+<li>使用 <code>AudioTrack</code> 时，如果应用请求了足够大的音频缓冲区，则框架将尝试使用深度缓冲区输出（如果可用）。</li>
+<li>在 Android 8.0 中，媒体按钮事件的处理有所不同：<ol>
+<li>在界面操作组件中处理媒体按钮未发生变化：前台操作组件在处理媒体按钮时仍然优先。</li>
+<li>如果前台操作组件不处理媒体按钮，系统会将媒体按钮路由到最近在本地播放音频的应用。在确定哪些应用接收媒体按钮事件时，不再考虑活动状态、标志和媒体会话的播放状态。即使在应用调用 <code>setActive(false)</code> 后，媒体会话仍然可以接收媒体按钮事件。</li>
+<li>如果应用的媒体会话已经释放，系统会将媒体按钮事件发送到应用的 <code>MediaButtonReceiver</code>（如果有）。</li>
+<li>对于任何其他情况，系统都会舍弃媒体按钮事件。与其开始播放错误的应用，不如不播放任何东西。</li>
+</ol>
+</li>
+</ul>
+<p>下图汇总了新的媒体按钮路由逻辑。</p>
+<p>媒体按钮路由</p>
+<h2 id="原生库"><a href="#原生库" class="headerlink" title="原生库"></a>原生库</h2><p>在针对 Android 8.0 的应用中，如果原生库包含任何可写且可执行的加载代码段，则不会再加载原生库。倘若某些应用的原生库包含不正确的加载代码段，则此变更可能会导致这些应用停止工作。这是一种安全加强措施。</p>
+<p>如需了解详细信息，请参阅<a href="https://android.googlesource.com/platform/bionic/+/master/android-changes-for-ndk-developers.md#Writable-and-Executable-Segments-Enforced-for-API-level-26" target="_blank" rel="noopener">可写且可执行的代码段</a>。</p>
+<p>与早期的开发者预览版相同，Android 8.0 还有助于更轻松地发现所有与链接器有关的问题。链接器的变更绑定到应用的目标 API 级别。如果应用的目标 API 级别发生链接器变更，则该应用无法加载该库。如果您的目标 API 级别低于发生链接器变更的 API 级别，则 logcat 会显示一条警告消息。在预览版期间，与链接器有关的问题不仅会显示在 logcat 中，也会以 toast 的形式显示。对于特定的 API 级别，警告可能会变成错误，此变更有助于提前发现此类问题。</p>
+<h2 id="集合的处理-1"><a href="#集合的处理-1" class="headerlink" title="集合的处理"></a>集合的处理</h2><p>在 Android 8.0 中，<code>Collections.sort()</code> 是在 <code>List.sort()</code> 的基础上实现的。在 Android 7.x（API 级别 24 和 25）中，则恰恰相反。在过去，<code>List.sort()</code> 的默认实现会调用 <code>Collections.sort()</code>。</p>
+<p>此项变更使 <code>Collections.sort()</code> 可以利用优化的 <code>List.sort()</code> 实现，但具有以下限制：</p>
+<ul>
+<li><code>List.sort()</code> 的实现不能调用 <code>Collections.sort()</code>，因为这会导致堆栈因无限递归而溢出。相反，如果您需要 List 实现的默认行为，应避免重写 sort()。<br>如果父类以不适当的方法实现 sort() ，通常最好使用在 <code>List.toArray()</code>、<code>Arrays.sort()</code> 和 <code>ListIterator.set()</code> 的基础上构建的实现重写 <code>List.sort()</code>。例如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparator&lt;? <span class="keyword">super</span> E&gt; c)</span> </span>&#123;</span><br><span class="line">  Object[] elements = toArray();</span><br><span class="line">  Arrays.sort(elements, c);</span><br><span class="line">  ListIterator&lt;E&gt; iterator = (ListIterator&lt;Object&gt;) listIterator();</span><br><span class="line">  <span class="keyword">for</span> (Object element : elements) &#123;</span><br><span class="line">    iterator.next();</span><br><span class="line">    iterator.set((E) element);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在大多数情况下，您也可以使用根据 API 级别委托给其他默认实现的实现重写 <code>List.sort()</code>。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(Comparator&lt;? <span class="keyword">super</span> E&gt; comparator)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (Build.VERSION.SDK_INT &lt;= <span class="number">25</span>) &#123;</span><br><span class="line">    Collections.sort(<span class="keyword">this</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.sort(comparator);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果您选择后者只是因为您希望开发一种适用于所有 API 级别的 sort() 函数，可以考虑赋予其一个唯一的名称，例如 sortCompat()，而不是重写 sort()。</p>
+<ul>
+<li><code>现在，Collections.sort()</code> 只是对调用 sort() 的 List 实现进行的一项结构性修改。例如，在 Android 8.0 之前的平台版本中，如果通过调用 <code>List.sort()</code> 进行排序，则当迭代处理 ArrayList 以及在迭代过程中调用 <code>sort()</code> 时，会引发 <code>ConcurrentModificationException</code>。而 <code>Collections.sort()</code> 则不会引发异常。</li>
+</ul>
+<p>此项变更使平台行为更加一致：现在，两种方法都会引发 <code>ConcurrentModificationException</code>。</p>
+<h2 id="类加载行为"><a href="#类加载行为" class="headerlink" title="类加载行为"></a>类加载行为</h2><p>Android 8.0 检查确保类加载器在加载新类时不会违反运行时假设条件。不论类引用自 Java（来自 <code>forName()</code>）、Dalvik 字节码还是 JNI，都会执行这些检查。平台不会拦截 Java 对 <code>loadClass()</code> 函数的直接调用，也不会检查此类调用的结果。此行为不应影响运行良好的类加载器的正常运行。</p>
+<p>平台将检查类加载器返回的类描述符是否与预期的描述符一致。如果返回的描述符与预期不符，平台会引发 <code>NoClassDefFoundError</code> 错误，并在异常日志中存储一条注明不一致之处的详细错误消息。</p>
+<p>平台还检查请求的类描述符是否有效。此检查捕获间接加载诸如 <code>GetFieldID()</code> 等类的 JNI 调用，向这些类传递无效的描述符。例如，找不到包含 java/lang/String 签名的字段，是因为此签名无效；它应为 Ljava/lang/String;。</p>
+<p>这与 JNI 对 <code>FindClass()</code> 的调用不同，其中 java/lang/String 是一个有效的完全限定名称。</p>
+<p>Android 8.0 不支持多个类加载器同时尝试使用相同的 DexFile 对象来定义类。尝试进行此操作，会导致 Android 运行时引发 InternalError 错误，同时显示消息“Attempt to register dex file <filename> with multiple class loaders”。</filename></p>
+<p>DexFile API 现已弃用，强烈建议您改为使用此平台的类加载器之一，包括 PathClassLoader 或 BaseDexClassLoader。</p>
+<blockquote>
+<p><strong>注：</strong> 您可以创建多个引用文件系统中同一个 APK 或 JAR 文件容器的类加载器。这样做通常不会占用大量内存：如果存储而不压缩容器中的 DEX 文件，平台可以对此类文件执行 mmap 操作，而不直接提取它们。但是，如果平台必须从容器中提取 DEX 文件，以这种方式引用 DEX 文件可能占用大量内存。</p>
+</blockquote>
+<p>在 Android 中，所有类加载器都被视为支持并行运行。当多个线程争用同一个类加载器加载相同的类时，第一个完成此操作的线程胜出，而操作结果将用于其他线程。无论类加载器是返回同一个类、返回不同的类还是引发异常，都将发生此行为。该平台静默忽略此类异常。</p>
+<blockquote>
+<p><strong>注意：</strong> 在低于 Android 8.0 的平台版本中，违反这些假设条件可能导致多次定义同一个类、由于类混淆造成堆损坏和其他不良影响。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-30T03:08:27.824Z" itemprop="dateUpdated">2018-03-30 11:08:27</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/09/15/android-8-0-changes/" target="_blank" rel="external">http://yoursite.com/2017/09/15/android-8-0-changes/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="马建">
+            马建
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android8-0/">Android8.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oreo/">Oreo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/15/android-8-0-changes/&title=《Android 8.0 行为变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/15/android-8-0-changes/&title=《Android 8.0 行为变更》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/15/android-8-0-changes/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 8.0 行为变更》 — 随手记&url=http://yoursite.com/2017/09/15/android-8-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/15/android-8-0-changes/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/28/react-native-https/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">React Native 自签名Https处理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/29/android-8-0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 8.0 功能和 API</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>马建 &copy; 2015 - 2018</span>
+            <span>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/15/android-8-0-changes/&title=《Android 8.0 行为变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/15/android-8-0-changes/&title=《Android 8.0 行为变更》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/15/android-8-0-changes/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 8.0 行为变更》 — 随手记&url=http://yoursite.com/2017/09/15/android-8-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/15/android-8-0-changes/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aQYrDMAwF0N7/0h2Y3VCSflnJQKznVUnd1M8LIUt+veLx/h1HTz4/H80/mvk5XncMDAyMxzKS193x7fn8MhUDA2MA4zzIngfQ85nngbj6v4fPMTAwMILlvosjoWJgYGD0GUlid1/4xsDAmMbID5bVJ+dbkBfvLjuLY2BgPJBRbQz85+cb+xsYGBgPYbwbo1oa6zc1D1eCgYGxNSNJxZLIlr8nSfKqqSQGBsYcRifwrTUgO01NDAyMOYykZHZtqlflJZuFgYGxN2OtuHb+irzp2A/WGBgYExh3BMRq27Ia4qOqIQYGxkaM/Miap2Wt4n4QXg/nY2BgbMrIU8C8DVBNE6sN0S9ncQwMjK0Z1YJXp1iWLLrQHMXAwBjM6JfGquE1v+Tx5w0YGBgjGZ1DaXVTkm8vuGyBgYHxWEY/yOYH3eq1sHLJDwMDY1PGWnitkvq/+hKsMTAwxjAKPc+lxufaJbOIh4GBMZLRCbtXFf2TLcPAwJjAiK4ytNuW1RRwrYSHgYGxKyP/+2oLodNsyEt+GBgYExjVsFsNlHnpv7MqDAyMvRmdg2vniFs9sn7ZRAwMjK0Za2Gu00LIU9LkugYGBsYcxlrJLG8tVI+j1TVgYGDMYeRBttoAWDvi5tuNgYGBcW06mM8pH1YxMDAwltoA/dBcaCRgYGAMYHQWlCSCeSltsY2KgYGxNeOOixdJiExKeBekjBgYGM9m/ACs87ievQdv5AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '瞎！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

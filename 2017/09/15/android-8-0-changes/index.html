@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="随手记">
 <meta property="og:description" content="Android 8.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 其中大部分变更会影响所有应用，而不论应用针对的是何种版本的 Android。不过，有几项变更仅影响针对 Android 8.0 的应用。为清楚起见，本页面分为两个部分：针对所有 API 级别的应用和针对 Android 8.0 的应用。 针对所有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-30T03:08:27.824Z">
+<meta property="og:updated_time" content="2018-03-30T04:53:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 8.0 行为变更">
 <meta name="twitter:description" content="Android 8.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 其中大部分变更会影响所有应用，而不论应用针对的是何种版本的 Android。不过，有几项变更仅影响针对 Android 8.0 的应用。为清楚起见，本页面分为两个部分：针对所有 API 级别的应用和针对 Android 8.0 的应用。 针对所有">
@@ -408,8 +408,6 @@
 </ol>
 </li>
 </ul>
-<p>下图汇总了新的媒体按钮路由逻辑。</p>
-<p>媒体按钮路由</p>
 <h2 id="原生库"><a href="#原生库" class="headerlink" title="原生库"></a>原生库</h2><p>在针对 Android 8.0 的应用中，如果原生库包含任何可写且可执行的加载代码段，则不会再加载原生库。倘若某些应用的原生库包含不正确的加载代码段，则此变更可能会导致这些应用停止工作。这是一种安全加强措施。</p>
 <p>如需了解详细信息，请参阅<a href="https://android.googlesource.com/platform/bionic/+/master/android-changes-for-ndk-developers.md#Writable-and-Executable-Segments-Enforced-for-API-level-26" target="_blank" rel="noopener">可写且可执行的代码段</a>。</p>
 <p>与早期的开发者预览版相同，Android 8.0 还有助于更轻松地发现所有与链接器有关的问题。链接器的变更绑定到应用的目标 API 级别。如果应用的目标 API 级别发生链接器变更，则该应用无法加载该库。如果您的目标 API 级别低于发生链接器变更的 API 级别，则 logcat 会显示一条警告消息。在预览版期间，与链接器有关的问题不仅会显示在 logcat 中，也会以 toast 的形式显示。对于特定的 API 级别，警告可能会变成错误，此变更有助于提前发现此类问题。</p>
@@ -446,7 +444,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-30T03:08:27.824Z" itemprop="dateUpdated">2018-03-30 11:08:27</time>
+    最后更新时间：<time datetime="2018-03-30T04:53:53.000Z" itemprop="dateUpdated">2018-03-30 12:53:53</time>
 </span><br>
 
 

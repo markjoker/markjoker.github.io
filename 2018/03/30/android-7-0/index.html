@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android 7.0 API 概览 | 随手记 | 不积跬步无以至千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#03a9f4">
+    
+    
+    <meta name="keywords" content="Anroid,Nougat,Anroid7.0,Android Developers">
+    <meta name="description" content="Android 7.0 Nougat 为用户和开发者引入多种新功能。本文重点介绍面向开发者的新功能。 请务必查阅 Android 7.0 行为变更以了解平台变更可能影响您的应用的领域。 要详细了解 Android 7.0 的消费者功能，请访问 www.android.com。 多窗口支持 在 Android 7.0 中，我们为该平台引入了一个新的而且非常需要的多任务处理功能 — 多窗口支持。 现在">
+<meta name="keywords" content="Anroid,Nougat,Anroid7.0,Android Developers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 7.0 API 概览">
+<meta property="og:url" content="http://yoursite.com/2018/03/30/android-7-0/index.html">
+<meta property="og:site_name" content="随手记">
+<meta property="og:description" content="Android 7.0 Nougat 为用户和开发者引入多种新功能。本文重点介绍面向开发者的新功能。 请务必查阅 Android 7.0 行为变更以了解平台变更可能影响您的应用的领域。 要详细了解 Android 7.0 的消费者功能，请访问 www.android.com。 多窗口支持 在 Android 7.0 中，我们为该平台引入了一个新的而且非常需要的多任务处理功能 — 多窗口支持。 现在">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/android-7-0/mw-portrait.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/android-7-0/notifications-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/android-7-0/notifications-3.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/android-7-0/notifications-2.png">
+<meta property="og:image" content="https://developer.android.com/images/android-7.0/doze-diagram-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/android-7-0/datasaver.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/30/android-7-0/quicksettings.png">
+<meta property="og:updated_time" content="2018-03-30T06:20:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 7.0 API 概览">
+<meta name="twitter:description" content="Android 7.0 Nougat 为用户和开发者引入多种新功能。本文重点介绍面向开发者的新功能。 请务必查阅 Android 7.0 行为变更以了解平台变更可能影响您的应用的领域。 要详细了解 Android 7.0 的消费者功能，请访问 www.android.com。 多窗口支持 在 Android 7.0 中，我们为该平台引入了一个新的而且非常需要的多任务处理功能 — 多窗口支持。 现在">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/30/android-7-0/mw-portrait.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">马建</h5>
+          <a href="mailto:markjoker@126.com" title="markjoker@126.com" class="mail">markjoker@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/cv"  >
+                <i class="icon icon-lg icon-file"></i>
+                简历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 7.0 API 概览</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 7.0 API 概览</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-30T06:12:49.000Z" itemprop="datePublished" class="page-time">
+  2018-03-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多窗口支持"><span class="post-toc-number">1.</span> <span class="post-toc-text">多窗口支持</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通知增强功能"><span class="post-toc-number">2.</span> <span class="post-toc-text">通知增强功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置文件指导的-JIT-AOT-编译"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置文件指导的 JIT/AOT 编译</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快速的应用安装路径"><span class="post-toc-number">4.</span> <span class="post-toc-text">快速的应用安装路径</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#随时随地低电耗模式…"><span class="post-toc-number">5.</span> <span class="post-toc-text">随时随地低电耗模式…</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Project-Svelte：后台优化"><span class="post-toc-number">6.</span> <span class="post-toc-text">Project Svelte：后台优化</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SurfaceView"><span class="post-toc-number">7.</span> <span class="post-toc-text">SurfaceView</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#流量节省程序"><span class="post-toc-number">8.</span> <span class="post-toc-text">流量节省程序</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Vulkan-API"><span class="post-toc-number">9.</span> <span class="post-toc-text">Vulkan API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Quick-Settings-Tile-API"><span class="post-toc-number">10.</span> <span class="post-toc-text">Quick Settings Tile API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#号码屏蔽"><span class="post-toc-number">11.</span> <span class="post-toc-text">号码屏蔽</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#来电过滤"><span class="post-toc-number">12.</span> <span class="post-toc-text">来电过滤</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多语言区域支持，更多语言"><span class="post-toc-number">13.</span> <span class="post-toc-text">多语言区域支持，更多语言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#新增的表情符号"><span class="post-toc-number">14.</span> <span class="post-toc-text">新增的表情符号</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-中的-ICU4J-API"><span class="post-toc-number">15.</span> <span class="post-toc-text">Android 中的 ICU4J API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#WebView"><span class="post-toc-number">16.</span> <span class="post-toc-text">WebView</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Chrome-和-WebView-配合使用"><span class="post-toc-number">16.1.</span> <span class="post-toc-text">Chrome 和 WebView 配合使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多进程"><span class="post-toc-number">16.2.</span> <span class="post-toc-text">多进程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Javascript-在页面加载之前运行"><span class="post-toc-number">16.3.</span> <span class="post-toc-text">Javascript 在页面加载之前运行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不安全起点上的地理定位"><span class="post-toc-number">16.4.</span> <span class="post-toc-text">不安全起点上的地理定位</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试-WebView-测试版"><span class="post-toc-number">16.5.</span> <span class="post-toc-text">测试 WebView 测试版</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenGL™-ES-3-2-API"><span class="post-toc-number">17.</span> <span class="post-toc-text">OpenGL™ ES 3.2 API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-TV-录制"><span class="post-toc-number">18.</span> <span class="post-toc-text">Android TV 录制</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-for-Work"><span class="post-toc-number">19.</span> <span class="post-toc-text">Android for Work</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工作资料安全性挑战"><span class="post-toc-number">19.1.</span> <span class="post-toc-text">工作资料安全性挑战</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关闭工作"><span class="post-toc-number">19.2.</span> <span class="post-toc-text">关闭工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Always-on-VPN"><span class="post-toc-number">19.3.</span> <span class="post-toc-text">Always on VPN</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义配置"><span class="post-toc-number">19.4.</span> <span class="post-toc-text">自定义配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无障碍增强功能"><span class="post-toc-number">20.</span> <span class="post-toc-text">无障碍增强功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#直接启动"><span class="post-toc-number">21.</span> <span class="post-toc-text">直接启动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#密钥认证"><span class="post-toc-number">22.</span> <span class="post-toc-text">密钥认证</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络安全性配置"><span class="post-toc-number">23.</span> <span class="post-toc-text">网络安全性配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#默认受信任的证书颁发机构"><span class="post-toc-number">24.</span> <span class="post-toc-text">默认受信任的证书颁发机构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#APK-signature-scheme-v2"><span class="post-toc-number">25.</span> <span class="post-toc-text">APK signature scheme v2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#作用域目录访问"><span class="post-toc-number">26.</span> <span class="post-toc-text">作用域目录访问</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#键盘快捷键辅助工具"><span class="post-toc-number">27.</span> <span class="post-toc-text">键盘快捷键辅助工具</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Custom-Pointer-API"><span class="post-toc-number">28.</span> <span class="post-toc-text">Custom Pointer API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Sustained-Performance-API"><span class="post-toc-number">29.</span> <span class="post-toc-text">Sustained Performance API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#VR-支持"><span class="post-toc-number">30.</span> <span class="post-toc-text">VR 支持</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#打印服务增强"><span class="post-toc-number">31.</span> <span class="post-toc-text">打印服务增强</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#FrameMetricsListener-API"><span class="post-toc-number">32.</span> <span class="post-toc-text">FrameMetricsListener API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#虚拟文件"><span class="post-toc-number">33.</span> <span class="post-toc-text">虚拟文件</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-android-7-0"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 7.0 API 概览</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-30 14:12:49" datetime="2018-03-30T06:12:49.000Z"  itemprop="datePublished">2018-03-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Android 7.0 Nougat 为用户和开发者引入多种新功能。本文重点介绍面向开发者的新功能。</p>
+<p>请务必查阅 Android 7.0 行为变更以了解平台变更可能影响您的应用的领域。</p>
+<p>要详细了解 Android 7.0 的消费者功能，请访问 <a href="https://www.android.com" target="_blank" rel="noopener">www.android.com</a>。</p>
+<h1 id="多窗口支持"><a href="#多窗口支持" class="headerlink" title="多窗口支持"></a>多窗口支持</h1><hr>
+<p>在 Android 7.0 中，我们为该平台引入了一个新的而且非常需要的多任务处理功能 — 多窗口支持。</p>
+<p>现在，用户可以一次在屏幕上打开两个应用。</p>
+<ul>
+<li>在运行 Android 7.0 的手机和平板电脑上，用户可以并排运行两个应用，或者处于分屏模式时一个应用位于另一个应用之上。用户可以通过拖动两个应用之间的分隔线来调整应用。</li>
+<li>在 Android TV 设备上，应用可以将自身置于画中画模式，从而让它们可以在用户浏览或与其他应用交互时继续显示内容。<br><p style="overflow:hidden"><br><img src="/2018/03/30/android-7-0/mw-portrait.png" style="width:200px;float:left;margin-right:40px"></p></li>
+</ul>
+<p>多窗口支持为您提供新的吸引用户方式，特别是在平板电脑和其他更大屏幕的设备上。您甚至可以在您的应用中启用拖放，从而使用户可以方便地将内容拖放到您的应用或从其中拖出内容—这是一个非常好的增强用户体验的方式。<br><br><br><br>向您的应用添加多窗口支持并配置多窗口显示的处理方式非常简单。例如，您可以指定您的 Activity 允许的最小尺寸，从而防止用户将 Activity 调整到该尺寸以下。您还可以为应用停用多窗口显示，这可确保系统将仅以全屏模式显示应用。<br><br><br></p>
+<p></p><p></p>
+<h1 id="通知增强功能"><a href="#通知增强功能" class="headerlink" title="通知增强功能"></a>通知增强功能</h1><hr>
+<p>在 Android 7.0 中，我们重新设计了通知，使其更易于使用并且速度更快。部分变更包括：</p>
+<ul>
+<li><strong>模板更新：</strong>我们正在更新通知模板，新强调了英雄形象和化身。开发者将能够充分利用新模板，只需进行少量的代码调整。</li>
+<li><strong>消息传递样式自定义：</strong>您可以自定义更多与您的使用 MessagingStyle 类的通知相关的用户界面标签。您可以配置消息、会话标题和内容视图。</li>
+<li><strong>捆绑通知：</strong>系统可以将消息组合在一起（例如，按消息主题）并显示组。用户可以适当地进行拒绝或归档等操作。如果您已实现 Android Wear 的通知，那么您已经很熟悉此模式。</li>
+<li><strong>直接回复：</strong>对于实时通信应用，Android 系统支持内联回复，以便用户可以直接在通知界面中快速回复短信。</li>
+<li><strong>自定义视图：</strong>两个新的 API 让您在通知中使用自定义视图时可以充分利用系统装饰元素，如通知标题和操作。<br><img src="/2018/03/30/android-7-0/notifications-1.png" style="width:30%; margin:10px; float:left;"> <img src="/2018/03/30/android-7-0/notifications-3.png" style="width:30%; margin:10px; float:left;"><img src="/2018/03/30/android-7-0/notifications-2.png" style="width:30%; margin:10px;"><br>图 2. 绑定的通知和直接回复。</li>
+</ul>
+<p>要了解如何实现新功能的信息，请参阅<a href="https://developer.android.com/preview/features/notification-updates.html" target="_blank" rel="noopener">通知</a>指南。</p>
+<h1 id="配置文件指导的-JIT-AOT-编译"><a href="#配置文件指导的-JIT-AOT-编译" class="headerlink" title="配置文件指导的 JIT/AOT 编译"></a>配置文件指导的 JIT/AOT 编译</h1><hr>
+<p>在 Android 7.0 中，我们添加了即时 (JIT) 编译器，对 ART 进行代码分析，让它可以在应用运行时持续提升 Android 应用的性能。JIT 编译器对 Android 运行组件当前的 Ahead of Time (AOT) 编译器进行了补充，有助于提升运行时性能，节省存储空间，加快应用更新和系统更新速度。</p>
+<p>配置文件指导的编译让 Android 运行组件能够根据应用的实际使用以及设备上的情况管理每个应用的 AOT/JIT 编译。例如，Android 运行组件维护每个应用热方法的配置文件，并且可以预编译和缓存这些方法以实现最佳性能。对于应用的其他部分，在实际使用之前不会进行编译。</p>
+<p>除提升应用的关键部分的性能外，配置文件指导的编译还有助于减少整个 RAM 占用，包括关联的二进制文件。此功能对于低内存设备非常尤其重要。</p>
+<p>Android 运行组件在管理配置文件指导的编译时，可最大程度降低对设备电池的影响。仅当设备处于空闲状态和充电时才进行编译，从而可以通过提前执行该工作节约时间和省电。</p>
+<h1 id="快速的应用安装路径"><a href="#快速的应用安装路径" class="headerlink" title="快速的应用安装路径"></a>快速的应用安装路径</h1><hr>
+<p>Android 运行组件的 JIT 编译器最实际的好处之一是应用安装和系统更新的速度。即使在 Android 6.0 中需要几分钟进行优化和安装的大型应用，现在只需几秒钟就可以完成安装。系统更新也变得更快，因为省去了优化步骤。</p>
+<h1 id="随时随地低电耗模式…"><a href="#随时随地低电耗模式…" class="headerlink" title="随时随地低电耗模式…"></a>随时随地低电耗模式…</h1><hr>
+<p>Android 6.0 推出了低电耗模式，即设备处于空闲状态时，通过推迟应用的 CPU 和网络活动以实现省电目的的系统模式，例如，设备放在桌上或抽屉里时。</p>
+<p>现在，在 Android 7.0 中，低电耗模式又前进了一步，随时随地可以省电。只要屏幕关闭了一段时间，且设备未插入电源，低电耗模式就会对应用使用熟悉的 CPU 和网络限制。这意味着用户即使将设备放入口袋里也可以省电。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://developer.android.com/images/android-7.0/doze-diagram-1.png" alt="dd" title="">
+                </div>
+                <div class="image-caption">dd</div>
+            </figure>
+<p>图 3. 低电耗模式现在应用限制以延长电池寿命，即使设备未处于静止状态。</p>
+<p>屏幕关闭片刻后，设备在使用电池时，低电耗模式将限制网络访问，同时延迟作业和同步。在短暂的维护时间范围后，其允许应用访问网络，并执行延迟的作业/同步。打开屏幕或将设备插入电源会使设备退出低电耗模式。</p>
+<p>当设备再次处于静止状态时，屏幕关闭且使用电池一段时间，低电耗模式针对 <code>PowerManager.WakeLock</code>、<code>AlarmManager</code> 警报和 GPS/WLAN 扫描应用完整 CPU 和网络限制。</p>
+<p>无论设备是否处于运动状态，将应用调整到低电耗模式的最佳做法均相同，因此，如果您已更新应用以妥善处理低电耗模式，则一切就绪。如果不是，请立即开始<a href="https://developer.android.com/training/monitoring-device-state/doze-standby.html#assessing_your_app" target="_blank" rel="noopener">将应用调整到低电耗模式</a></p>
+<h1 id="Project-Svelte：后台优化"><a href="#Project-Svelte：后台优化" class="headerlink" title="Project Svelte：后台优化"></a>Project Svelte：后台优化</h1><hr>
+<p>Project Svelte 在持续改善，以最大程度减少生态系统中一系列 Android 设备中系统和应用使用的 RAM。在 Android 7.0 中，Project Svelte 注重优化在后台中运行应用的方式。</p>
+<p>后台处理是大多数应用的一个重要部分。处理得当，可让您实现非常棒的用户体验 — 即时、快速和情境感知。如果处理不得当，后台处理会毫无必要地消耗 RAM（和电池），同时影响其他应用的系统性能。</p>
+<p>自 Android 5.0 发布以来，<code>JobScheduler</code> 已成为执行后台工作的首选方式，其工作方式有利于用户。应用可以在安排作业的同时允许系统基于内存、电源和连接情况进行优化。<code>JobScheduler</code> 可实现控制和简洁性，我们想要所有应用都使用它。</p>
+<p>另一个非常好的选择是 <code>GCMNetworkManager</code>（Google Play 服务的一部分），其在旧版 Android 中提供类似的作业安排和兼容性。</p>
+<p>我们在继续扩展 <code>JobScheduler</code> 和 <code>GCMNetworkManager</code>，以符合多个用例 — 例如，在 Android 7.0 中，现在，您可以基于内容提供程序中的更改安排后台工作。同时，我们开始弃用一些较旧的模式，这些模式会降低系统性能，特别是低内存设备的系统性能。</p>
+<p>在 Android 7.0 中，我们删除了三个常用隐式广播 — <code>CONNECTIVITY_ACTION</code>、<code>ACTION_NEW_PICTURE</code> 和<code>ACTION_NEW_VIDEO</code> — 因为这些广播可能会一次唤醒多个应用的后台进程，同时会耗尽内存和电池。如果您的应用收到这些广播，请充分利用 Android 7.0 以迁移到 JobScheduler 和相关的 API。</p>
+<p>如需了解详情，请查看<a href="https://developer.android.com/preview/features/background-optimization.html" target="_blank" rel="noopener">后台优化</a>文档。</p>
+<h1 id="SurfaceView"><a href="#SurfaceView" class="headerlink" title="SurfaceView"></a>SurfaceView</h1><hr>
+<p>Android 7.0 可同步移动到 <code>SurfaceView</code> 类，此类在某些情况下提供的电池性能优于 <code>TextureView</code>：在渲染视频或 3D 内容时，包含滚动和动画视频位置的应用在使用 <code>SurfaceView</code> 时比 <code>TextureView</code> 耗电更少。</p>
+<p><code>SurfaceView</code> 类可减少屏幕合成对电池的消耗，因为它是在专用硬件中合成，与应用窗口内容分隔开。因此，它产生的中间副本少于 TextureView。<br>现在，<code>SurfaceView</code> 对象的内容位置和包含的应用内容同步更新。这一变化导致的一个结果是，在画面移动时，SurfaceView 中播放的视频的简单的平移或缩放不再在画面侧面产生黑条。</p>
+<p>从 Android 7.0 开始，我们强烈建议您使用 <code>SurfaceView</code> 代替 <code>TextureView</code>，以实现省电。</p>
+<h1 id="流量节省程序"><a href="#流量节省程序" class="headerlink" title="流量节省程序"></a>流量节省程序</h1><hr>
+<p style="overflow:hidden"><br><img src="/2018/03/30/android-7-0/datasaver.png" style="width:50%;float:left;margin-right:40px"><br><span style="font-size:14px"><br>在移动设备的整个生命周期，移动数据网络计划的成本通常会超出设备本身的成本。对于许多用户而言，移动数据网络是他们想要节省的昂贵资源。<br><br><br>Android 7.0 推出了流量节省模式，这是一项新的系统服务，有助于减少应用使用的移动数据网络，无论是在漫游，账单周期即将结束，还是使用少量的预付费数据包。流量节省程序让用户可以控制应用使用移动数据网络的方式，同时让开发者打开流量节省程序时可以提供更多有效的服务。<br><br><br>用户在 Settings 中启用流量节省程序且设备位于按流量计费的网络上时，系统屏蔽后台流量消耗，同时指示应用在前台尽可能使用较少的流量 — 例如，通过限制用于流媒体服务的比特率、降低图像质量、延迟最佳的预缓冲等方法来实现。用户可以将特定应用加入白名单以允许后台按流量计费的流量消耗，即使在打开流量节省程序时也是如此。<br><br><br>Android 7.0 扩展了 ConnectivityManager，以便为应用检索用户的流量节省程序首选项并监控首选项变更提供一种方式。所有应用均应检查用户是否已启用流量节省程序并努力限制前台和后台流量消耗。<br></span><br></p>
+
+<h1 id="Vulkan-API"><a href="#Vulkan-API" class="headerlink" title="Vulkan API"></a>Vulkan API</h1><hr>
+<p>Android 7.0 将一项新的 3D 渲染 API <a href="http://www.khronos.org/vulkan" target="_blank" rel="noopener">Vulkan™</a> 集成到平台中。就像 <a href="https://www.khronos.org/opengles/" target="_blank" rel="noopener">OpenGL™</a> ES 一样，Vulkan 是 3D 图形和渲染的一项开放标准，由 Khronos Group 维护。</p>
+<p>Vulkan 是完全从零开始设计，以最小化驱动器中的 CPU 开销，并能让您的应用更直接地控制 GPU 操作。Vulkan 还允许多个线程同时执行工作，如命令缓冲区构建，以获得更好的并行化。</p>
+<p>Vulkan 开发工具和库都已卷入 Android 7.0DK。它们包括：</p>
+<ul>
+<li>标头</li>
+<li>验证层（调试库）</li>
+<li>SPIR-V 着色程序编译器</li>
+<li>SPIR-V 运行时着色器编译库</li>
+</ul>
+<p>Vulkan 仅适用于已启用 Vulkan 硬件的设备上的应用，如 Nexus 5X、Nexus 6P 和 Nexus Player。我们正在与合作伙伴密切合作，以尽快使 Vulkan 能面向更多的设备。</p>
+<p>如需了解详细信息，请参阅 <a href="https://developer.android.com/ndk/guides/graphics/index.html" target="_blank" rel="noopener">API 文档</a>。</p>
+<h1 id="Quick-Settings-Tile-API"><a href="#Quick-Settings-Tile-API" class="headerlink" title="Quick Settings Tile API"></a>Quick Settings Tile API</h1><hr>
+<p><img src="/2018/03/30/android-7-0/quicksettings.png" style="width:260px; float:right; margin-left:20px"></p>
+<p>“快速设置”通常用于直接从通知栏显示关键设置和操作，非常简单。在 Android 7.0 中，我们已扩展“快速设置”的范围，使其更加有用更方便。</p>
+<p>我们为额外的“快速设置”图块添加了更多空间，用户可以通过向左或向右滑动跨分页的显示区域访问它们。我们还让用户可以控制显示哪些“快速设置”图块以及显示的位置 — 用户可以通过拖放图块来添加或移动图块。</p>
+<p>对于开发者，Android 7.0 还添加了一个新的 API，从而让您可以定义自己的“快速设置”图块，使用户可以轻松访问您应用中的关键控件和操作。</p>
+<p>对于急需或频繁使用的控件和操作，保留“快速设置”图块，且不应将其用作启动应用的快捷方式。</p>
+<p>定义图块后，您可以将它们显示给用户，用户可通过拖放将图块添加到“快速设置”。</p>
+<p>如需了解有关创建应用图块的信息，请参阅可下载的 API 参考中的文件 android.service.quicksettings.Tile。</p>
+<h1 id="号码屏蔽"><a href="#号码屏蔽" class="headerlink" title="号码屏蔽"></a>号码屏蔽</h1><hr>
+<p>Android 7.0 现在支持在平台中进行号码屏蔽，提供框架 API，让服务提供商可以维护屏蔽的号码列表。默认短信应用、默认手机应用和运营商应用可以对屏蔽的号码列表进行读取和写入操作。其他应用则无法访问此列表。</p>
+<p>通过使号码屏蔽成为平台的标准功能，Android 为应用提供一致的方式来支持广泛的设备上的号码屏蔽。应用可以利用的其他优势包括：</p>
+<ul>
+<li>还会屏蔽已屏蔽的来电号码发出的短信</li>
+<li>通过 Backup &amp; Restore（备份和还原）功能可以跨重置和设备保留屏蔽的号码</li>
+<li>多个应用可以使用相同的屏蔽号码列表</li>
+</ul>
+<p>此外，通过 Android 的运营商应用集成表示运营商可以读取设备上屏蔽的号码列表，并为用户执行服务端屏蔽，以阻止不需要的来电和短信通过任何介质（如 VOIP 端点或转接电话）到达用户。</p>
+<p>如需了解详细信息，请参阅可下载的 <a href="https://developer.android.com/preview/setup-sdk.html#docs-dl" target="_blank" rel="noopener">API 参考</a>中的 <code>android.provider.BlockedNumberContract</code>。</p>
+<h1 id="来电过滤"><a href="#来电过滤" class="headerlink" title="来电过滤"></a>来电过滤</h1><hr>
+<p>Android 7.0 允许默认的手机应用过滤来电。手机应用执行此操作的方式是实现新的 <code>CallScreeningService</code>，该方法允许手机应用基于来电的 <code>Call.Details</code> 执行大量操作，例如：</p>
+<ul>
+<li>拒绝来电</li>
+<li>不允许来电到达通话记录</li>
+<li>不向用户显示来电通知</li>
+</ul>
+<p>如需了解详细信息，请参阅可下载的 <a href="https://developer.android.com/preview/setup-sdk.html#docs-dl" target="_blank" rel="noopener">API 参考</a>中的 <code>android.telecom.CallScreeningService</code>。</p>
+<h1 id="多语言区域支持，更多语言"><a href="#多语言区域支持，更多语言" class="headerlink" title="多语言区域支持，更多语言"></a>多语言区域支持，更多语言</h1><hr>
+<p>Android 7.0 现在允许用户在设置中选择多个语言区域，以更好地支持双语用例。应用可以使用新的 API 获取用户选择的语言区域，然后为多区域设置用户提供更成熟的用户体验 — 如以多个语言显示搜索结果，并且不会以用户了解的语言翻译网页。</p>
+<p>除多语言区域支持外，Android 7.0 还扩展了用户可用的语言范围。它针对常用语言提供超过 25 种的变体，如英语、西班牙语、法语和阿拉伯语。它还针对 100 多种新语言添加了部分支持。</p>
+<p>应用可以通过调用 <code>LocaleList.GetDefault()</code> 获取用户设置的语言区域列表。为支持扩展的语言区域数量，Android 7.0 正在改变其解析资源的方式。请务必使用新的资源解析逻辑测试和验证您的应用是否能如期运行。</p>
+<p>要了解新资源解析行为和应遵循的最佳做法，请参阅<a href="https://developer.android.com/preview/features/multilingual-support.html" target="_blank" rel="noopener">多语言支持</a>。</p>
+<h1 id="新增的表情符号"><a href="#新增的表情符号" class="headerlink" title="新增的表情符号"></a>新增的表情符号</h1><hr>
+<p>Android 7.0 引入更多表情符号和表情符号相关功能，包括肤色表情符号和支持变量选择符。如果您的应用支持表情符号，请遵循以下准则，以便能充分利用这些表情符号相关功能优势。</p>
+<ul>
+<li><strong>在插入之前，检查设备是否包含表情符号。</strong>要检查系统字体中有哪些表情符号，使用 <code>hasGlyph(String)</code> 方法。</li>
+<li><strong>检查表情符号是否支持变量选择符。</strong>变量选择符使您能够呈现一些彩色或黑白的表情符号。在移动设备上，应用应呈现彩色的表情符号，而不是黑白的。但是，如果您的应用显示嵌入在文本中的表情符号，那应使用黑白变量。要确定表情符号是否有变量，使用变量选择符。如需有关支持变量的字符的完整清单，请参阅<a href="http://www.unicode.org/Public/9.0.0/ucd/StandardizedVariants-9.0.0d1.txt" target="_blank" rel="noopener">变量的 Unicode 文档</a>中的表情符号变量序列部分。</li>
+<li><strong>检查表情符号是否支持肤色。</strong>Android 7.0 允许用户按照他们的喜好修改表情符号呈现的肤色。键盘应用应为有多个肤色的表情符号提供可视化的指示，并应允许用户选择他们喜欢的肤色。要确定哪些系统表情符号有肤色修改器，使用 <code>hasGlyph(String)</code> 方法。您可以通过读取 Unicode 文档来确定哪些表情符号使用肤色。<h1 id="Android-中的-ICU4J-API"><a href="#Android-中的-ICU4J-API" class="headerlink" title="Android 中的 ICU4J API"></a>Android 中的 ICU4J API</h1></li>
+</ul>
+<hr>
+<p>Android 7.0 目前在 Android 框架（位于 android.icu 软件包下）中提供 <code>ICU4J</code> API 的子集。迁移很简单，主要是需要从 com.java.icu 命名空间更改为 android.icu。如果您已在您的应用中使用 ICU4J 捆绑包，切换到 Android 框架中提供的 android.icu API 可以大量节省 APK 大小。</p>
+<p>要详细了解 Android ICU4J API，请参阅 <a href="https://developer.android.com/preview/features/icu4j-framework.html" target="_blank" rel="noopener">ICU4J 支持</a>。</p>
+<h1 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h1><hr>
+<h2 id="Chrome-和-WebView-配合使用"><a href="#Chrome-和-WebView-配合使用" class="headerlink" title="Chrome 和 WebView 配合使用"></a>Chrome 和 WebView 配合使用</h2><p>从 Android 7.0 及更高版本中的 Chrome 版本 51 开始，您的设备中的 Chrome APK 用于提供和渲染 Android 系统 WebView。这种方法改善了设备本身的内存使用率，同时减少保持 WebView 更新所需的带宽（因为只要保持启用 Chrome，单机版 WebView APK 将不再进行更新）。</p>
+<p>您可以启用开发者选项和选择 WebView 实现，选择您的 WebView 提供商。您可以使用设备上安装的任何兼容的 Chrome 版本（Dev、Beta 或 Stable）或单机版 Webview APK，作为 WebView 实现。</p>
+<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><p>从 Android 7.0 中的 Chrome 版本 51 开始，WebView 将开发者选项“多进程 WebView”被启用时，在一个单独的沙盒进程中运行网页内容。</p>
+<p>我们正在寻求关于 N 中的兼容性和运行时性能的反馈，并随后将在未来 Android 版本中启用多进程 WebView。在这个版本中，可预期启动时间回归、总内存使用和软件渲染性能。</p>
+<p>如果您在多进程模式中遇到意外问题，请告诉我们。请通过 Chromium 错误跟踪程序联系 WebView 团队。</p>
+<h2 id="Javascript-在页面加载之前运行"><a href="#Javascript-在页面加载之前运行" class="headerlink" title="Javascript 在页面加载之前运行"></a>Javascript 在页面加载之前运行</h2><p>从以 Android 7.0 为目标平台的应用开始，JavaScript 上下文会在加载新页面时重置。目前，新 WebView 实例中加载的第一个页面会继承上下文。</p>
+<p>想要在 WebView 中注入 Javascript 的开发者应在页面开始加载后执行脚本。</p>
+<h2 id="不安全起点上的地理定位"><a href="#不安全起点上的地理定位" class="headerlink" title="不安全起点上的地理定位"></a>不安全起点上的地理定位</h2><p>从以 Android 7.0 为目标平台的应用开始，地理定位 API 将仅在安全的起点（通过 HTTPS）上被允许。此政策的目的是在用户使用不安全连接时保护他们的私人信息。</p>
+<h2 id="测试-WebView-测试版"><a href="#测试-WebView-测试版" class="headerlink" title="测试 WebView 测试版"></a>测试 WebView 测试版</h2><p>WebViewis 定期更新，因此我们建议您经常使用 WebView 的测试版本测试应用的兼容性。要在 Android 7.0 上着手测试 WebView 的预发布版本，请下载并安装 Chrome Dev 或 Chrome 测试版，然后按上述说明在开发者选项下面选择它作为 WebView 实现。请通过 Chromium 错误跟踪程序报告问题，以便我们可以在发布新的 WebView 版本前修复问题。</p>
+<p>如果您遇到其他任何问题，可随时通过我们的 G+ 社区与 WebView 团队联系。</p>
+<h1 id="OpenGL™-ES-3-2-API"><a href="#OpenGL™-ES-3-2-API" class="headerlink" title="OpenGL™ ES 3.2 API"></a>OpenGL™ ES 3.2 API</h1><hr>
+<p>Android 7.0 添加了框架接口和对 OpenGL ES 3.2 的平台支持，包括：</p>
+<ul>
+<li>来自 <a href="https://www.khronos.org/registry/gles/extensions/ANDROID/ANDROID_extension_pack_es31a.txt" target="_blank" rel="noopener">Android 扩展包</a> (AEP) 的所有扩展（EXT_texture_sRGB_decode 除外）。</li>
+<li>针对 HDR 的浮点帧缓冲和延迟着色。</li>
+<li>BaseVertex 绘图调用可实现更好的批处理和流媒体服务。</li>
+<li>强大的缓冲区访问控制可减少 WebGL 开销。</li>
+</ul>
+<p>Android 7.0 上适用于 OpenGL ES 3.2 的框架 API 与 GLES32 类一起提供。使用 OpenGL ES 3.2 时，请务必通过 <code>&lt;uses-feature&gt;</code> 标记和 <code>android:glEsVersion</code> 属性在您的清单文件中声明要求。</p>
+<p>如需了解有关使用 OpenGL ES 的信息，包括如何在运行时检查设备支持的 OpenGL ES 版本，请参阅 OpenGL ES API 指南。</p>
+<h1 id="Android-TV-录制"><a href="#Android-TV-录制" class="headerlink" title="Android TV 录制"></a>Android TV 录制</h1><hr>
+<p>Android 7.0 通过新的录制 API 添加了从 Android TV 输入服务录制和播放内容的功能。构建在现有时移 API 之上，TV 输入服务可以控制能够录制的渠道数据、保存录制的会话的方式，同时可通过录制的内容管理用户交互。</p>
+<p>如需了解详细信息，请参阅 <a href="https://developer.android.com/preview/features/tv-recording-api.html" target="_blank" rel="noopener">Android TV Recording API</a>。</p>
+<h1 id="Android-for-Work"><a href="#Android-for-Work" class="headerlink" title="Android for Work"></a>Android for Work</h1><hr>
+<p>Android for Work 针对运行 Android 7.0 的设备添加了许多新功能和 API。部分重要内容如下— 有关变更的完整列表，请参阅 <a href="https://developer.android.com/preview/features/afw.html" target="_blank" rel="noopener">Android for Work 更新</a>。</p>
+<h2 id="工作资料安全性挑战"><a href="#工作资料安全性挑战" class="headerlink" title="工作资料安全性挑战"></a>工作资料安全性挑战</h2><p>面向 N SDK 的配置文件所有者可以为在工作资料中运行的应用指定单独的安全性挑战。当用户尝试打开任何工作应用时将显示工作挑战。成功完成安全性挑战可解锁工作资料并将其解密（如果需要）。对于配置文件所有者，<code>ACTION_SET_NEW_PASSWORD</code> 提示用户设置工作挑战，<code>ACTION_SET_NEW_PARENT_PROFILE_PASSWORD</code> 提示用户设置设备锁。</p>
+<p>配置文件所有者可以使用 <code>setPasswordQuality()</code>、<code>setPasswordMinimumLength()</code> 和相关方法针对工作挑战设置不同的密码策略（例如，PIN 码必须多长，或是否可以使用指纹解锁配置文件）。配置文件所有者还可以使用新的 <code>getParentProfileInstance()</code> 方法返回的 <code>DevicePolicyManager</code> 实例设置设备锁定。此外，配置文件所有者可以使用新的 <code>setOrganizationColor()</code> 和 <code>setOrganizationName()</code> 方法针对工作挑战自定义凭据屏幕。</p>
+<h2 id="关闭工作"><a href="#关闭工作" class="headerlink" title="关闭工作"></a>关闭工作</h2><p>在有工作资料的设备上，用户可以切换工作模式。工作模式关闭时，管理的用户临时关闭，其停用托管工作资料应用、后台同步和通知。这包括配置文件所有者应用。关闭工作模式时，系统显示永久状态图标，以提醒用户他们无法启动工作应用。启动器指示该工作应用和小部件无法访问。</p>
+<h2 id="Always-on-VPN"><a href="#Always-on-VPN" class="headerlink" title="Always on VPN"></a>Always on VPN</h2><p>设备所有者和配置文件所有者可以确保工作应用始终通过指定的 VPN 连接。系统在设备启动后自动启动该 VPN。</p>
+<p>新的 <code>DevicePolicyManager</code> 方法为 <code>setAlwaysOnVpnPackage()</code> 和 <code>getAlwaysOnVpnPackage()</code>。</p>
+<p>由于 VPN 服务无需应用交互即可由系统直接绑定，因此，VPN 客户端必须针对 Always on VPN 处理新的入口点。和以前一样，由与操作 <code>android.net.VpnService</code> 匹配的 intent 过滤器将服务指示给系统。</p>
+<p>用户还可以使用 <strong>Settings&gt;More&gt;Vpn</strong> 手动设置实现 <code>VPNService</code> 方法的 Always on VPN 客户端。通过“设置”启用 Always on VPN 的选项仅在 VPN 客户端以 API 级别 24 为目标时可用。</p>
+<h2 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h2><p>应用可以用企业颜色和徽标来自定义配置文件所有者和设备所有者配置流程。<code>DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR</code> 自定义流程颜色。<code>DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI</code> 用企业徽标自定义流程。</p>
+<h1 id="无障碍增强功能"><a href="#无障碍增强功能" class="headerlink" title="无障碍增强功能"></a>无障碍增强功能</h1><hr>
+<p>Android 7.0 现在针对新的设备设置直接在欢迎屏幕上提供“Vision Settings”。这使用户可以更容易发现和配置他们设备上的无障碍功能，包括放大手势、字体大小、显示屏尺寸和话语提示。</p>
+<p>随着这些无障碍功能更为突出，在启用这些功能后，您的用户更可能试用您的应用。请务必提前启用这些设置测试您的应用。您可以通过 Settings &gt; Accessibility 启用它们。</p>
+<p>还是在 Android 7.0 中，无障碍服务现在可以帮助具有动作障碍的用户触摸屏幕。全新的 API 允许使用人脸追踪、眼球追踪、点扫描等功能构建服务，以满足这些用户的需求。</p>
+<p>如需了解详细信息，请参阅可下载的 <a href="https://developer.android.com/preview/setup-sdk.html#docs-dl" target="_blank" rel="noopener">API 参考</a>中的 <code>android.accessibilityservice.GestureDescription</code>。</p>
+<h1 id="直接启动"><a href="#直接启动" class="headerlink" title="直接启动"></a>直接启动</h1><hr>
+<p>直接启动可以缩短设备启动时间，让注册的应用具有有限的功能，即使在意外重启后。例如，如果当用户睡觉时加密的设备重启，那么注册的警报、消息和来电现在可以和往常一样继续通知用户。这也意味着重启后无障碍服务会立即可用。</p>
+<p>在 Android 7.0 中，直接启动充分利用基于文件的加密，以针对系统和应用数据启用细化的加密策略。系统针对选定的系统数据和显式注册的应用数据使用设备加密存储。默认情况下，凭据加密存储可用于所有其他系统数据、用户数据、应用及应用数据。</p>
+<p>启动时，系统在受限的模式中启动，仅访问设备加密数据，不会对应用或数据进行常规访问。如果您有想要在此模式下运行的组件，您可以通过在清单中设置标记注册它们。重启后，系统通过广播 LOCKED_BOOT_COMPLETED intent 激活注册的组件。系统确保注册的设备加密的应用数据在解锁前可用。所有其他数据在用户确认锁定屏幕凭据进行解密前均不可用。</p>
+<p>如需了解详细信息，请参阅<a href="https://developer.android.com/preview/features/direct-boot.html" target="_blank" rel="noopener">直接启动</a>。</p>
+<h1 id="密钥认证"><a href="#密钥认证" class="headerlink" title="密钥认证"></a>密钥认证</h1><hr>
+<p>Android 7.0 引入密钥认证，这是一个新的安全工具，可帮助您确保设备的硬件支持的密钥库中存储的密钥对适当保护您的应用使用的敏感信息。借助此工具，您可以更加放心地让您的应用与驻留在安全硬件中的密钥交互，即使运行您的应用的设备已被破解 root 权限。如果您在应用中使用硬件支持的密钥库中的密钥，您应使用此工具，尤其当您使用密钥验证应用中的敏感信息时。</p>
+<p>通过密钥认证，您可以在设备的可信执行环境 (TEE) 中验证在设备的硬件支持的密钥库中创建和存储的 RSA 或 EC 密钥对。通过此工具，您还可以使用设备服务，例如您的应用的后端服务器，确定和有效验证密钥对的使用和有效性。这些功能为保护密钥对提供额外的安全级别，即使有人破解设备的 root 权限或损害运行于设备的 Android 平台的安全。</p>
+<blockquote>
+<p><strong>注：</strong>仅少部分运行 Android 7.0 的设备支持硬件级密钥认证；其他所有运行 Android 7.0 的设备则使用软件级密钥认证。在生产级环境中验证设备的硬件支持的密钥之属性前，您应确保设备支持硬件级密钥认证。为此，您应确保认证证书链包含由 Google 认证根密钥签署的根证书，且密钥说明数据结构中的 attestationSecurityLevel 元素设置为 TrustedEnvironment 安全级别。</p>
+</blockquote>
+<p>如需了解详细信息，请参阅密钥认证开发者文档。</p>
+<h1 id="网络安全性配置"><a href="#网络安全性配置" class="headerlink" title="网络安全性配置"></a>网络安全性配置</h1><hr>
+<p>在 Android 7.0 中，通过使用说明性“网络安全性配置”（而不是使用传统的易出错的编程 API（例如，X509TrustManager）），应用可以安全地自定义其安全（HTTPS、TLS）连接的行为，无需任何代码修改。</p>
+<p>支持的功能：</p>
+<ul>
+<li><strong>自定义信任锚。</strong>让应用可以针对安全连接自定义哪些证书颁发机构 (CA) 值得信赖。例如，信任特定的自签署证书或限制应用信任的公共 CA 集。</li>
+<li><strong>仅调试重写。</strong>让应用开发者可以安全调试其应用的安全连接，而不会增加安装基础的风险。</li>
+<li><strong>明文流量选择退出。</strong>让应用可以防止自身意外使用明文流量。</li>
+<li><strong>证书固定。</strong>这是一项高级功能，让应用可以针对安全连接限制哪些服务器密钥受信任。</li>
+</ul>
+<p>如需了解详细信息，请参阅<a href="https://developer.android.com/preview/features/security-config.html" target="_blank" rel="noopener">网络安全性配置</a>。</p>
+<h1 id="默认受信任的证书颁发机构"><a href="#默认受信任的证书颁发机构" class="headerlink" title="默认受信任的证书颁发机构"></a>默认受信任的证书颁发机构</h1><hr>
+<p>默认情况下，面向 Android 7.0 的应用仅信任系统提供的证书，且不再信任用户添加的证书颁发机构 (CA)。如果面向 Android N 的应用希望信任用户添加的 CA，则应使用<a href="https://developer.android.com/preview/features/security-config.html" target="_blank" rel="noopener">网络安全性配置</a>以指定信任用户 CA 的方式。</p>
+<h1 id="APK-signature-scheme-v2"><a href="#APK-signature-scheme-v2" class="headerlink" title="APK signature scheme v2"></a>APK signature scheme v2</h1><hr>
+<p>Android 7.0 引入一项新的应用签名方案 APK Signature Scheme v2，它能提供更快的应用安装时间和更多针对未授权 APK 文件更改的保护。在默认情况下，Android Studio 2.2 和 Android Plugin for Gradle 2.2 会使用 APK Signature Scheme v2 和传统签名方案来签署您的应用。</p>
+<p>虽然我们建议您对您的应用采用 APK Signature Scheme v2，但这项新方案并非强制性的。如果您的应用在使用 APK Signature Scheme v2 时不能正确开发，您可以停用这项新方案。禁用过程会导致 Android Studio 2.2 和 Android Plugin for Gradle 2.2 仅使用传统签名方案来签署您的应用。要仅用传统方案签署，打开模块级 <code>build.gradle</code> 文件，然后将行 v2SigningEnabled false 添加到您的版本签名配置中：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">  ...</span><br><span class="line">  defaultConfig &#123; ... &#125;</span><br><span class="line">  signingConfigs &#123;</span><br><span class="line">    release &#123;</span><br><span class="line">      storeFile <span class="keyword">file</span>(<span class="string">"myreleasekey.keystore"</span>)</span><br><span class="line">      storePassword <span class="string">"password"</span></span><br><span class="line">      keyAlias <span class="string">"MyReleaseKey"</span></span><br><span class="line">      keyPassword <span class="string">"password"</span></span><br><span class="line">      v2SigningEnabled <span class="keyword">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意：</strong>如果您使用 APK Signature Scheme v2 签署您的应用，并对应用进行了进一步更改，则应用的签名将无效。出于这个原因，请在使用 APK Signature Scheme v2 签署您的应用之前、而非之后使用 zipalign 等工具。</p>
+</blockquote>
+<p>如需了解详细信息，请阅读相关的 Android Studio 文档，这些文档介绍了如何在 Android Studio 中签署应用以及如何使用 Android Plugin for Gradle <a href="https://developer.android.com/studio/build/build-variants.html#signing" target="_blank" rel="noopener">为签署应用配置构建文件</a>。</p>
+<h1 id="作用域目录访问"><a href="#作用域目录访问" class="headerlink" title="作用域目录访问"></a>作用域目录访问</h1><hr>
+<p>在 Android 7.0 中，应用可以使用新的 API 请求访问特定的外部存储目录，包括可移动媒体上的目录，如 SD 卡。新 API 大大简化了应用访问标准外部存储目录的方式，如 Pictures 目录。应用（如照片应用）可以使用这些 API（而不是使用 READ_EXTERNAL_STORAGE），其授予所有存储目录的访问权限或存储访问框架，从而让用户可以导航到目录。</p>
+<p>此外，新的 API 简化了用户向应用授予外部存储访问权限的步骤。当您使用新的 API 时，系统使用一个简单的权限 UI，其清楚地详细介绍应用正在请求访问的目录。</p>
+<p>如需了解详细信息，请参阅作用域目录访问开发者文档。</p>
+<h1 id="键盘快捷键辅助工具"><a href="#键盘快捷键辅助工具" class="headerlink" title="键盘快捷键辅助工具"></a>键盘快捷键辅助工具</h1><hr>
+<p>在 Android 7.0 中，用户可以按“Meta + /”触发“键盘快捷键”屏幕，它会显示的系统和对焦的应用中可用的所有快捷键。如果快捷键存在，系统自动从应用菜单检索这些快捷键。您也可以为屏幕提供微调的快捷键列表。您可以通过重写新 Activity.onProvideKeyboardShortcuts() 的方法来进行这项操作，如可下载的 API 参考中所述。</p>
+<blockquote>
+<p><strong>注：</strong>所有键盘都没有 Meta 键：在 Macintosh 键盘上，它是 Command 键；在 Windows 键盘上，它是 Windows 键；而在 Pixel C 和 Chrome 操作系统键盘上，它是 Search 键。</p>
+</blockquote>
+<p>要在您的应用的任何地方触发键盘快捷键辅助工具，为相关 Activity 调用 Activity.requestKeyboardShortcutsHelper()。</p>
+<h1 id="Custom-Pointer-API"><a href="#Custom-Pointer-API" class="headerlink" title="Custom Pointer API"></a>Custom Pointer API</h1><hr>
+<p>Android 7.0 引入 Custom Pointer API，以便您可以自定义指针的外观、 可见性和行为。此功能在用户使用鼠标或触控板与 UI 对象交互尤为有用。默认指针使用标准图标。此 API 还包含多种高级功能，例如根据鼠标或触控板特定移动情况改变指针图标外观。</p>
+<p>要设置指针图标，请替换 View 类的 onResolvePointerIcon() 方法。此方法使用 PointerIcon 对象绘制与特定移动事件对应的图标。</p>
+<h1 id="Sustained-Performance-API"><a href="#Sustained-Performance-API" class="headerlink" title="Sustained Performance API"></a>Sustained Performance API</h1><hr>
+<p>长期运行的应用的性能可能会显著波动，因为系统会阻止系统芯片在设备组件达到温度限制时启动。这种波动是建立高性能长期运行应用的应用开发者的移动目标。</p>
+<p>为解决这些限制，Android 7.0 包括了对持续性能模式的支持，帮助原始设备制造商 (OEM) 提供关于长期运行应用的设备性能能力的提示。应用开发者可以使用这些提示来根据可预测的一致设备性能水平调整长期应用。</p>
+<p>应用开发者只能在 Nexus 6P 设备的 Android 7.0 中尝试这款新 API。要使用此功能，为您希望以持续性能模式运行的窗口设置持续性能窗口标记。使用 Window.setSustainedPerformanceMode() 方法设置此标记。当窗口不再对焦时，系统会自动停用此模式。</p>
+<h1 id="VR-支持"><a href="#VR-支持" class="headerlink" title="VR 支持"></a>VR 支持</h1><hr>
+<p>Android 7.0 添加了新的 VR 模式的平台支持和优化，以使开发者能为用户打造高质量移动 VR 体验。增加了一些性能增强特性，包括允许 VR 应用访问某个专属的 CPU 核心。在您的应用中，您可以充分利用到专为 VR 设计的智能头部跟踪和立体声通知功能。最重要的是，Android 7.0 的图形延时非常低。如需了解有关开发面向 Android 7.0 的 VR 应用的完整信息，请参阅<a href="https://developers.google.com/vr/android/" target="_blank" rel="noopener">面向 Android 的 Google VR SDK</a>。</p>
+<h1 id="打印服务增强"><a href="#打印服务增强" class="headerlink" title="打印服务增强"></a>打印服务增强</h1><hr>
+<p>在 Android 7.0 中，打印服务开发者现在可以公开关于个别打印机和打印作业的其他信息。</p>
+<p>在列出各打印机时，打印服务现在可以通过两种方式来设置按打印机的图标：</p>
+<ul>
+<li>您可以通过调用 PrinterInfo.Builder.setResourceIconId() 设置源于资源 ID 的图标</li>
+<li>您可以通过调用 PrinterInfo.Builder.setHasCustomPrinterIcon()，并针对使用 android.printservice.PrinterDiscoverySession.onRequestCustomPrinterIcon() 请求图标的情况设置回调来显示源自网络的图标</li>
+</ul>
+<p>此外，您还可以通过调用 PrinterInfo.Builder.setInfoIntent() 提供按打印机活动，以显示其他信息。</p>
+<p>您可以通过分别调用 android.printservice.PrintJob.setProgress() 和 android.printservice.PrintJob.setStatus() 在打印任务通知中指示打印任务的进度和状态。</p>
+<p>如需了解有关这些方法的详细信息，请参阅可下载的 <a href="https://developer.android.com/preview/setup-sdk.html#docs-dl" target="_blank" rel="noopener">API 参考</a>。</p>
+<h1 id="FrameMetricsListener-API"><a href="#FrameMetricsListener-API" class="headerlink" title="FrameMetricsListener API"></a>FrameMetricsListener API</h1><hr>
+<p>FrameMetricsListener API 允许应用监测它的 UI 渲染性能。API 通过公开流式传输 Pub/Sub API 来提供此能力，以传递应用当前窗口的帧计时信息。返回的数据相当于 adb shell dumpsys gfxinfo framestats 显示的数据，但不限定于在过去的 120 帧内。</p>
+<p>您可以使用 <code>FrameMetricsListener</code> 来衡量生产中的交互级 UI 性能，无需 USB 连接。此 API 允许在比 adb shell dumpsys gfxinfo 更高的粒度上收集数据。因为系统可以从应用中的特定交互中收集数据，因此更高的粒度变得可行；系统不需要采集关于完整应用性能的全局概要或清除任何全局状态。您可以使用这种能力来针对应用的真实使用案例收集性能数据和捕捉 UI 性能回归。</p>
+<p>要监测一个窗口，实现 <code>FrameMetricsListener.onMetricsAvailable()</code> 回调方法，并在窗口上注册。如需了解详细信息，请参阅可下载的 API 参考中的 FrameMetricsListener 类文档。</p>
+<p>API 提供了一个包含计时数据的 <code>FrameMetrics</code> 对象，其渲染子系统会在一帧长度内报告各种里程碑。支持的指标有：<code>UNKNOWN_DELAY_DURATION</code>、<code>INPUT_HANDLING_DURATION</code>、<code>ANIMATION_DURATION</code>、<code>LAYOUT_MEASURE_DURATION</code>、<code>DRAW_DURATION</code>、 <code>SYNC_DURATION</code>、<code>COMMAND_ISSUE_DURATION</code>、<code>SWAP_BUFFERS_DURATION</code>、<code>TOTAL_DURATION</code> 和 <code>FIRST_DRAW_FRAME</code>。</p>
+<h1 id="虚拟文件"><a href="#虚拟文件" class="headerlink" title="虚拟文件"></a>虚拟文件</h1><hr>
+<p>在较早的 Android 版本中，您的应用可以使用存储访问框架来允许用户从他们的云存储帐户中选择文件，如 Google Drive。但是，不能表示没有直接字节码表示的文件；每个文件都必须提供一个输入流。</p>
+<p>Android 7.0 在存储访问框架中添加了虚拟文件的概念。虚拟文件功能可以让您的 <code>DocumentsProvider</code> 返回可与 <code>ACTION_VIEW</code> intent 使用的文件 URI，即使它们没有直接字节码表示。Android 7.0 还允许您为用户文件（虚拟或其他类）提供备用格式。</p>
+<p>为获得您的应用中的虚拟文件的 URI，首先您应创建一个 Intent 以打开文件选择器 UI。由于应用不能使用 <code>openInputStream()</code> 方法来直接打开一个虚拟文件，因此如果您包括了 CATEGORY_OPENABLE 类别，您的应用不会收到任何虚拟文件。</p>
+<p>在用户选择之后，系统调用 <code>onActivityResult()</code> 方法。您的应用可以检索虚拟文件的 URI，并得到一个输入流，这表现在以下片段中的代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Other Activity code ...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">private</span> <span class="keyword">int</span> REQUEST_CODE = <span class="number">64</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// We listen to the OnActivityResult event to respond to the user's selection.</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode,</span></span></span><br><span class="line"><span class="function"><span class="params">    Intent resultData)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (requestCode == REQUEST_CODE &amp;&amp;</span><br><span class="line">            resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line"></span><br><span class="line">            Uri uri = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (resultData != <span class="keyword">null</span>) &#123;</span><br><span class="line">                uri = resultData.getData();</span><br><span class="line"></span><br><span class="line">                ContentResolver resolver = getContentResolver();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Before attempting to coerce a file into a MIME type,</span></span><br><span class="line">                <span class="comment">// check to see what alternative MIME types are available to</span></span><br><span class="line">                <span class="comment">// coerce this file into.</span></span><br><span class="line">                String[] streamTypes =</span><br><span class="line">                  resolver.getStreamTypes(uri, <span class="string">"*/*"</span>);</span><br><span class="line"></span><br><span class="line">                AssetFileDescriptor descriptor =</span><br><span class="line">                    resolver.openTypedAssetFileDescriptor(</span><br><span class="line">                        uri,</span><br><span class="line">                        streamTypes[<span class="number">0</span>],</span><br><span class="line">                        <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Retrieve a stream to the virtual file.</span></span><br><span class="line">                InputStream inputStream = descriptor.createInputStream();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">        Log.e(<span class="string">"EXCEPTION"</span>, <span class="string">"ERROR: "</span>, ex);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如需了解有关访问用户文件的详细信息，请参阅存储访问框架指南。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-30T06:20:00.000Z" itemprop="dateUpdated">2018-03-30 14:20:00</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/30/android-7-0/" target="_blank" rel="external">http://yoursite.com/2018/03/30/android-7-0/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="马建">
+            马建
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid/">Anroid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid7-0/">Anroid7.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nougat/">Nougat</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/30/android-7-0/&title=《Android 7.0 API 概览》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/30/android-7-0/&title=《Android 7.0 API 概览》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/30/android-7-0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 7.0 API 概览》 — 随手记&url=http://yoursite.com/2018/03/30/android-7-0/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/30/android-7-0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/28/react-native-https/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">React Native 自签名Https处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>马建 &copy; 2015 - 2018</span>
+            <span>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/30/android-7-0/&title=《Android 7.0 API 概览》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/30/android-7-0/&title=《Android 7.0 API 概览》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/30/android-7-0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 7.0 API 概览》 — 随手记&url=http://yoursite.com/2018/03/30/android-7-0/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/30/android-7-0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOUlEQVR42u3a0W7DIAxG4b7/S3e3kzrY+e1sEubkqlpp4Eskz9i8Xvh6f7v2Yz7Hf/52dR8yS+uSIUPGsYz39iLL2i9idR8OJrPLkCHjBgYJoDwcpwF39S1ZmwwZMmSQiQlm/5f08cmQIUMGCYIEtgq+fIwMGTJkpJtYMp5vdztlOxkyZNzG4FX3///8J/0NGTJkHMWoBc00ID4VXpezyJAhYzSDBzienPHULdigkllkyJAxlNE5qtUpnKWtzV9mlyFDxmhGq2XYjvRps+GxdyJDhoyjGOnhUQJIU8NaivnDe5AhQ8ZQBil78UQtDabp7Ci4y5AhYygjDXz8IMX+tzXkY/FbhgwZBzJqgZXfrVakK9YOZciQMY6RDiWJ4H6TTNK+GkyGDBlTGekGMk0i+aGNTktVhgwZ9zD4BpKEwnS5adCXIUPGPYzagYlOAa7fbCi+ExkyZBzLIEGztiy+fa21BGTIkHEPg9+OJ3w81Uubmp2HIkOGjHMZacLXOTDBC2pkDa28VYYMGccyaoGyllzWDmEsfyVDhozLGLWWJN/o8rZoMXuVIUPGUAbfQBLkU2lisAuXIUPGUMY7vEgqyat6aVqJkkIZMmSMY3QaA7yd2S+3BWdGZMiQMZTRaU/yRTwbcB/ussqQIeMQRm1BnRSw9h9gOVKGDBkywBjybS1BRA9FhgwZMkBqWGsG8JYAag/IkCFjNCNtBqQlNtIwSBNEGTJk3MOobR1rRbFOOa92REOGDBmHM74ASh3GBLu2CAIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '瞎！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

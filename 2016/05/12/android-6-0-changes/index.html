@@ -13,7 +13,7 @@
     
     
     
-    <title>android-6.0-changes | 随手记 | 不积跬步无以至千里</title>
+    <title>Android 6.0 变更 | 随手记 | 不积跬步无以至千里</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#03a9f4">
@@ -23,17 +23,17 @@
     <meta name="description" content="Android 6.0（API 级别 23）除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 如果您之前发布过 Android 应用，请注意您的应用可能受到这些平台变更的影响。 运行时权限 此版本引入了一种新的权限模式，如今，用户可直接在运行时管理应用权限。这种模式让用户能够更好地了解和控制权限，同时为应用开发者精简了">
 <meta name="keywords" content="Anroid,Marshmallow,Anroid6.0,Android Developers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="android-6.0-changes">
-<meta property="og:url" content="http://yoursite.com/2018/05/12/android-6-0-changes/index.html">
+<meta property="og:title" content="Android 6.0 变更">
+<meta property="og:url" content="http://yoursite.com/2016/05/12/android-6-0-changes/index.html">
 <meta property="og:site_name" content="随手记">
 <meta property="og:description" content="Android 6.0（API 级别 23）除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 如果您之前发布过 Android 应用，请注意您的应用可能受到这些平台变更的影响。 运行时权限 此版本引入了一种新的权限模式，如今，用户可直接在运行时管理应用权限。这种模式让用户能够更好地了解和控制权限，同时为应用开发者精简了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/05/12/android-6-0-changes/text-selection.gif">
-<meta property="og:updated_time" content="2018-03-30T08:57:46.611Z">
+<meta property="og:image" content="http://yoursite.com/2016/05/12/android-6-0-changes/text-selection.gif">
+<meta property="og:updated_time" content="2018-03-30T08:58:45.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="android-6.0-changes">
+<meta name="twitter:title" content="Android 6.0 变更">
 <meta name="twitter:description" content="Android 6.0（API 级别 23）除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 如果您之前发布过 Android 应用，请注意您的应用可能受到这些平台变更的影响。 运行时权限 此版本引入了一种新的权限模式，如今，用户可直接在运行时管理应用权限。这种模式让用户能够更好地了解和控制权限，同时为应用开发者精简了">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/12/android-6-0-changes/text-selection.gif">
+<meta name="twitter:image" content="http://yoursite.com/2016/05/12/android-6-0-changes/text-selection.gif">
     
         <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
     
@@ -128,7 +128,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">android-6.0-changes</div>
+        <div class="flex-col header-title ellipsis">Android 6.0 变更</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -150,11 +150,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">android-6.0-changes</h1>
+        <h1 class="title">Android 6.0 变更</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-05-12T11:56:45.000Z" itemprop="datePublished" class="page-time">
-  2018-05-12
+                <time datetime="2016-05-12T11:56:45.000Z" itemprop="datePublished" class="page-time">
+  2016-05-12
 </time>
 
 
@@ -182,9 +182,9 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">android-6.0-changes</h1>
+        <h1 class="post-card-title">Android 6.0 变更</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-05-12 19:56:45" datetime="2018-05-12T11:56:45.000Z"  itemprop="datePublished">2018-05-12</time>
+            <time class="post-time" title="2016-05-12 19:56:45" datetime="2016-05-12T11:56:45.000Z"  itemprop="datePublished">2016-05-12</time>
 
             
 
@@ -230,7 +230,7 @@
 <h1 id="音频管理器变更"><a href="#音频管理器变更" class="headerlink" title="音频管理器变更"></a>音频管理器变更</h1><hr>
 <p>不再支持通过 <code>AudioManager</code> 类直接设置音量或将特定音频流静音。<code>setStreamSolo()</code> 方法已弃用，您应该改为调用 <code>requestAudioFocus()</code> 方法。类似地，<code>setStreamMute()</code> 方法也已弃用，请改为调用 <code>adjustStreamVolume()</code> 方法并传入方向值 <code>ADJUST_MUTE</code> 或 <code>ADJUST_UNMUTE</code>。</p>
 <h1 id="文本选择"><a href="#文本选择" class="headerlink" title="文本选择"></a>文本选择</h1><hr>
-<p><img src="/2018/05/12/android-6-0-changes/text-selection.gif" style="width:300px; float: right; margin-left:20px"><br>现在，当用户在您的应用中选择文本时，您可以在一个浮动工具栏中显示“剪切”、“复制”和“粘贴”等文本选择操作。其在用户交互实现上与为单个视图启用上下文操作模式中所述的上下文操作栏类似。</p>
+<p><img src="/2016/05/12/android-6-0-changes/text-selection.gif" style="width:300px; float: right; margin-left:20px"><br>现在，当用户在您的应用中选择文本时，您可以在一个浮动工具栏中显示“剪切”、“复制”和“粘贴”等文本选择操作。其在用户交互实现上与为单个视图启用上下文操作模式中所述的上下文操作栏类似。</p>
 <p>要实现可用于文本选择的浮动工具栏，请在您的现有应用中做出以下更改：</p>
 <ol>
 <li>在 <code>View</code> 对象或 <code>Activity</code> 对象中，将 <code>ActionMode</code> 调用从 <code>startActionMode(Callback)</code> 更改为 <code>startActionMode(Callback, ActionMode.TYPE_FLOATING)</code>。</li>
@@ -317,12 +317,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-30T08:57:46.611Z" itemprop="dateUpdated">2018-03-30 16:57:46</time>
+    最后更新时间：<time datetime="2018-03-30T08:58:45.779Z" itemprop="dateUpdated">2018-03-30 16:58:45</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/05/12/android-6-0-changes/" target="_blank" rel="external">http://yoursite.com/2018/05/12/android-6-0-changes/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2016/05/12/android-6-0-changes/" target="_blank" rel="external">http://yoursite.com/2016/05/12/android-6-0-changes/</a>
         
     </div>
     
@@ -353,7 +353,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/05/12/android-6-0-changes/&title=《android-6.0-changes》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/05/12/android-6-0-changes/&title=《Android 6.0 变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -363,22 +363,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/05/12/android-6-0-changes/&title=《android-6.0-changes》 — 随手记&source=desc" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/05/12/android-6-0-changes/&title=《Android 6.0 变更》 — 随手记&source=desc" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/12/android-6-0-changes/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/05/12/android-6-0-changes/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《android-6.0-changes》 — 随手记&url=http://yoursite.com/2018/05/12/android-6-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 6.0 变更》 — 随手记&url=http://yoursite.com/2016/05/12/android-6-0-changes/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/12/android-6-0-changes/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/12/android-6-0-changes/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -398,14 +398,21 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/12/30/android-7-0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 7.0 API 概览</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/03/28/react-native-https/" id="post-next" class="post-nav-link">
+      <a href="/2016/04/30/android-6-0/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">React Native 自签名Https处理</h4>
+        <h4 class="title">Android 6.0 API 概述</h4>
       </a>
     </div>
   
@@ -498,7 +505,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/05/12/android-6-0-changes/&title=《android-6.0-changes》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2016/05/12/android-6-0-changes/&title=《Android 6.0 变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -508,22 +515,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/05/12/android-6-0-changes/&title=《android-6.0-changes》 — 随手记&source=desc" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2016/05/12/android-6-0-changes/&title=《Android 6.0 变更》 — 随手记&source=desc" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/12/android-6-0-changes/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/05/12/android-6-0-changes/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《android-6.0-changes》 — 随手记&url=http://yoursite.com/2018/05/12/android-6-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 6.0 变更》 — 随手记&url=http://yoursite.com/2016/05/12/android-6-0-changes/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/12/android-6-0-changes/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2016/05/12/android-6-0-changes/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -534,7 +541,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3a0W6DMAwF0P7/T7PXSSvs2qGVcA5PU2lDDpMs2/HrFV/Hr+v6k793k99ef37bhYGB8VjGcXlVt3W2ueR15HffUDEwMDZgnEWws+8kS19vLg/c13vDwMDASBi9T3rPxcDAwEiWK6RrNyWOGBgYGHkRmzTF8pQxTyJvrsUxMDAeyMi77t//+yPnGxgYGI9iHMWr13q73la+2ulTMDAwRjPyAJenaHnqthJwMTAwdmNUW//VsnMlKczLYAwMjKmMpGWWLLcSIqvHBm/uYmBgjGYkt3sDW+udv3wgAwMDYwdGfju/2xsXuwGAgYExlJEnbb3x0ypg6T+AgYExjpEPWuWbXvlOtVQ+PYnFwMAYx+g1/auPT15Tb2UMDIzZjDzw9Zarhtfb2nkYGBjjGPn4aTW89gYykgkRDAyMfRi98az1Blz1iYWZEQwMjNGMamGZN9Tywa88QcTAwNiH0Qxwxe9Xg2kSvqNSFgMDYxyjN2ARVcmtYjhvzGFgYOzAyANiFZO3/vPwevorDAyMzRjVAvXeFLN5YWBgbMNIlssHxXpjFtW0FQMDYzbjKF7VdLD6UppDYxgYGKMZ1bxrfZwiL1x7iSkGBsZURhJke+lgLyx+5EwDAwNjBKPXaOs14FZSvX8GLDAwMDCKm+gVsc01MTAwMBY22jtCSI4iomELDAyMQYykiE0OJleOClZeCgYGxmxGtXTMy9SVVlpv4AwDA2Mc4wcuYuTzgBOkWAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3ay47jQAgF0Pz/T7u3I6WduYDTkvGpleU8yscLBBSvV7yOf9b7/bPr95X82/v9yxYGBsZtGcfHlTxWldoDf94dAwPjCYyzCHb2nWoATUJzsu/pfQwMDIwgvFbv9PbFwMDA6DGSx5okjhgYGBh5Efv5r6vlbp5EXlyLY2Bg3JCRd93//vor5xsYGBi3YhzF1QuyyW9HT4WBgbGakQe4nJenbpOAi4GB8UxG3tavDoRNksK8DMbAwNjK6A1AJIcKUYhsHRv88ikGBsZqRjWwVh9r3uBrHmFiYGCsY+Qf5wGxNy52AQADA2MpozficO1I6wUJKAYGxlLGpIidHwBUS9mv1OIYGBg3YSQBNw+g+cNVg/7p9zEwMB7DSIrV3mY5r9nmw8DAWM2Yj1xUy+DqXtHhJQYGxmpG3t6aJ4j5dfX1YWBgPIcxCX+9tLJ6LHq6FwYGxmpGdTgsCn9xQ38ybHH6HQwMjNWMZMyimjJOmv55Yw4DA+MJjHxgYr7x5BjgPxgMDIyHMfKG/qSVVh0ve+XTZxgYGKsZeXurmvCNMtbgJWJgYGxlHMU1elsXhfvTpBADA2Mpo5p39Vr8+dHCJMXEwMDYzUiC7DfGMqqtvdGZBgYGxgpGtX9VHfOajH9FrwYDAwNjnORN4iQGBgZGL+BW6+M8ocwPJKKZEQwMjEWMpIitjlZUjwqqCSIGBsZzGL3SMS9We6206iEEBgbGUsYP90V0cj9Inq4AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

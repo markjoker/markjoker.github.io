@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android5.0 API 概述 | 随手记 | 不积跬步无以至千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#03a9f4">
+    
+    
+    <meta name="keywords" content="Anroid,Lollipop,Anroid5.0,Android Developers">
+    <meta name="description" content="用户界面 Material Design 支持Android 5.0 添加了对 Android 的新 Material Design 样式的支持。您可以创建具有 Material Design 功能的应用，实现动态视觉效果，利用其中的 UI 元素转换赋予用户自然的感觉。此支持包括：  Material Design 主题 视图阴影 RecyclerView 小部件 可绘制动画和造型效果 Mater">
+<meta name="keywords" content="Anroid,Lollipop,Anroid5.0,Android Developers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android5.0 API 概述">
+<meta property="og:url" content="http://yoursite.com/2015/08/23/android-5-0/index.html">
+<meta property="og:site_name" content="随手记">
+<meta property="og:description" content="用户界面 Material Design 支持Android 5.0 添加了对 Android 的新 Material Design 样式的支持。您可以创建具有 Material Design 功能的应用，实现动态视觉效果，利用其中的 UI 元素转换赋予用户自然的感觉。此支持包括：  Material Design 主题 视图阴影 RecyclerView 小部件 可绘制动画和造型效果 Mater">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-30T14:14:04.299Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android5.0 API 概述">
+<meta name="twitter:description" content="用户界面 Material Design 支持Android 5.0 添加了对 Android 的新 Material Design 样式的支持。您可以创建具有 Material Design 功能的应用，实现动态视觉效果，利用其中的 UI 元素转换赋予用户自然的感觉。此支持包括：  Material Design 主题 视图阴影 RecyclerView 小部件 可绘制动画和造型效果 Mater">
+    
+        <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">马建</h5>
+          <a href="mailto:markjoker@126.com" title="markjoker@126.com" class="mail">markjoker@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/cv"  >
+                <i class="icon icon-lg icon-file"></i>
+                简历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android5.0 API 概述</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android5.0 API 概述</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-23T14:12:13.000Z" itemprop="datePublished" class="page-time">
+  2015-08-23
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#用户界面"><span class="post-toc-number">1.</span> <span class="post-toc-text">用户界面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Material-Design-支持"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Material Design 支持</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最近使用的应用屏幕中的并发文档和-Activity"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">最近使用的应用屏幕中的并发文档和 Activity</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WebView-更新"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">WebView 更新</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#屏幕采集和共享"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">屏幕采集和共享</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通知"><span class="post-toc-number">2.</span> <span class="post-toc-text">通知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#锁定屏幕通知"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">锁定屏幕通知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通知元数据"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">通知元数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图形"><span class="post-toc-number">3.</span> <span class="post-toc-text">图形</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对-OpenGL-ES-3-1-的支持"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">对 OpenGL ES 3.1 的支持</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-扩展包"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Android 扩展包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#媒体"><span class="post-toc-number">4.</span> <span class="post-toc-text">媒体</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用于高级相机功能的-Camera-API"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">用于高级相机功能的 Camera API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#音频回放"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">音频回放</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#媒体回放控制"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">媒体回放控制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#媒体浏览"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">媒体浏览</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#存储"><span class="post-toc-number">5.</span> <span class="post-toc-text">存储</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录选择"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">目录选择</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无线和连接"><span class="post-toc-number">6.</span> <span class="post-toc-text">无线和连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多个网络连接"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">多个网络连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#蓝牙低功耗"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">蓝牙低功耗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NFC-增强功能"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">NFC 增强功能</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Volta-项目"><span class="post-toc-number">7.</span> <span class="post-toc-text">Volta 项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计划排定作业"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">计划排定作业</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#电池使用开发者工具"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">电池使用开发者工具</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#工作场所和教育领域中的-Android"><span class="post-toc-number">8.</span> <span class="post-toc-text">工作场所和教育领域中的 Android</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#托管配置"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">托管配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设备所有者"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">设备所有者</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#固定屏幕"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">固定屏幕</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#打印框架"><span class="post-toc-number">9.</span> <span class="post-toc-text">打印框架</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#系统"><span class="post-toc-number">10.</span> <span class="post-toc-text">系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用使用情况统计信息"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">应用使用情况统计信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#测试与辅助工具"><span class="post-toc-number">11.</span> <span class="post-toc-text">测试与辅助工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试与辅助工具改进"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">测试与辅助工具改进</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#IME"><span class="post-toc-number">12.</span> <span class="post-toc-text">IME</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更方便的输入语言切换"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">更方便的输入语言切换</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#清单声明"><span class="post-toc-number">13.</span> <span class="post-toc-text">清单声明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可声明的必备功能"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">可声明的必备功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户权限"><span class="post-toc-number">13.2.</span> <span class="post-toc-text">用户权限</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-android-5-0"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android5.0 API 概述</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-23 22:12:13" datetime="2015-08-23T14:12:13.000Z"  itemprop="datePublished">2015-08-23</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h1><hr>
+<h2 id="Material-Design-支持"><a href="#Material-Design-支持" class="headerlink" title="Material Design 支持"></a>Material Design 支持</h2><p>Android 5.0 添加了对 Android 的新 Material Design 样式的支持。您可以创建具有 Material Design 功能的应用，实现动态视觉效果，利用其中的 UI 元素转换赋予用户自然的感觉。此支持包括：</p>
+<ul>
+<li>Material Design 主题</li>
+<li>视图阴影</li>
+<li>RecyclerView 小部件</li>
+<li>可绘制动画和造型效果</li>
+<li>Material Design 动画和 Activity 转换效果</li>
+<li>针对基于视图状态的视图属性的动画生成器</li>
+<li>可自定义的 UI 小部件和具有可由您控制的调色板的应用栏</li>
+<li>基于 XML 矢量图形的动画和非动画可绘制对象</li>
+<li>要详细了解如何为您的应用添加 Material Design 功能，请参阅 <a href="https://developer.android.com/training/material/index.html" target="_blank" rel="noopener">Material Design</a></li>
+</ul>
+<h2 id="最近使用的应用屏幕中的并发文档和-Activity"><a href="#最近使用的应用屏幕中的并发文档和-Activity" class="headerlink" title="最近使用的应用屏幕中的并发文档和 Activity"></a>最近使用的应用屏幕中的并发文档和 Activity</h2><p>在之前的版本中，<a href="https://developer.android.com/guide/components/recents.html" target="_blank" rel="noopener">最近使用的应用屏幕</a>只能为最近与用户交互过的每个应用显示一项任务。现在，您的应用可以根据需要为其他并发文档 Activity 打开更多任务。此功能简化了多任务处理，通过在所有应用中提供一致的切换体验，让用户能够在最近使用的应用屏幕中的各个 Activity 和文档之间快速切换。此类并行任务示例可能包括：网络浏览器应用中打开的标签页、效率类应用中的文档、游戏中的并行对局或信息应用中的聊天。您的应用可以通过 <code>ActivityManager.AppTask</code> 类管理它的任务。</p>
+<p>为插入逻辑换行符以便系统将您的 Activity 视为新任务，请在使用 <code>startActivity()</code> 启动 Activity 时使用 <code>FLAG_ACTIVITY_NEW_DOCUMENT</code>。您还可以通过在清单中将 <code>&lt;activity&gt;</code> 元素的 <code>documentLaunchMode</code> 属性设置为 “intoExisting” 或 “always” 来获得此行为。</p>
+<p>为避免使最近使用的应用屏幕变得混乱，您可以在应用中设置该屏幕中可显示的任务数上限。要实现此目的，请设置 <code>&lt;application&gt;</code> 属性 <code>android:maxRecents</code>。目前可指定的上限为每位用户 50 个任务（RAM 较低设备为 25 个）。</p>
+<p>可将最近使用的应用屏幕中的任务设置为在重启后保留。要控制持久化行为，请使用 <code>android:persistableMode</code> 属性。您还可以通过调用 <code>setTaskDescription()</code> 方法，更改 Activity 在最近使用的应用屏幕中的视觉属性，如 Activity 的颜色、标签和图标。</p>
+<h2 id="WebView-更新"><a href="#WebView-更新" class="headerlink" title="WebView 更新"></a>WebView 更新</h2><p>Android 5.0 将 <code>WebView</code> 实现更新至 Chromium M37，增强了安全性和稳定性，并修复了一些问题。运行在 Android 5.0 上的 <code>WebView</code> 的默认用户代理字符串已更新，以纳入 37.0.0.0 作为版本号。</p>
+<p>此版本引入了 <code>PermissionRequest</code> 类，让您的应用可以通过 <code>getUserMedia()</code> 等网络 API 授予 WebView 访问相机和麦克风之类受保护资源的权限。您的应用必须对这些资源拥有相应的 Android 权限，才能向 WebView 授予权限。</p>
+<p>借助新的 <code>onShowFileChooser()</code> 方法，您现在可以在 WebView 中使用输入表单字段，然后启动文件选择器从 Android 设备中选择图像和文件。</p>
+<p>此外，此版本还提供了对 <code>WebAudio</code>、<code>WebGL</code> 和 <code>WebRTC</code> 开放标准的支持。要详细了解此版本包含的新功能，请参阅 <a href="https://developer.chrome.com/multidevice/webview/overview" target="_blank" rel="noopener">WebView for Android</a>。</p>
+<h2 id="屏幕采集和共享"><a href="#屏幕采集和共享" class="headerlink" title="屏幕采集和共享"></a>屏幕采集和共享</h2><p>Android 5.0 引入了新的 <code>android.media.projection API</code>，让您可以为应用添加屏幕采集和屏幕共享功能。例如，如果您想在视频会议应用中启用屏幕共享，便可使用此功能。</p>
+<p>新增的 <code>createVirtualDisplay()</code> 方法允许您的应用将主屏幕（默认显示）的内容采集到一个 <code>Surface</code> 对象中，然后您的应用便可将其发送至整个网络。该 API 只允许采集非安全屏幕内容，不允许采集系统音频。要开始采集屏幕，您的应用必须先使用通过 <code>createScreenCaptureIntent()</code> 方法获得的 <code>Intent</code> 启动屏幕采集对话框，请求用户授予权限。</p>
+<p>如需查看新 API 使用方法的示例，请参阅示例项目中的 <code>MediaProjectionDemo</code> 类。</p>
+<h1 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h1><hr>
+<h2 id="锁定屏幕通知"><a href="#锁定屏幕通知" class="headerlink" title="锁定屏幕通知"></a>锁定屏幕通知</h2><p>Android 5.0 中的锁定屏幕可以显示通知。用户可以通过“Settings” 选择是否允许在安全的锁定屏幕上显示敏感的通知内容。</p>
+<p>您的应用可以控制在安全锁定屏幕上显示的通知中可见信息的详细程度。要控制可见性级别，请调用 <code>setVisibility()</code>，然后指定以下值之一：</p>
+<ul>
+<li><code>VISIBILITY_PRIVATE</code>：显示通知图标等基本信息，但隐藏通知的完整内容。</li>
+<li><code>VISIBILITY_PUBLIC</code>：显示通知的完整内容。</li>
+<li><code>VISIBILITY_SECRET</code>：不显示任何内容，甚至不显示通知图标。<br>当可视性级别为 VISIBILITY_PRIVATE 时，您还可以提供隐藏个人详情的删减版通知内容。例如，短信应用可能会显示一条通知，指出“您有3 条新短信”，但是隐藏了短信内容和发件人。要提供此替换版本的通知，请先使用 <code>Notification.Builder</code> 创建替换通知。创建专用通知对象时，请通过 <code>setPublicVersion()</code> 方法为其附加替换通知。</li>
+</ul>
+<h2 id="通知元数据"><a href="#通知元数据" class="headerlink" title="通知元数据"></a>通知元数据</h2><p>Android 5.0 使用与您的应用通知关联的元数据，以更智能的方式对通知排序。要设置元数据，请在构建通知时调用 <code>Notification.Builder</code> 中的下列方法：</p>
+<ul>
+<li><code>setCategory()</code>：当设备处于“优先”模式时，指示系统如何处理应用通知（例如，通知代表来电、即时通讯还是闹铃）。</li>
+<li><code>setPriority()</code>：标记通知的重要性是高于还是低于普通通知。如果优先级字段设置为 <code>PRIORITY_MAX</code> 或<code>PRIORITY_HIGH</code> 的通知还有声音或振动，则会将其显示在小型浮动窗口中。</li>
+<li><code>addPerson()</code>：让您可以添加一名或多名与通知有关的人员。您的应用可以使用此名单指示系统将指定人员发出的通知归成一组，或者将这些人员发出的通知视为更重要的通知。<h1 id="图形"><a href="#图形" class="headerlink" title="图形"></a>图形</h1></li>
+</ul>
+<hr>
+<h2 id="对-OpenGL-ES-3-1-的支持"><a href="#对-OpenGL-ES-3-1-的支持" class="headerlink" title="对 OpenGL ES 3.1 的支持"></a>对 OpenGL ES 3.1 的支持</h2><p>Android 5.0 添加了 Java 接口和对 OpenGLES 3.1 的原生支持。OpenGL ES 3.1 中提供的主要新功能包括：</p>
+<ul>
+<li>计算着色器</li>
+<li>单独的着色器对象</li>
+<li>间接绘制命令</li>
+<li>多重采样和模具纹理</li>
+<li>着色语言改进</li>
+<li>高级混合模式和调试专用扩展</li>
+<li>向后兼容 OpenGL ES 2.0 和 3.0</li>
+</ul>
+<p>Android 上 OpenGL ES 3.1 的 Java 接口随 GLES31 提供。使用 OpenGL ES 3.1 时，请务必在清单文件中使用 <code>&lt;uses-feature&gt;</code> 标记和 <code>android:glEsVersion</code> 属性对其进行声明。例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-feature</span> <span class="attr">android:glEsVersion</span>=<span class="string">"0x00030001"</span> /&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如需了解有关如何使用 OpenGL ES（包括如何在运行时检查设备支持的 OpenGL ES 版本）的详细信息，请参阅 <a href="https://developer.android.com/guide/topics/graphics/opengl.html" target="_blank" rel="noopener">OpenGL ES API 指南</a>。</p>
+<h2 id="Android-扩展包"><a href="#Android-扩展包" class="headerlink" title="Android 扩展包"></a>Android 扩展包</h2><p>除了 OpenGL ES 3.1 外，此版本还提供了一个扩展包，其中包括 Java 接口和对高级图形功能的原生支持。Android 将这些扩展视作单个软件包。（如果存在 <code>ANDROID_extension_pack_es31a</code> 扩展，您的应用可以假定扩展包中的所有扩展都存在，只需使用一条 <code>#extension</code> 语句便可启用着色语言功能。）</p>
+<p>该扩展包支持：</p>
+<ul>
+<li>有保证的着色器存储缓冲区、图像和原子 Fragment 着色器支持（在 OpenGL ES 3.1 中，Fragment 着色器支持为可选支持）。</li>
+<li>镶嵌和几何着色器</li>
+<li>ASTC (LDR) 纹理压缩格式</li>
+<li>每采样内插和着色</li>
+<li>帧缓冲区中每个颜色附件采用不同混合模式</li>
+</ul>
+<p>该扩展包的 Java 接口随 GLES31Ext 提供。在您的应用清单中，您可以将应用声明为必须安装在支持该扩展包的设备上。例如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">uses-feature</span> <span class="attr">android:name</span>=<span class="string">“android.hardware.opengles.aep”</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:required</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="媒体"><a href="#媒体" class="headerlink" title="媒体"></a>媒体</h1><hr>
+<h2 id="用于高级相机功能的-Camera-API"><a href="#用于高级相机功能的-Camera-API" class="headerlink" title="用于高级相机功能的 Camera API"></a>用于高级相机功能的 Camera API</h2><p>Android 5.0 引入了新的 <code>android.hardware.camera2</code> API 来简化精细照片采集和图像处理。您现在可以使用 <code>getCameraIdList()</code> 通过编程方式访问可供系统使用的相机设备，以及使用 <code>openCamera()</code> 通过编程方式连接特定设备。要开始采集图像，请创建一个 <code>CameraCaptureSession</code> 并指定用于发送已采集图像的 <code>Surface</code> 对象。可将 <code>CameraCaptureSession</code> 配置为进行单张拍摄或多张连拍。</p>
+<p>要在采集新图像时得到通知，请实现 <code>CameraCaptureSession.CaptureCallback</code> 侦听器，并在您的采集请求中进行设置。现在，当系统完成图像采集请求时，您的 <code>CameraCaptureSession.CaptureCallback</code> 侦听器会收到对 <code>onCaptureCompleted()</code> 的调用，并在 <code>CaptureResult</code> 中为您提供图像采集元数据。</p>
+<p><code>CameraCharacteristics</code> 类可让您的应用检测到设备上可用的相机功能。该对象的 <code>INFO_SUPPORTED_HARDWARE_LEVEL</code> 属性代表相机的功能级别。</p>
+<ul>
+<li>所有设备都至少支持 <code>INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY</code> 硬件级别，该级别具有的能力大致与弃用的 <code>Camera API</code> 相当。</li>
+<li>支持 <code>INFO_SUPPORTED_HARDWARE_LEVEL_FULL</code> 硬件级别的设备可手动控制采集和后期处理，以及以高帧速率采集高分辨率图像。</li>
+</ul>
+<p>要了解如何使用更新后的 Camera API，请参阅此版本中的 Camera2Basic 和 Camera2Video 实现示例。</p>
+<h2 id="音频回放"><a href="#音频回放" class="headerlink" title="音频回放"></a>音频回放</h2><p>此版本加入了对 <code>AudioTrack</code> 的下列更改：</p>
+<ul>
+<li>您的应用现在可以提供浮点格式 (<code>ENCODING_PCM_FLOAT</code>) 的音频数据。这可以实现更大的动态范围、更一致的精度和更多的动态余量。浮点算法在进行中间计算时特别有用。回放端点为音频数据使用位深度更低的整型格式。（在Android 5.0中，部分内部管道尚未采用浮点格式。）</li>
+<li>您的应用现在可以提供音频数据作为 <code>ByteBuffer</code>，数据使用的格式与 <code>MediaCodec</code> 提供的格式相同。</li>
+<li><code>WRITE_NON_BLOCKING</code> 选项可简化某些应用的缓冲和多线程处理。</li>
+</ul>
+<h2 id="媒体回放控制"><a href="#媒体回放控制" class="headerlink" title="媒体回放控制"></a>媒体回放控制</h2><p>使用新增的通知和媒体 API 可确保系统 UI 了解您的媒体回放情况，并可提取和显示专辑封面。现在，可以利用新增的 <code>MediaSession</code> 类和 <code>MediaController</code> 类更轻松地在整个 UI 和服务范围内控制媒体回放。</p>
+<p>新增的 <code>MediaSession</code> 类替代了弃用的 RemoteControlClient 类，仅提供一套回调方法来处理传输控制和媒体按钮。如果您的应用提供媒体回放，并运行在 Android TV 或 Wear 平台上，请使用 <code>MediaSession</code> 类，通过同样的回调方法来处理您的传输控制。</p>
+<p>现在，您可以使用新增的 <code>MediaController</code> 类开发自己的媒体控制器应用。该类可通过您的应用的 UI 进程，以线程安全方式监控和控制媒体回放。请在创建控制器时指定一个 <code>MediaSession.Token</code> 对象，以便您的应用可与给定 <code>MediaSession</code> 交互。您可以利用 <code>MediaController.TransportControls</code> 方法，通过发送 <code>play()</code>、<code>stop()</code>、<code>skipToNext()</code> 和 <code>setRating()</code> 等命令来控制该会话上的媒体回放。对于控制器，您还可以注册一个 <code>MediaController.Callback</code> 对象来侦听该会话上的元数据和状态变化。</p>
+<p>此外，您还可以利用新增的 <code>Notification.MediaStyle</code> 类创建允许将回放控制与媒体会话绑定的丰富通知。</p>
+<h2 id="媒体浏览"><a href="#媒体浏览" class="headerlink" title="媒体浏览"></a>媒体浏览</h2><p>Android 5.0 引入了通过新增的 <code>android.media.browse</code> API 让应用能够浏览其他应用媒体内容库的功能。要公开您应用内的媒体内容，请扩展 <code>MediaBrowserService</code> 类。您实现的 <code>MediaBrowserService</code> 应提供对 <code>MediaSession.Token</code> 的访问权限，以便应用能播放通过您的服务提供的媒体内容。</p>
+<p>要与媒体浏览器服务交互，请使用 <code>MediaBrowser</code> 类。在您创建 <code>MediaBrowser</code> 实例时为 <code>MediaSession</code> 指定组件名称。然后，您的应用便可利用该浏览器实例连接到关联的服务并获得 <code>MediaSession.Token</code> 对象，以播放通过该服务公开的内容。</p>
+<h1 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h1><hr>
+<h2 id="目录选择"><a href="#目录选择" class="headerlink" title="目录选择"></a>目录选择</h2><p>Android 5.0 扩展了<a href="https://developer.android.com/guide/topics/providers/document-provider.html" target="_blank" rel="noopener">存储访问框架</a>，允许用户选择整个目录子树，从而授予应用对所含全部文档的读/写权限，无需用户逐项确认。</p>
+<p>要选择目录子树，请生成并发送一个 <code>OPEN_DOCUMENT_TREE</code> intent。系统会显示所有支持子树选择的 <code>DocumentsProvider</code> 实例，并允许用户浏览和选择目录。返回的 URI 代表对所选子树的访问权限。然后，您就可以使用 <code>buildChildDocumentsUriUsingTree()</code> 和 <code>buildDocumentUriUsingTree()</code> 以及 <code>query()</code> 来探索子树。</p>
+<p>新增的 <code>createDocument()</code> 方法允许您在该子树下的任何位置新建文档或目录。要管理现有文档，请使用 <code>renameDocument()</code> 和 <code>deleteDocument()</code>。检查 <code>COLUMN_FLAGS</code> 以验证提供程序是否支持这些调用，然后再发出调用。</p>
+<p>如果您要实现 <code>DocumentsProvider</code> 并想支持子树选择，请实现 <code>isChildDocument()</code> 并在您的 <code>COLUMN_FLAGS</code> 中加入 <code>FLAG_SUPPORTS_IS_CHILD</code>。</p>
+<p>Android 5.0 还在共享的存储空间上引入了新的软件包专属目录，您的应用可在其中放置供加入到 <code>MediaStore</code> 中的媒体文件。新增的 <code>getExternalMediaDirs()</code> 返回所有共享存储设备上这些目录的路径。您的应用无需额外权限便可访问返回的路径，这与 <code>getExternalFilesDir()</code> 类似。平台会定期扫描这些目录中的新媒体，但您也可利用 <code>MediaScannerConnection</code> 显式扫描新内容。</p>
+<h1 id="无线和连接"><a href="#无线和连接" class="headerlink" title="无线和连接"></a>无线和连接</h1><hr>
+<h2 id="多个网络连接"><a href="#多个网络连接" class="headerlink" title="多个网络连接"></a>多个网络连接</h2><p>Android 5.0 提供了新的多网络 API，允许您的应用动态扫描具有特定能力的可用网络，并与它们建立连接。当您的应用需要 SUPL、彩信或运营商计费网络等专业化网络时，或者您想使用特定类型的传输协议发送数据时，就可以使用此功能。</p>
+<p>要从您的应用以动态方式选择并连接网络，请执行以下步骤：</p>
+<ol>
+<li>创建一个 <code>ConnectivityManager</code>。</li>
+<li>使用 <code>NetworkRequest.Builder</code> 类创建一个 <code>NetworkRequest</code> 对象，并指定您的应用感兴趣的网络功能和传输类型。</li>
+<li>要扫描合适的网络，请调用 <code>requestNetwork()</code> 或 <code>registerNetworkCallback()</code>，并传入 <code>NetworkRequest</code> 对象和 <code>ConnectivityManager.NetworkCallback</code> 的实现。如果您想在检测到合适的网络时主动切换到该网络，请使用 <code>requestNetwork()</code> 方法；如果只是接收已扫描网络的通知而不需要主动切换，请改用 <code>registerNetworkCallback()</code> 方法。</li>
+</ol>
+<p>当系统检测到合适的网络时，它会连接到该网络并调用 <code>onAvailable()</code> 回调。您可以使用回调中的 <code>Network</code> 对象来获取有关网络的更多信息，或者引导通信使用所选网络。</p>
+<h2 id="蓝牙低功耗"><a href="#蓝牙低功耗" class="headerlink" title="蓝牙低功耗"></a>蓝牙低功耗</h2><p>Android 4.3 为发挥核心作用的蓝牙低功耗（蓝牙 LE）引入了平台支持。在 Android 5.0 中，Android 设备现在可以发挥蓝牙 LE 外围设备的作用。应用可以利用此功能让附近设备发现它。例如，您可以开发这样的应用：让设备发挥计步器或健康监测仪的作用，并与其他蓝牙 LE 设备进行数据通信。</p>
+<p>新增的 <code>android.bluetooth.le</code> API 让您的应用可以发布广告、扫描响应以及与附近的蓝牙 LE 设备建立连接。要使用新增的广告和扫描功能，请在您的清单中添加 <code>BLUETOOTH_ADMIN</code> 权限。当用户更新您的应用或从 Play 商店下载您的应用时，会被要求向您的应用授予以下权限：“Bluetooth connection information:Allows the app to control Bluetooth, including broadcasting to or getting information about nearby Bluetooth devices.”</p>
+<p>要启动蓝牙 LE 广播，以便其他设备能发现您的应用，请调用 <code>startAdvertising()</code>，并传入 <code>AdvertiseCallback</code> 类的实现。回调对象会收到广播操作成功或失败的报告。</p>
+<p>Android 5.0 引入了 <code>ScanFilter</code> 类，让您的应用可以只扫描其感兴趣的特定类型设备。要开始扫描蓝牙 LE 设备，请调用 <code>startScan()</code>，并传入筛选器列表。在方法调用中，您还必须提供 <code>ScanCallback</code> 的实现，以便在发现蓝牙 LE 广播时进行报告。</p>
+<h2 id="NFC-增强功能"><a href="#NFC-增强功能" class="headerlink" title="NFC 增强功能"></a>NFC 增强功能</h2><p>Android 5.0 添加这些增强功能是为了扩大 NFC 的使用范围和提高 NFC 的使用灵活性：</p>
+<ul>
+<li>Android Beam 现已出现在 share 菜单中。</li>
+<li>您的应用可通过调用 <code>invokeBeam()</code> 来调用用户设备上的 Android Beam 进行数据分享。这样一来，用户不必手动用设备接触另一台具有 NFC 功能的设备，便可完成数据传送。</li>
+<li>您可以使用新增的 <code>createTextRecord()</code> 方法来创建一条包含 UTF-8 文本数据的 NDEF 记录。</li>
+<li>如果您要开发支付应用，现在可以通过调用 <code>registerAidsForService()</code> 动态注册 NFC 应用 ID (AID)。您还可以使用 <code>setPreferredService()</code> 来设置应在特定 Activity 位于前台时使用的首选卡模拟服务。</li>
+</ul>
+<h1 id="Volta-项目"><a href="#Volta-项目" class="headerlink" title="Volta 项目"></a>Volta 项目</h1><p>除了提供新功能外，Android 5.0 还重视电池寿命的改善。可以利用新增的 API 和工具来了解和优化您的应用的功耗。</p>
+<h2 id="计划排定作业"><a href="#计划排定作业" class="headerlink" title="计划排定作业"></a>计划排定作业</h2><p>Android 5.0 新增了一个 <code>JobScheduler</code> API，允许您定义一些系统在稍后或指定条件下（如设备充电时）以异步方式运行的作业，从而优化电池寿命。下列情形下，作业计划排定功能很有用：</p>
+<ul>
+<li>应用具有不面向用户并且可以推迟的作业<br>-应用具有您更愿意在设备插入电源时再进行的作业</li>
+<li>应用具有一项需要接入网络或连接 WLAN 的任务。</li>
+<li>应用具有多项您希望定期以批处理方式运行的任务。</li>
+</ul>
+<p>一个作业单位由一个 <code>JobInfo</code> 对象封装。该对象指定计划排定标准。</p>
+<p>使用 <code>JobInfo.Builder</code> 类可配置应如何运行已排计划的任务。您可以安排任务在特定条件下运行，例如：</p>
+<ul>
+<li>在设备充电时启动</li>
+<li>在设备连入无限流量网络时启动</li>
+<li>在设备空闲时启动</li>
+<li>在特定期限前或以最低延迟完成</li>
+</ul>
+<p>例如，您可以添加一段如下代码，在无限流量网络上运行您的任务：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JobInfo uploadTask = <span class="keyword">new</span> JobInfo.Builder(mJobId,</span><br><span class="line">                                         mServiceComponent <span class="comment">/* JobService component */</span>)</span><br><span class="line">        .setRequiredNetworkCapabilities(JobInfo.NetworkType.UNMETERED)</span><br><span class="line">        .build();</span><br><span class="line">JobScheduler jobScheduler =</span><br><span class="line">        (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);</span><br><span class="line">jobScheduler.schedule(uploadTask);</span><br></pre></td></tr></table></figure></p>
+<p>如果设备有稳定的电源（也就是说，设备已插入电源超过 2 分钟，并且电池处于<a href="https://developer.android.com/reference/android/content/Intent.html#ACTION_BATTERY_OKAY" target="_blank" rel="noopener">健康水平</a>），系统将运行任何已做好运行准备的计划作业，无论作业期限是否已过。</p>
+<p>要查看如何使用 <code>JobScheduler</code> API 的示例，请参阅此版本中的 <code>JobSchedulerSample</code> 实现示例。</p>
+<h2 id="电池使用开发者工具"><a href="#电池使用开发者工具" class="headerlink" title="电池使用开发者工具"></a>电池使用开发者工具</h2><p>新增的 <strong>dumpsys batterystats</strong> 命令可生成值得关注的设备电池使用情况统计数据，这些数据按唯一身份用户 ID (UID) 加以组织。统计数据包括：</p>
+<ul>
+<li>电池相关事件的历史记录</li>
+<li>设备的全局统计数据</li>
+<li>每个 UID 和系统组件的近似耗电情况</li>
+<li>每个应用的每数据包移动 ms</li>
+<li>系统 UID 汇总统计数据</li>
+<li>应用 UID 汇总统计数据</li>
+</ul>
+<p>可使用 –help 选项来了解各种输出定制选项的相关信息。例如，要打印设备上次充电后某个给定应用软件包的电池使用情况统计信息，请运行以下命令：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell dumpsys batterystats --charged &lt;package-name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>您可以使用<a href="https://github.com/google/battery-historian" target="_blank" rel="noopener">电池耗电历史</a>工具对 dumpsys 命令输出的数据进行处理，根据日志生成用电相关事件的 HTML 可视化形式。这些信息可方便您了解和诊断任何电池相关问题。</p>
+<h1 id="工作场所和教育领域中的-Android"><a href="#工作场所和教育领域中的-Android" class="headerlink" title="工作场所和教育领域中的 Android"></a>工作场所和教育领域中的 Android</h1><hr>
+<h2 id="托管配置"><a href="#托管配置" class="headerlink" title="托管配置"></a>托管配置</h2><p>Android 5.0 提供了用于在企业环境内运行应用的新功能。如果用户已有个人帐户，则设备管理员可启动托管配置进程，向设备添加共存但独立的托管配置文件。与托管配置文件关联的应用与非托管应用一并出现在用户的启动器、最近使用的应用屏幕和通知中。</p>
+<p>要启动托管配置进程，请通过 <code>Intent</code> 发送 <code>ACTION_PROVISION_MANAGED_PROFILE</code>。如果调用成功，系统会触发 <code>onProfileProvisioningComplete()</code> 回调。然后您就可以调用 <code>setProfileEnabled()</code> 来启用此托管配置文件。</p>
+<p>默认情况下，托管配置文件中只启用了一小部分应用。您可以通过调用 <code>enableSystemApp()</code> 在托管配置文件中安装更多应用。</p>
+<p>如果您要开发启动器应用，可以使用新增的 <code>LauncherApps</code> 类获取可为当前用户启动的 Activity 以及任何关联托管配置文件的列表。您的启动器可通过向可绘制图标追加工作徽章，以醒目方式显示托管应用。要检索带徽章的图标，请调用 <code>getUserBadgedIcon()</code>。</p>
+<p>要查看如何使用新功能，请参阅此版本中的 <strong>BasicManagedProfile</strong> 实现示例。</p>
+<h2 id="设备所有者"><a href="#设备所有者" class="headerlink" title="设备所有者"></a>设备所有者</h2><p>Android 5.0 引入了部署设备所有者应用的功能。设备所有者是一种专业化类型的设备管理员，额外拥有在设备上创建和移除二级用户以及配置全局设置的能力。您的设备所有者应用可以使用 <code>DevicePolicyManager</code> 类中的方法对托管设备上的配置、安全性和应用进行精细控制。一台设备在同一时间只能有一名活动的设备所有者。</p>
+<p>要部署和激活设备所有者，您必须在设备处于未配置状态时执行从编程应用到设备的 NFC 数据传送。此数据传送发送的信息与托管配置中所述配置 intent 中发送的信息相同。</p>
+<h2 id="固定屏幕"><a href="#固定屏幕" class="headerlink" title="固定屏幕"></a>固定屏幕</h2><p>Android 5.0 引入了一个全新的固定屏幕 API，可让您暂时限制用户离开您的任务或被通知打断。举例来说，如果您要开发一款教育应用来支持 Android 上的高风险评估要求，或者您要开发单一用途或信息亭模式下的应用，便可使用此 API。您的应用激活固定屏幕后，在其退出该模式前，用户将无法看到通知，无法访问其他应用，也无法返回主屏幕。</p>
+<p>激活固定屏幕的方式有两种：</p>
+<ul>
+<li><strong>手动方式：</strong>用户可以在 <em>Settings &gt; Security &gt; Screen Pinning</em> 中启用固定屏幕，然后通过触摸最近使用的应用屏幕中的绿色大头针图标选择其想固定的任务。</li>
+<li><strong>编程方式：</strong>要以编程方式激活固定屏幕，请在您的应用内调用 <code>startLockTask()</code>。如果请求应用不是设备所有者，系统会提示用户进行确认。设备所有者应用可以调用 <code>setLockTaskPackages()</code> 方法，无需执行用户确认步骤便可使应用变为可固定应用。</li>
+</ul>
+<p>激活任务锁定时，会发生以下行为：</p>
+<ul>
+<li>状态栏空白，并隐藏用户通知和状态信息。</li>
+<li>“主屏幕”按钮和“最近用过的应用”按钮处于隐藏状态。</li>
+<li>其他应用无法启动新 Activity</li>
+<li>当前应用可以启动新 Activity，前提是这样做不会创建新任务。</li>
+<li>当设备所有者调用固定屏幕时，用户将一直锁定于您的应用，直至应用调用 stopLockTask()。</li>
+<li>如果固定屏幕是由并非设备所有者的其他应用启动的 Activity，或者是由用户直接启动，则用户可通过同时按住“Back”按钮和“Recent”按钮退出。<h1 id="打印框架"><a href="#打印框架" class="headerlink" title="打印框架"></a>打印框架</h1></li>
+</ul>
+<hr>
+<p>##将 PDF 渲染成位图<br>您现在可以利用新增的 <code>PdfRenderer</code> 类，将 PDF 文档页面渲染成位图图像后进行打印。您必须指定一个可查找（即内容可随机访问的） <code>ParcelFileDescriptor</code>，系统会在其上写入可打印内容。您的应用可通过 <code>openPage()</code> 获得要渲染的页面，然后调用 <code>render()</code> 将打开的 <code>PdfRenderer.Page</code> 转换成位图。如果您只想将文档的一部分转换成位图图像（例如，为了实现平铺渲染以便放大文档），还可以设置其他参数。</p>
+<p>要查看新 API 使用方法的示例，请参阅 <strong>PdfRendererBasic</strong> 示例。</p>
+<h1 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h1><hr>
+<h2 id="应用使用情况统计信息"><a href="#应用使用情况统计信息" class="headerlink" title="应用使用情况统计信息"></a>应用使用情况统计信息</h2><p>现在可以利用新增的 <code>android.app.usage</code> API 访问 Android 设备上的应用使用历史记录。此 API 提供比已弃用的 <code>getRecentTasks()</code> 方法更为详细的使用信息。要使用此 API，您必须先在清单中声明 <strong>“android.permission.PACKAGE_USAGE_STATS”</strong> 权限。用户还必须通过 <em>Settings &gt; Security &gt; Apps</em> 为该应用启用访问使用情况的权限。</p>
+<p>系统以应用为单位收集使用数据，按天、周、月和年汇总数据。系统保留这些数据的最长持续时间如下：</p>
+<ul>
+<li>每日数据：7 天</li>
+<li>每周数据：4 周</li>
+<li>每月数据：6 个月</li>
+<li>每年数据：2 年</li>
+</ul>
+<p>系统会为每个应用记录以下数据：</p>
+<ul>
+<li>最后一次使用应用的时间</li>
+<li>在该时间间隔（以天、周、月或年为单位）内应用位于前台的总时长</li>
+<li>一天之中当组件（以软件包和 Activity 名称标识）转入前台或后台时记录的时间戳</li>
+<li>设备配置发生变化（如设备屏幕方向因旋转而发生变化）时记录的时间戳</li>
+</ul>
+<h1 id="测试与辅助工具"><a href="#测试与辅助工具" class="headerlink" title="测试与辅助工具"></a>测试与辅助工具</h1><hr>
+<h2 id="测试与辅助工具改进"><a href="#测试与辅助工具改进" class="headerlink" title="测试与辅助工具改进"></a>测试与辅助工具改进</h2><p>Android 5.0 添加了以下测试与无障碍功能支持：</p>
+<ul>
+<li>新增的 <code>getWindowAnimationFrameStats()</code>和 <code>getWindowContentFrameStats()</code>方法可采集窗口动画和内容的帧统计信息。这些方法让您可以编写仪器测试，以评估应用渲染帧时的刷新频率是否足以提供流畅的用户体验。</li>
+<li>新增的 <code>executeShellCommand()</code> 方法让您可以在仪器测试中执行 shell 命令。命令的执行方式与从已连接到设备的主机运行 <strong>adb shell</strong> 类似，允许您使用 <strong>dumpsys</strong>、<strong>am</strong>、<strong>content</strong> 和 <strong>pm</strong> 等基于 shell 的工具。</li>
+<li>使用无障碍功能 API 的无障碍服务和测试工具（如 UiAutomator）现在可以检索视力健全的用户可与之交互的屏幕上各窗口属性的相关详细信息。要检索 <code>AccessibilityWindowInfo</code> 对象列表，请调用新增的 <code>getWindows()</code> 方法。</li>
+<li>新增的 <code>AccessibilityNodeInfo.AccessibilityAction</code> 类允许您定义要在 <code>AccessibilityNodeInfo</code> 上执行的标准或自定义操作。新增的 <code>AccessibilityNodeInfo.AccessibilityAction</code> 类取代了以前在 <code>AccessibilityNodeInfo</code> 中提供的与操作有关的 API。</li>
+<li>Android 5.0 可对您应用内的文本语音转换合成进行更精细的控制。新增的 Voice 类允许您的应用使用关联了特定语言区域、质量和延时评级以及文本语音转换引擎专属参数的语音配置文件。</li>
+</ul>
+<h1 id="IME"><a href="#IME" class="headerlink" title="IME"></a>IME</h1><hr>
+<h2 id="更方便的输入语言切换"><a href="#更方便的输入语言切换" class="headerlink" title="更方便的输入语言切换"></a>更方便的输入语言切换</h2><p>从 Android 5.0 开始，用户可以更方便地在平台支持的所有输入法编辑器 (IME) 之间切换。执行指定的切换操作（通常是触摸软键盘上的地球图标）可在所有此类 IME 中循环切换。此行为变更是由 shouldOfferSwitchingToNextInputMethod() 方法实现的。</p>
+<p>此外，框架现在会检查下一个 IME 是否具有切换机制（并进而检查该 IME 是否支持切换到其后的 IME）。具有切换机制的 IME 将不会循环切换到不具有该机制的 IME。此行为变更是由 switchToNextInputMethod() 方法实现的。</p>
+<p>要查看如何使用更新后的 IME 切换 API 的示例，请参阅此版本中更新后的软键盘实现示例。要详细了解如何实现 IME 切换，请参阅创建输入法。</p>
+<h1 id="清单声明"><a href="#清单声明" class="headerlink" title="清单声明"></a>清单声明</h1><hr>
+<h2 id="可声明的必备功能"><a href="#可声明的必备功能" class="headerlink" title="可声明的必备功能"></a>可声明的必备功能</h2><p>现在支持在 <code>&lt;uses-feature&gt;</code> 元素中使用以下值，以便您确保只在提供应用所需功能的设备上安装您的应用。</p>
+<ul>
+<li><code>FEATURE_AUDIO_OUTPUT</code></li>
+<li><code>FEATURE_CAMERA_CAPABILITY_MANUAL_POST_PROCESSING</code></li>
+<li><code>FEATURE_CAMERA_CAPABILITY_MANUAL_SENSOR</code></li>
+<li><code>FEATURE_CAMERA_CAPABILITY_RAW</code></li>
+<li><code>FEATURE_CAMERA_LEVEL_FULL</code></li>
+<li><code>FEATURE_GAMEPAD</code></li>
+<li><code>FEATURE_LIVE_TV</code></li>
+<li><code>FEATURE_MANAGED_USERS</code></li>
+<li><code>FEATURE_LEANBACK</code></li>
+<li><code>FEATURE_OPENGLES_EXTENSION_PACK</code></li>
+<li><code>FEATURE_SECURELY_REMOVES_USERS</code></li>
+<li><code>FEATURE_SENSOR_AMBIENT_TEMPERATURE</code></li>
+<li><code>FEATURE_SENSOR_HEART_RATE_ECG</code></li>
+<li><code>FEATURE_SENSOR_RELATIVE_HUMIDITY</code></li>
+<li><code>FEATURE_VERIFIED_BOOT</code></li>
+<li><code>FEATURE_WEBVIEW</code><h2 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h2>现在，<code>&lt;uses-permission&gt;</code> 元素中支持以下权限，以声明您的应用访问特定 API 所需的权限。</li>
+</ul>
+<p><code>BIND_DREAM_SERVICE</code>：如果针对的是 API 级别 21 及更高级别，则互动屏保服务必须获得该权限才能确保只有系统可与其绑定。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-30T14:14:04.299Z" itemprop="dateUpdated">2018-03-30 22:14:04</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/08/23/android-5-0/" target="_blank" rel="external">http://yoursite.com/2015/08/23/android-5-0/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="马建">
+            马建
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid/">Anroid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid5-0/">Anroid5.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/08/23/android-5-0/&title=《Android5.0 API 概述》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/08/23/android-5-0/&title=《Android5.0 API 概述》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/08/23/android-5-0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android5.0 API 概述》 — 随手记&url=http://yoursite.com/2015/08/23/android-5-0/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/08/23/android-5-0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2015/08/27/android-5-0-changes/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android5.0 变更</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>马建 &copy; 2015 - 2018</span>
+            <span>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/08/23/android-5-0/&title=《Android5.0 API 概述》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/08/23/android-5-0/&title=《Android5.0 API 概述》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/08/23/android-5-0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android5.0 API 概述》 — 随手记&url=http://yoursite.com/2015/08/23/android-5-0/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/08/23/android-5-0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3a0U6DIQwG0L3/S8/EKxMd+9puZj8crhZFxuGitpTbLR737/Hz8+8xmfl7/u0dAwMD47KM+3I8mvNoK+v58+99uCYGBsYBjDzIrn+yXnM9s3pMGBgYGMkW15vIQ3AvoGNgYGD0wmIemuepJwYGxmmM3iXaeule+vj2WhwDA+OCjF5j4H8+v72/gYGB8fGMe3G84+KsGmT/2BUGBsbWjFcVkHm6Nn8VUshwMTAwtmBMLvEnM6urPTlQDAyMYxi9dDCPeNWWZ+HCDgMDY2tGctWVtwqqV/nVpmbU38DAwNiakTcIq7+ttkirq2FgYJzM6D3/SorbJJQnwRoDA+M0Rq9MnZes1e+KilgMDIxNGevAV031qtQkpI4eW2BgYGzByJ9E5ElbDssfk5X/b2BgYFycMblcyy/L8oDeK4MxMDBOY+TtxhxTfVpRbp1iYGBszciXqCZ5kwbnqPGJgYFxDOPjkr/8sDAwMA5jJJj8r/IkctL+xMDA2I8xb0D2Usk81YuKXgwMjCMZ1WIyD5G9MvjJAWFgYGzNqCZn84u5vFhNwn1EwsDAuDjjXhzVE8qfpY4SRwwMjK0Zk/wqv8mrNgbyrWNgYJzDyJ819IJg76lZoaeBgYFxDKPavFynei944FVsKmBgYGBMgmavIdpMDTEwMDCKZedkZvlYMTAwDmDkRWweOnupZK/MxsDA2JvxqsbApPPQe9hxqw4MDIzrMb4AV3Md82POKoIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '瞎！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

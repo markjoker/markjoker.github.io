@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android5.0 变更 | 随手记 | 不积跬步无以至千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#03a9f4">
+    
+    
+    <meta name="keywords" content="Anroid,Lollipop,Anroid5.0,Android Developers">
+    <meta name="description" content="Android Runtime (ART) 在 Android 5.0 中，ART 运行时取代 Dalvik 成为平台默认设置。Android 4.4 中已引入处于实验阶段的 ART 运行时。 有关 ART 的新功能概述，请参阅 ART 简介部分主要的新功能包括：  预先 (AOT) 编译 改进的垃圾回收 (GC) 改进的调试支持  大多数 Android 应用无需任何更改就可以在 ART 下工作">
+<meta name="keywords" content="Anroid,Lollipop,Anroid5.0,Android Developers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android5.0 变更">
+<meta property="og:url" content="http://yoursite.com/2015/08/27/android-5-0-changes/index.html">
+<meta property="og:site_name" content="随手记">
+<meta property="og:description" content="Android Runtime (ART) 在 Android 5.0 中，ART 运行时取代 Dalvik 成为平台默认设置。Android 4.4 中已引入处于实验阶段的 ART 运行时。 有关 ART 的新功能概述，请参阅 ART 简介部分主要的新功能包括：  预先 (AOT) 编译 改进的垃圾回收 (GC) 改进的调试支持  大多数 Android 应用无需任何更改就可以在 ART 下工作">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-30T14:32:27.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android5.0 变更">
+<meta name="twitter:description" content="Android Runtime (ART) 在 Android 5.0 中，ART 运行时取代 Dalvik 成为平台默认设置。Android 4.4 中已引入处于实验阶段的 ART 运行时。 有关 ART 的新功能概述，请参阅 ART 简介部分主要的新功能包括：  预先 (AOT) 编译 改进的垃圾回收 (GC) 改进的调试支持  大多数 Android 应用无需任何更改就可以在 ART 下工作">
+    
+        <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">马建</h5>
+          <a href="mailto:markjoker@126.com" title="markjoker@126.com" class="mail">markjoker@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/cv"  >
+                <i class="icon icon-lg icon-file"></i>
+                简历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android5.0 变更</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android5.0 变更</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-27T11:55:06.000Z" itemprop="datePublished" class="page-time">
+  2015-08-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-Runtime-ART"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android Runtime (ART)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通知"><span class="post-toc-number">2.</span> <span class="post-toc-text">通知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Material-Design-样式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Material Design 样式</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#声音和振动"><span class="post-toc-number">3.</span> <span class="post-toc-text">声音和振动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#锁定屏幕可见性"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">锁定屏幕可见性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#媒体播放"><span class="post-toc-number">4.</span> <span class="post-toc-text">媒体播放</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浮动通知"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">浮动通知</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#媒体控件和-RemoteControlClient"><span class="post-toc-number">5.</span> <span class="post-toc-text">媒体控件和 RemoteControlClient</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#getRecentTasks"><span class="post-toc-number">6.</span> <span class="post-toc-text">getRecentTasks()</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-NDK-中的-64-位支持"><span class="post-toc-number">7.</span> <span class="post-toc-text">Android NDK 中的 64 位支持</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#绑定到服务"><span class="post-toc-number">8.</span> <span class="post-toc-text">绑定到服务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#WebView"><span class="post-toc-number">9.</span> <span class="post-toc-text">WebView</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自定义权限唯一性要求"><span class="post-toc-number">10.</span> <span class="post-toc-text">自定义权限唯一性要求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用重复的自定义权限的应用"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">使用重复的自定义权限的应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#您的应用需要注意的事项"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">您的应用需要注意的事项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新安装和更新"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">新安装和更新</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-Android-5-0-系统更新的现有安装"><span class="post-toc-number">10.4.</span> <span class="post-toc-text">使用 Android 5.0 系统更新的现有安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#建议"><span class="post-toc-number">10.5.</span> <span class="post-toc-text">建议</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TLS-SSL-默认配置变更"><span class="post-toc-number">11.</span> <span class="post-toc-text">TLS/SSL 默认配置变更</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器不支持任何已启用的加密套件"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">服务器不支持任何已启用的加密套件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用对用于连接服务器的加密套件做出错误的假设"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">应用对用于连接服务器的加密套件做出错误的假设</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器不支持-TLSv1-1、TLSv1-2-或新的-TLS-扩展"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">服务器不支持 TLSv1.1、TLSv1.2 或新的 TLS 扩展</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#支持托管配置文件"><span class="post-toc-number">12.</span> <span class="post-toc-text">支持托管配置文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理-Intent"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">处理 Intent</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在各个配置文件中共享文件"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">在各个配置文件中共享文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#已移除锁定屏幕小部件支持"><span class="post-toc-number">12.3.</span> <span class="post-toc-text">已移除锁定屏幕小部件支持</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-android-5-0-changes"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android5.0 变更</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-27 19:55:06" datetime="2015-08-27T11:55:06.000Z"  itemprop="datePublished">2015-08-27</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android-Runtime-ART"><a href="#Android-Runtime-ART" class="headerlink" title="Android Runtime (ART)"></a>Android Runtime (ART)</h1><hr>
+<p>在 Android 5.0 中，ART 运行时取代 Dalvik 成为平台默认设置。Android 4.4 中已引入处于实验阶段的 ART 运行时。</p>
+<p>有关 ART 的新功能概述，请参阅 <a href="https://source.android.com/devices/tech/dalvik/art.html" target="_blank" rel="noopener">ART 简介</a>部分主要的新功能包括：</p>
+<ul>
+<li>预先 (AOT) 编译</li>
+<li>改进的垃圾回收 (GC)</li>
+<li>改进的调试支持</li>
+</ul>
+<p>大多数 Android 应用无需任何更改就可以在 ART 下工作。不过，部分适合 Dalvik 的技术并不适用于 ART。如需了解有关最重要问题的信息，请参阅<a href="https://developer.android.com/guide/practices/verifying-apps-art.html" target="_blank" rel="noopener">在 Android Runtime (ART) 上验证应用行为</a>。如存在以下情况，应特别注意：</p>
+<ul>
+<li>您的应用使用 Java 原生接口 (JNI) 运行 C/C++ 代码。</li>
+<li>您使用生成非标准代码的开发工具（例如，一些代码混淆工具）。</li>
+<li>您使用与压缩垃圾回收不兼容的技术。</li>
+</ul>
+<h1 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h1><hr>
+<p>请确保您的通知考虑了上述 Android 5.0 变更。要详细了解如何为 Android 5.0 及更高版本设计通知，请参阅<a href="https://material.google.com/patterns/notifications.html" target="_blank" rel="noopener">通知设计指南</a>。</p>
+<h2 id="Material-Design-样式"><a href="#Material-Design-样式" class="headerlink" title="Material Design 样式"></a>Material Design 样式</h2><p>在白色（或非常浅）的背景上使用深色文本绘制通知，以便与新的 Material Design 小部件匹配。请确保您的所有通知都与新的配色方案协调一致。如果您的通知看上去不协调，请进行修正：</p>
+<ul>
+<li>使用 <code>setColor()</code> 在您的图标图像后面的圆形中设置重点色彩。</li>
+<li>更新或移除使用色彩的资源。系统在操作图标和主要通知图标中忽略所有非阿尔法通道。您应假设这些图标仅支持阿尔法通道。系统用白色绘制通知图标，用深灰色绘制操作图标。</li>
+</ul>
+<h1 id="声音和振动"><a href="#声音和振动" class="headerlink" title="声音和振动"></a>声音和振动</h1><p>如果您当前使用 <code>Ringtone</code>、<code>MediaPlayer</code> 或 <code>Vibrator</code> 类向通知中添加声音和振动，则移除此代码，以便系统可以在“优先”模式中正确显示通知。取而代之的是，使用 <code>Notification.Builder</code> 方法添加声音和振动。</p>
+<p>将设备设为 <code>RINGER_MODE_SILENT</code> 可使设备进入新的优先模式。如果您将设备设为 <code>RINGER_MODE_NORMAL</code> 或 <code>RINGER_MODE_VIBRATE</code>，则设备将退出优先模式。</p>
+<p>以前，Android 使用 <code>STREAM_MUSIC</code> 作为主流式传输来控制平板电脑设备上的音量。在 Android 5.0 中，手机和平板电脑设备的主音量流式传输现已合并，由 <code>STREAM_RING</code> 或 <code>STREAM_NOTIFICATION</code> 进行控制。</p>
+<h2 id="锁定屏幕可见性"><a href="#锁定屏幕可见性" class="headerlink" title="锁定屏幕可见性"></a>锁定屏幕可见性</h2><p>默认情况下，在 Android 5.0 中，通知现在显示在用户的锁定屏幕上。用户可以选择保护敏感信息不被公开，在此情况下，系统会自动删减通知显示的文本。要自定义此删减的通知，请使用 <code>setPublicVersion()</code>。</p>
+<p>如果通知不包含个人信息，或者您想允许媒体播放控件显示在通知上，则调用 <code>setVisibility()</code> 方法并将通知的可见性级别设为 <code>VISIBILITY_PUBLIC</code>。</p>
+<h1 id="媒体播放"><a href="#媒体播放" class="headerlink" title="媒体播放"></a>媒体播放</h1><p>如果您要实现显示媒体播放状态或传输控件的通知，请考虑使用新的 <code>Notification.MediaStyle</code> 模板，而不是自定义 <code>RemoteViews.RemoteView</code> 对象。无论您选择使用哪个方法，请务必将通知的可见性设为 <code>VISIBILITY_PUBLIC</code>，以便可通过锁定屏幕访问您的控件。请注意，从 Android 5.0 开始，系统不再将 <code>RemoteControlClient</code> 对象显示在锁定屏幕上。如需了解详细信息，请参阅如果您的应用使用 <code>RemoteControlClient</code>。</p>
+<h2 id="浮动通知"><a href="#浮动通知" class="headerlink" title="浮动通知"></a>浮动通知</h2><p>现在，当设备处于活动状态时（即，设备未锁定且其屏幕已打开），通知可以显示在小型浮动窗口中（也称为“浮动通知”）。这些通知看上去类似于精简版的通知，只是浮动通知还显示操作按钮。用户可以在不离开当前应用的情况下处理或清除浮动通知。</p>
+<p>可能触发浮动通知的条件示例包括：</p>
+<ul>
+<li>用户的 Activity 处于全屏模式中（应用使用 fullScreenIntent）</li>
+<li>通知具有较高的优先级并使用铃声或振动</li>
+</ul>
+<p>如果您的应用在以上任何情形下实现通知，请确保系统正确显示浮动通知。</p>
+<h1 id="媒体控件和-RemoteControlClient"><a href="#媒体控件和-RemoteControlClient" class="headerlink" title="媒体控件和 RemoteControlClient"></a>媒体控件和 RemoteControlClient</h1><hr>
+<p><code>RemoteControlClient</code> 类现已弃用。请尽快切换到新的 <code>MediaSession</code> API。</p>
+<p>Android 5.0 中的锁定屏幕不会为 <code>MediaSession</code> 或 <code>RemoteControlClient</code> 显示传输控件。不过，您的应用可以通过一个通知从锁定屏幕提供媒体播放控件。这让您的应用可以对媒体按钮的显示进行更多控制，同时为使用锁定设备和未锁定设备的用户提供一致的体验。</p>
+<p>为实现此目的，Android 5.0 引入了一个新的 <code>Notification.MediaStyle</code> 模板。<code>Notification.MediaStyle</code> 将您使用 <code>Notification.Builder.addAction()</code> 添加的通知操作转换为精简按钮，嵌入到应用的媒体播放通知中。将您的会话令牌传递到 <code>setSession()</code> 方法以告知系统该通知控制进行中的媒体会话。</p>
+<p>请务必将通知的可见性设为 <code>VISIBILITY_PUBLIC</code>，以将通知标记为安全，从而显示在任何锁定屏幕上（以安全方式或其他方式）。如需了解详细信息，请参阅锁定屏幕通知。</p>
+<p>要让应用在 Android TV 或 Wear 平台上运行时显示媒体播放控件，则实现 MediaSession 类。如果您的应用需要在 Android 设备上接收媒体按钮事件，您还应实现 MediaSession。</p>
+<h1 id="getRecentTasks"><a href="#getRecentTasks" class="headerlink" title="getRecentTasks()"></a>getRecentTasks()</h1><hr>
+<p>Android 5.0 中引入新的“并发文档和 Activity 任务”功能后（请参阅下文<a href="https://developer.android.com/about/versions/android-5.0-changes.html#Recents" target="_blank" rel="noopener">最近使用的应用屏幕中的并发文档和 Activity</a>），为提升用户隐私的安全性，现已弃用 <code>ActivityManager.getRecentTasks()</code> 方法。对于向后兼容性，此方法仍会返回它的一小部分数据，包括调用应用自己的任务和可能的一些其他非敏感任务（如首页）。如果您的应用使用此方法检索它自己的任务，则改用 <code>getAppTasks()</code> 检索该信息。</p>
+<h1 id="Android-NDK-中的-64-位支持"><a href="#Android-NDK-中的-64-位支持" class="headerlink" title="Android NDK 中的 64 位支持"></a>Android NDK 中的 64 位支持</h1><hr>
+<p>Android 5.0 引入了对 64 位系统的支持。64 位增强功能可增加地址空间和提升性能，同时仍完全支持现有的 32 位应用。64 位支持也可改进用于加密的 OpenSSL 的性能。此外，该版本还引入了新的原生媒体 NDK API，以及原生 OpenGL ES (GLES) 3.1 支持。</p>
+<p>要使用 Android 5.0 中提供的 64 位支持，请从 Android NDK 页面下载和安装 NDK Revision 10c。有关对 NDK 进行的重要变更和问题修复的更多信息，请参阅 Revision 10c 版本说明。</p>
+<h1 id="绑定到服务"><a href="#绑定到服务" class="headerlink" title="绑定到服务"></a>绑定到服务</h1><hr>
+<p><code>Context.bindService()</code> 方法现在需要显式 <code>Intent</code>，如果提供隐式 intent，将引发异常。为确保应用的安全性，请使用显式 intent 启动或绑定 <code>Service</code>，且不要为服务声明 intent 过滤器。</p>
+<h1 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h1><hr>
+<p>Android 5.0 更改了应用的默认行为。</p>
+<ul>
+<li>如果您的应用是面向 API 级别 21 或更高级别：<ul>
+<li>默认情况下，系统会阻止混合内容和第三方 Cookie。要允许混合内容和第三方 Cookie，请分别使用 <code>setMixedContentMode()</code> 和 <code>setAcceptThirdPartyCookies()</code> 方法。</li>
+<li>系统现在可以智能地选择要绘制的 HTML 文档部分。这个新的默认行为有助于减少内存占用和提升性能。如果您要一次渲染整个文档，可通过调用 <code>enableSlowWholeDocumentDraw()</code> 停用此优化。</li>
+</ul>
+</li>
+<li>如果您的应用是面向低于 21 的 API 级别：系统允许混合内容和第三方 Cookie，并始终一次渲染整个文档。</li>
+</ul>
+<h1 id="自定义权限唯一性要求"><a href="#自定义权限唯一性要求" class="headerlink" title="自定义权限唯一性要求"></a>自定义权限唯一性要求</h1><hr>
+<p>根据权限概述中所述，Android 应用可以定义以专有方式管理组件访问权限的自定义权限，无需使用平台预定义的系统权限。应用在其清单文件中声明的 <code>&lt;permission&gt;</code> 元素中定义自定义权限。</p>
+<p>少数情况下定义自定义权限是合规且安全的方法。不过，创建自定义权限有时并无必要，甚至可能会给应用带来潜在风险，具体取决于分配给权限的保护级别。</p>
+<p>Android 5.0 其中一项行为变更确保只有一个应用可以定义给定自定义权限，除非使用与定义权限的其他应用相同的密钥进行签名。</p>
+<h2 id="使用重复的自定义权限的应用"><a href="#使用重复的自定义权限的应用" class="headerlink" title="使用重复的自定义权限的应用"></a>使用重复的自定义权限的应用</h2><p>任何应用都可以定义它需要的任何自定义权限，因此，可能会出现多个应用定义相同的自定义权限的情况。例如，如果两个应用提供相似的功能，它们可能会为其自定义权限派生出相同的逻辑名称。应用可能还纳入了本身包含相同自定义权限定义的通用公共库或代码示例。</p>
+<p>在 Android 4.4 和更早的版本中，用户可以在给定设备上安装多个此类应用，不过系统会分配由第一个安装的应用指定的保护级别。</p>
+<p>从 Android 5.0 开始，对于使用不同密钥签名的应用，系统会强制执行新的自定义权限唯一性限制。现在，设备上只有一个应用可以定义给定的自定义权限（按其名称确定），除非定义此权限的其他应用使用相同密钥签名。如果用户尝试安装的应用具有重复自定义权限且签名密钥不同于定义此权限的驻留应用，则系统将阻止安装。</p>
+<h2 id="您的应用需要注意的事项"><a href="#您的应用需要注意的事项" class="headerlink" title="您的应用需要注意的事项"></a>您的应用需要注意的事项</h2><p>在 Android 5.0 和更新的版本中，应用可以和以前一样继续定义自己的自定义权限，并通过 <code>&lt;uses-permission&gt;</code> 机制请求其他应用的自定义权限。不过，对于 Android 5.0 中引入的新要求，您应仔细评估可能给您的应用带来的影响。</p>
+<p>下面是一些需要考虑的因素：</p>
+<ul>
+<li>您的应用是否在其清单文件中声明任何 <code>&lt;permission&gt;</code> 元素？如果是，那么这些权限是否确实是您的应用或服务正常运行不可或缺的？或者，能否使用系统默认权限代替它们？</li>
+<li>如果您的应用中具有 <code>&lt;permission&gt;</code> 元素，您是否知道它们来自哪里？</li>
+<li>您实际上是否打算让其他应用通过 <code>&lt;uses-permission&gt;</code> 请求您的自定义权限？</li>
+<li>您是否在您包含 <code>&lt;permission&gt;</code> 元素的应用中使用样板文件或示例代码？那些权限元素确实是不可或缺的吗？</li>
+<li>您的自定义权限使用的名称是简单名称还是基于其他应用可能共享的通用术语？</li>
+</ul>
+<h2 id="新安装和更新"><a href="#新安装和更新" class="headerlink" title="新安装和更新"></a>新安装和更新</h2><p>如上所述，在运行 Android 4.4 或更早版本的设备上新安装和更新您的应用不会受影响，且行为没有任何变化。在运行 Android 5.0 或更新版本的设备上进行新安装和更新时，如果应用定义一个已由现有驻留应用定义的自定义权限，则系统会阻止安装您的应用。</p>
+<h2 id="使用-Android-5-0-系统更新的现有安装"><a href="#使用-Android-5-0-系统更新的现有安装" class="headerlink" title="使用 Android 5.0 系统更新的现有安装"></a>使用 Android 5.0 系统更新的现有安装</h2><p>如果您的应用使用自定义更新且已广泛分发和安装，那么，当用户收到将设备升级到 Android 5.0 的更新时，您的应用可能会受影响。在安装系统更新后，系统重新验证已安装的应用，包括检查它们的自定义权限。如果您的应用定义一个已由另一个通过验证的应用定义的自定义权限，且您的应用没有使用与该应用相同的密钥签名，则系统不会重新安装您的应用。</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><p>在运行 Android 5.0 或更新版本的设备上，我们建议您立即检查您的应用，进行任何所需的调整，并尽快向您的用户发布更新版本。</p>
+<ul>
+<li>如果您在应用中使用自定义权限，则考虑它们的来源以及您是否确实需要它们。从您的应用中移除所有 <code>&lt;permission&gt;</code> 元素，除非您确定它们是应用正常运行所必需的元素。</li>
+<li>尽可能考虑使用系统默认权限替代您的自定义权限。</li>
+<li>如果您的应用需要自定义权限，则重命名您的自定义权限，使其成为您的应用独有的权限，例如，将它们追加到应用的完整软件包名称。</li>
+<li>如果您有一组使用不同密钥签名的应用，且这些应用通过自定义权限访问共享组件，则确保此自定义权限在共享组件中仅定义一次。使用共享组件的应用不应自己定义自定义权限，而应通过 <code>&lt;uses-permission&gt;</code> 机制请求访问权限。</li>
+<li>如果您有一组使用相同密钥签名的应用，则每个应用都可以根据需要定义相同的 自定义权限， 系统允许以常规方式安装这些应用。</li>
+</ul>
+<h1 id="TLS-SSL-默认配置变更"><a href="#TLS-SSL-默认配置变更" class="headerlink" title="TLS/SSL 默认配置变更"></a>TLS/SSL 默认配置变更</h1><p>Android 5.0 针对 HTTPS 和其他 TLS/SSL 通信引入了对应用使用的默认 TLS/SSL 配置的变更：</p>
+<ul>
+<li>TLSv1.2 和 TLSv1.1 协议现已启用，</li>
+<li>AES-GCM (AEAD) 加密套件现已启用，</li>
+<li>MD5、3DES、导出和静态密钥 ECDH 加密套件现已停用，</li>
+<li>首选使用 Forward Secrecy 加密套件（ECDHE 和 DHE）。</li>
+</ul>
+<p>在下面列出的少数情况下，这些变更可能会导致 HTTPS 或 TLS/SSL 连接断开。</p>
+<p>请注意，来自 Google Play 服务的安全性 ProviderInstaller 自 Android 2.3 开始就已在 Android 平台版本上提供这些变更。</p>
+<h2 id="服务器不支持任何已启用的加密套件"><a href="#服务器不支持任何已启用的加密套件" class="headerlink" title="服务器不支持任何已启用的加密套件"></a>服务器不支持任何已启用的加密套件</h2><p>例如，服务器可能仅支持 3DES 或 MD5 加密套件。首选的修复方法是改进服务器的配置，以启用更强更现代的加密套件和协议。理想情况下，应启用 TLSv1.2 和 AES-GCM 以及 Forward Secrecy 加密套件（ECDHE、DHE），且最好使用后者。</p>
+<p>也可以修改应用以使用自定义 SSLSocketFactory 与服务器通信。出厂时应精心设计以创建 SSLSocket 实例，除默认加密套件外，此实例还应启用服务器所需的部分加密套件。</p>
+<h2 id="应用对用于连接服务器的加密套件做出错误的假设"><a href="#应用对用于连接服务器的加密套件做出错误的假设" class="headerlink" title="应用对用于连接服务器的加密套件做出错误的假设"></a>应用对用于连接服务器的加密套件做出错误的假设</h2><p>例如，某些应用包含中断的自定义 X509TrustManager，因为它预计 authType 参数将成为 RSA，但出现了 ECDHE_RSA 或 DHE_RSA。</p>
+<h2 id="服务器不支持-TLSv1-1、TLSv1-2-或新的-TLS-扩展"><a href="#服务器不支持-TLSv1-1、TLSv1-2-或新的-TLS-扩展" class="headerlink" title="服务器不支持 TLSv1.1、TLSv1.2 或新的 TLS 扩展"></a>服务器不支持 TLSv1.1、TLSv1.2 或新的 TLS 扩展</h2><p>例如，与服务器握手的 TLS/SSL 被错误地拒绝或出现停顿。首选的修复方法是升级服务器以符合 TLS/SSL 协议。这使服务器可以成功地协商这些更新的协议或协商 TLSv1 或更早的协议，并忽略它不理解的传输层安全协议扩展程序。在某些情况下，在服务器上禁用 TLSv1.1 和 TLSv1.2 可以作为权宜之计，直到升级服务器软件。</p>
+<p>也可以修改应用以使用自定义 SSLSocketFactory 与服务器通信。出厂时应精心设计以创建 SSLSocket 实例，该实例仅包含已启用且服务器可以正确为其提供支持的协议。</p>
+<h1 id="支持托管配置文件"><a href="#支持托管配置文件" class="headerlink" title="支持托管配置文件"></a>支持托管配置文件</h1><hr>
+<p>设备管理员可以向设备添加托管配置文件。此配置文件由管理员所有，让管理员控制托管配置文件的同时，允许由用户控制其自己的个人配置文件及其存储空间。此变更会通过下列方式影响您的现有应用的行为。</p>
+<h2 id="处理-Intent"><a href="#处理-Intent" class="headerlink" title="处理 Intent"></a>处理 Intent</h2><p>设备管理员可以从托管配置文件限制对系统应用的访问权限。在此情况下，如果应用从托管文件触发一个通常由该应用处理的 intent，且托管文件上没有适合此 intent 的处理程序，则此 intent 会引发异常。例如，设备管理员可以限制托管配置文件上的应用访问系统的相机应用。如果您的应用在托管配置文件上运行，并为 <code>MediaStore.ACTION_IMAGE_CAPTURE</code> 调用 <code>startActivityForResult()</code>，且托管配置文件上没有可以处理此 intent 的应用，则会导致 <code>ActivityNotFoundException</code>。</p>
+<p>为防止出现此情况，您可以在触发任何 intent 之前检查是否至少有一个适合此 intent 的处理程序。要检查是否存在有效的处理程序，请调用 <code>Intent.resolveActivity()</code>。您可以在<a href="https://developer.android.com/training/camera/photobasics.html#TaskCaptureIntent" target="_blank" rel="noopener">轻松拍照：使用相机应用拍摄照片</a>中查看执行上述操作的示例。</p>
+<h2 id="在各个配置文件中共享文件"><a href="#在各个配置文件中共享文件" class="headerlink" title="在各个配置文件中共享文件"></a>在各个配置文件中共享文件</h2><p>每个配置文件都有自己的文件存储空间。文件 URI 指的是文件存储空间中的特定位置，这意味着在一个配置文件上有效的文件 URI 在另一个文件上是无效的。对于只访问自己创建的文件的应用而言，这通常不是什么问题。不过，如果应用向某个 intent 附加文件，则附加文件 URI 并不安全，因为在某些情况下，可能会在其他配置文件上处理该 intent。例如，设备管理员可能会指定图像采集事件应由个人配置文件上的相机应用处理。如果此 intent 由托管配置文件上的应用触发，则相机需要能够将图像写入托管配置文件的应用可以读取的位置。</p>
+<p>为安全起见，如果您需要将文件附加到某个可能会从一个配置文件移动到另一个配置文件的 intent，您应为该文件创建并使用内容 URI。有关共享文件及内容 URI 的更多信息，请参阅<a href="https://developer.android.com/training/secure-file-sharing/index.html" target="_blank" rel="noopener">共享文件</a>。例如，设备管理员可能会制定将由个人配置文件中的相机处理的 ACTION_IMAGE_CAPTURE 白名单。触发的 intent 的 EXTRA_OUTPUT 应包含指定照片应存储在何处的内容 URI。相机应用可以将图像写入该 URI 指定的位置，触发 intent 的应用将能够读取该文件，即使应用位于其他配置文件上。</p>
+<h2 id="已移除锁定屏幕小部件支持"><a href="#已移除锁定屏幕小部件支持" class="headerlink" title="已移除锁定屏幕小部件支持"></a>已移除锁定屏幕小部件支持</h2><p>Android 5.0 移除了对锁定屏幕小部件的支持；它继续为主屏幕上的小组件提供支持。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-30T14:32:27.686Z" itemprop="dateUpdated">2018-03-30 22:32:27</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2015/08/27/android-5-0-changes/" target="_blank" rel="external">http://yoursite.com/2015/08/27/android-5-0-changes/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="马建">
+            马建
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid/">Anroid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid5-0/">Anroid5.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/08/27/android-5-0-changes/&title=《Android5.0 变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/08/27/android-5-0-changes/&title=《Android5.0 变更》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/08/27/android-5-0-changes/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android5.0 变更》 — 随手记&url=http://yoursite.com/2015/08/27/android-5-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/08/27/android-5-0-changes/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/04/30/android-6-0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 6.0 API 概述</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2015/08/23/android-5-0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android5.0 API 概述</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>马建 &copy; 2015 - 2018</span>
+            <span>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2015/08/27/android-5-0-changes/&title=《Android5.0 变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2015/08/27/android-5-0-changes/&title=《Android5.0 变更》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/08/27/android-5-0-changes/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android5.0 变更》 — 随手记&url=http://yoursite.com/2015/08/27/android-5-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2015/08/27/android-5-0-changes/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQW6EMAwF0N7/0lTqqlIF821DJZKX1WhgIC8LT2L76ysex8+4vvr7nuNknN1//f1tAwMD47WM43IkjL/3JFO/xuRzw8DA2IeRTyt6aPyc5PvoDwADAwMjDp29O5P3YmBgYFS3esnmcn7SxMDAwKg+urdBrP728bM4BgbGCxnVwsB/fn6wvoGBgfESxlEc+dPmybvCrDAwMJZmnAW4ZJN3HfHyY3C1LeN0QTEwMBZl9Johqvu0yaYwacjAwMDYgZEDqsm1fFMYpf7zkgAGBsZCjCdyWb0WjV6wxsDA2IFRDXlJIJ4AerPCwMDYgZGHvwk4D6/lBjIMDIztGXmArra0VhfoQyUWAwNjUUY1wCUlzzyk5gG6sKAYGBiLMqrNFnlDRq+QUF0gDAyMHRh5ObNXc5g0cORLjIGBsRtjfojNCwDVhF251oGBgbEEI09pTa7mrRv5ojQzcxgYGK9lPHFA7eF7ZQMMDIy1GdVi5F1NY0nhIX87BgbGqoxeqO2l9edlgFGKDQMD4+WMXuGwemSdlB/KNVgMDIyFGPc2W/SOwfmO9cPCYWBgLMo4imOenpsk4E6vYmBgLM2oJt3y8kC1IWOyMcXAwNiB0ZtWcmd5tSbbRwwMjA0YeZDNE2rVN05CMwYGBkb1EJuDq6H/dM4YGBgYreA7D83JURYDA2MfRi9ZP2kjy4NvVBLAwMBYmnHDATIuTFbLDHkZFQMDY1HGN13tLhvnCU/UAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '瞎！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

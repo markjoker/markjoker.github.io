@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android 7.0 行为变更 | 随手记 | 不积跬步无以至千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#03a9f4">
+    
+    
+    <meta name="keywords" content="Anroid,Android Developers,Nougat,Anroid7.0">
+    <meta name="description" content="Android 7.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 如果您之前发布过 Android 应用，请注意您的应用可能受到这些平台变化的影响。 电池和内存 Android 7.0 包括旨在延长设备电池寿命和减少 RAM 使用的系统行为变更。这些变更可能会影响您的应用访问系统资源，以及您的应用通过特定隐式">
+<meta name="keywords" content="Anroid,Android Developers,Nougat,Anroid7.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 7.0 行为变更">
+<meta property="og:url" content="http://yoursite.com/2017/01/10/android-7-0-changes/index.html">
+<meta property="og:site_name" content="随手记">
+<meta property="og:description" content="Android 7.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 如果您之前发布过 Android 应用，请注意您的应用可能受到这些平台变化的影响。 电池和内存 Android 7.0 包括旨在延长设备电池寿命和减少 RAM 使用的系统行为变更。这些变更可能会影响您的应用访问系统资源，以及您的应用通过特定隐式">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2017/01/10/android-7-0-changes/doze-diagram-1.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/10/android-7-0-changes/doze-diagram-2.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/10/android-7-0-changes/screen-zoom-1.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/10/android-7-0-changes/screen-zoom-2.png">
+<meta property="og:updated_time" content="2018-03-30T07:17:43.890Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 7.0 行为变更">
+<meta name="twitter:description" content="Android 7.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。 如果您之前发布过 Android 应用，请注意您的应用可能受到这些平台变化的影响。 电池和内存 Android 7.0 包括旨在延长设备电池寿命和减少 RAM 使用的系统行为变更。这些变更可能会影响您的应用访问系统资源，以及您的应用通过特定隐式">
+<meta name="twitter:image" content="http://yoursite.com/2017/01/10/android-7-0-changes/doze-diagram-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">马建</h5>
+          <a href="mailto:markjoker@126.com" title="markjoker@126.com" class="mail">markjoker@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/cv"  >
+                <i class="icon icon-lg icon-file"></i>
+                简历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android 7.0 行为变更</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android 7.0 行为变更</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-10T07:15:08.000Z" itemprop="datePublished" class="page-time">
+  2017-01-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#电池和内存"><span class="post-toc-number">1.</span> <span class="post-toc-text">电池和内存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#低电耗模式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">低电耗模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Project-Svelte：后台优化"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Project Svelte：后台优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#权限更改"><span class="post-toc-number">2.</span> <span class="post-toc-text">权限更改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统权限更改"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">系统权限更改</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#在应用间共享文件"><span class="post-toc-number">3.</span> <span class="post-toc-text">在应用间共享文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无障碍改进"><span class="post-toc-number">4.</span> <span class="post-toc-text">无障碍改进</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#屏幕缩放"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">屏幕缩放</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#设置向导中的视觉设置"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">设置向导中的视觉设置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NDK-应用链接至平台库"><span class="post-toc-number">5.</span> <span class="post-toc-text">NDK 应用链接至平台库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#检查您的应用是否使用私有库"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">检查您的应用是否使用私有库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新您的应用"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">更新您的应用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android-for-Work"><span class="post-toc-number">6.</span> <span class="post-toc-text">Android for Work</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注解保留"><span class="post-toc-number">7.</span> <span class="post-toc-text">注解保留</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他重要说明"><span class="post-toc-number">8.</span> <span class="post-toc-text">其他重要说明</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-android-7-0-changes"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android 7.0 行为变更</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-10 15:15:08" datetime="2017-01-10T07:15:08.000Z"  itemprop="datePublished">2017-01-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Android 7.0 除了提供诸多新特性和功能外，还对系统和 API 行为做出了各种变更。本文重点介绍您应该了解并在开发应用时加以考虑的一些主要变更。</p>
+<p>如果您之前发布过 Android 应用，请注意您的应用可能受到这些平台变化的影响。</p>
+<h1 id="电池和内存"><a href="#电池和内存" class="headerlink" title="电池和内存"></a>电池和内存</h1><hr>
+<p>Android 7.0 包括旨在延长设备电池寿命和减少 RAM 使用的系统行为变更。这些变更可能会影响您的应用访问系统资源，以及您的应用通过特定隐式 intent 与其他应用交互的方式。</p>
+<h2 id="低电耗模式"><a href="#低电耗模式" class="headerlink" title="低电耗模式"></a>低电耗模式</h2><p>Android 6.0（API 级别 23）引入了低电耗模式，当用户设备未插接电源、处于静止状态且屏幕关闭时，该模式会推迟 CPU 和网络活动，从而延长电池寿命。而 Android 7.0 则通过在设备未插接电源且屏幕关闭状态下、但不一定要处于静止状态（例如用户外出时把手持式设备装在口袋里）时应用部分 CPU 和网络限制，进一步增强了低电耗模式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/01/10/android-7-0-changes/doze-diagram-1.png" alt="dhd" title="">
+                </div>
+                <div class="image-caption">dhd</div>
+            </figure><br>图 1. 低电耗模式如何应用第一级系统活动限制以延长电池寿命的图示。</p>
+<p>当设备处于充电状态且屏幕已关闭一定时间后，设备会进入低电耗模式并应用第一部分限制：关闭应用网络访问、推迟作业和同步。如果进入低电耗模式后设备处于静止状态达到一定时间，系统则会对 <code>PowerManager.WakeLock</code>、<code>AlarmManager</code> 闹铃、GPS 和 WLAN 扫描应用余下的低电耗模式限制。无论是应用部分还是全部低电耗模式限制，系统都会唤醒设备以提供简短的维护时间窗口，在此窗口期间，应用程序可以访问网络并执行任何被推迟的作业/同步。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/01/10/android-7-0-changes/doze-diagram-2.png" alt="dhd" title="">
+                </div>
+                <div class="image-caption">dhd</div>
+            </figure><br>图 2. 低电耗模式如何在设备处于静止状态达到一定时间后应用第二级系统活动限制的图示。</p>
+<p>请注意，激活屏幕或插接设备电源时，系统将退出低电耗模式并移除这些处理限制。此项新增的行为不会影响有关使您的应用适应 Android 6.0（API 级别 23）中所推出的旧版本低电耗模式的建议和最佳做法，如<a href="https://developer.android.com/training/monitoring-device-state/doze-standby.html" target="_blank" rel="noopener">对低电耗模式和应用待机模式进行针对性优化</a>中所讨论。您仍应遵循这些建议（例如使用 Google 云消息传递 (GCM) 发送和接收消息）并开始安排更新计划以适应新增的低电耗模式行为。</p>
+<h2 id="Project-Svelte：后台优化"><a href="#Project-Svelte：后台优化" class="headerlink" title="Project Svelte：后台优化"></a>Project Svelte：后台优化</h2><p>Android 7.0 移除了三项隐式广播，以帮助优化内存使用和电量消耗。此项变更很有必要，因为隐式广播会在后台频繁启动已注册侦听这些广播的应用。删除这些广播可以显著提升设备性能和用户体验。</p>
+<p>移动设备会经历频繁的连接变更，例如在 WLAN 和移动数据之间切换时。目前，可以通过在应用清单中注册一个接收器来侦听隐式 <code>CONNECTIVITY_ACTION</code> 广播，让应用能够监控这些变更。由于很多应用会注册接收此广播，因此单次网络切换即会导致所有应用被唤醒并同时处理此广播。</p>
+<p>同理，在之前版本的 Android 中，应用可以注册接收来自其他应用（例如相机）的隐式 <code>ACTION_NEW_PICTURE</code> 和 <code>ACTION_NEW_VIDEO</code> 广播。当用户使用相机应用拍摄照片时，这些应用即会被唤醒以处理广播。</p>
+<p>为缓解这些问题，Android 7.0 应用了以下优化措施：</p>
+<ul>
+<li>面向 Android 7.0 开发的应用不会收到 <code>CONNECTIVITY_ACTION</code> 广播，即使它们已有清单条目来请求接受这些事件的通知。在前台运行的应用如果使用 <code>BroadcastReceiver</code> 请求接收通知，则仍可以在主线程中侦听 CONNECTIVITY_CHANGE。</li>
+<li>应用无法发送或接收 <code>ACTION_NEW_PICTURE</code> 或 <code>ACTION_NEW_VIDEO</code> 广播。此项优化会影响所有应用，而不仅仅是面向 Android 7.0 的应用。</li>
+</ul>
+<p>如果您的应用使用任何 intent，您仍需要尽快移除它们的依赖关系，以正确适配 Android 7.0 设备。Android 框架提供多个解决方案来缓解对这些隐式广播的需求。例如，<code>JobScheduler</code> API 提供了一个稳健可靠的机制来安排满足指定条件（例如连入无限流量网络）时所执行的网络操作。您甚至可以使用 <code>JobScheduler</code> 来适应内容提供程序变化。</p>
+<p>如需了解有关 Android N 中后台优化以及如何改写应用的详细信息，请参阅<a href="https://developer.android.com/preview/features/background-optimization.html" target="_blank" rel="noopener">后台优化</a>。</p>
+<h1 id="权限更改"><a href="#权限更改" class="headerlink" title="权限更改"></a>权限更改</h1><hr>
+<p>Android 7.0 做了一些权限更改，这些更改可能会影响您的应用。</p>
+<h2 id="系统权限更改"><a href="#系统权限更改" class="headerlink" title="系统权限更改"></a>系统权限更改</h2><p>为了提高私有文件的安全性，面向 Android 7.0 或更高版本的应用私有目录被限制访问　(0700)。此设置可防止私有文件的元数据泄漏，如它们的大小或存在性。此权限更改有多重副作用：</p>
+<ul>
+<li><p>私有文件的文件权限不应再由所有者放宽，为使用 <code>MODE_WORLD_READABLE</code> 和/或 <code>MODE_WORLD_WRITEABLE</code> 而进行的此类尝试将触发 <code>SecurityException</code>。</p>
+<blockquote>
+<p><strong>注：</strong>迄今为止，这种限制尚不能完全执行。应用仍可能使用原生 API 或 File API 来修改它们的私有目录权限。但是，我们强烈反对放宽私有目录的权限。</p>
+</blockquote>
+</li>
+<li><p>传递软件包网域外的 file:// URI 可能给接收器留下无法访问的路径。因此，尝试传递 file:// URI 会触发 <code>FileUriExposedException</code>。分享私有文件内容的推荐方法是使用 <code>FileProvider</code>。</p>
+</li>
+<li><code>DownloadManager</code> 不再按文件名分享私人存储的文件。旧版应用在访问 <code>COLUMN_LOCAL_FILENAME</code> 时可能出现无法访问的路径。面向 Android 7.0 或更高版本的应用在尝试访问 <code>COLUMN_LOCAL_FILENAME</code> 时会触发 <code>SecurityException</code>。通过使用 <code>DownloadManager.Request.setDestinationInExternalFilesDir()</code> 或 <code>DownloadManager.Request.setDestinationInExternalPublicDir()</code> 将下载位置设置为公共位置的旧版应用仍可以访问 <code>COLUMN_LOCAL_FILENAME</code> 中的路径，但是我们强烈反对使用这种方法。对于由 <code>DownloadManager</code> 公开的文件，首选的访问方式是使用<code>ContentResolver.openFileDescriptor()</code>。</li>
+</ul>
+<h1 id="在应用间共享文件"><a href="#在应用间共享文件" class="headerlink" title="在应用间共享文件"></a>在应用间共享文件</h1><hr>
+<p>对于面向 Android 7.0 的应用，Android 框架执行的 <code>StrictMode</code> API 政策禁止在您的应用外部公开 file:// URI。如果一项包含文件 URI 的 intent 离开您的应用，则应用出现故障，并出现 FileUriExposedException 异常。</p>
+<p>要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简单方式是使用 FileProvider 类。如需了解有关权限和共享文件的详细信息，请参阅<a href="https://developer.android.com/training/secure-file-sharing/index.html" target="_blank" rel="noopener">共享文件</a>。</p>
+<h1 id="无障碍改进"><a href="#无障碍改进" class="headerlink" title="无障碍改进"></a>无障碍改进</h1><hr>
+<p>为提高平台对于视力不佳或视力受损用户的易用性，Android 7.0 做出了一些更改。这些更改一般并不要求更改您的应用代码，不过您应仔细检查并使用您的应用测试这些功能，以评估它们对用户体验的潜在影响。</p>
+<h2 id="屏幕缩放"><a href="#屏幕缩放" class="headerlink" title="屏幕缩放"></a>屏幕缩放</h2><p>Android 7.0 支持用户设置显示尺寸，以放大或缩小屏幕上的所有元素，从而提升设备对视力不佳用户的可访问性。用户无法将屏幕缩放至低于最小屏幕宽度 <code>sw320dp</code>，该宽度是 Nexus 4 的宽度，也是常规中等大小手机的宽度。<br><img src="/2017/01/10/android-7-0-changes/screen-zoom-1.png" style="width:45%; float:left"><br><img src="/2017/01/10/android-7-0-changes/screen-zoom-2.png" style="width:45%; float:left"><br> <div style="clear:both"></div><br>图 3. 右侧屏幕显示的是一台运行 Android 7.0 系统映像的设备增大显示尺寸后的效果。</p>
+<p>当设备密度发生更改时，系统会以如下方式通知正在运行的应用：</p>
+<ul>
+<li>如果是面向 API 级别 23 或更低版本系统的应用，系统会自动终止其所有后台进程。这意味着如果用户切换离开此类应用，转而打开 Settings 屏幕并更改 <strong>Display size</strong> 设置，则系统会像处理内存不足的情况一样终止该应用。如果应用具有任何前台进程，则系统会如处理运行时更改中所述将配置变更通知给这些进程，就像对待设备屏幕方向变更一样。</li>
+<li>如果是面向 Android 7.0 的应用，则其所有进程（前台和后台）都会收到有关配置变更的通知，如<a href="https://developer.android.com/guide/topics/resources/runtime-changes.html" target="_blank" rel="noopener">处理运行时更改</a>中所述。</li>
+</ul>
+<p>大多数应用并不需要进行任何更改即可支持此功能，不过前提是这些应用遵循 Android 最佳做法。具体要检查的事项：</p>
+<ul>
+<li>在屏幕宽度为 sw320dp 的设备上测试您的应用，并确保其充分运行。</li>
+<li><p>当设备配置发生变更时，更新任何与密度相关的缓存信息，例如缓存位图或从网络加载的资源。当应用从暂停状态恢复运行时，检查配置变更。</p>
+<blockquote>
+<p><strong>注：</strong>如果您要缓存与配置相关的数据，则最好也包括相关元数据，例如该数据对应的屏幕尺寸或像素密度。保存这些元数据便于您在配置变更后决定是否需要刷新缓存数据。</p>
+</blockquote>
+</li>
+<li><p>避免用像素单位指定尺寸，因为像素不会随屏幕密度缩放。应改为使用与密度无关像素 (dp) 单位指定尺寸。</p>
+</li>
+</ul>
+<h2 id="设置向导中的视觉设置"><a href="#设置向导中的视觉设置" class="headerlink" title="设置向导中的视觉设置"></a>设置向导中的视觉设置</h2><p>Android 7.0 在“Welcome”屏幕中加入了“Vision Settings”，用户可以在新设备上设置以下无障碍功能设置：<strong>Magnification gesture</strong>、<strong>Font size</strong>、<strong>Display size</strong> 和话语提示。此项变更让您可以更容易发现与不同屏幕设置有关的错误。要评估此功能的影响，您应在启用这些设置的状态下测试应用。您可以在 <strong>Settings &gt; Accessibility</strong> 中找到这些设置。</p>
+<h1 id="NDK-应用链接至平台库"><a href="#NDK-应用链接至平台库" class="headerlink" title="NDK 应用链接至平台库"></a>NDK 应用链接至平台库</h1><hr>
+<p>从 Android 7.0 开始，系统将阻止应用动态链接非公开 NDK 库，这种库可能会导致您的应用崩溃。此行为变更旨在为跨平台更新和不同设备提供统一的应用体验。即使您的代码可能不会链接私有库，但您的应用中的第三方静态库可能会这么做。因此，所有开发者都应进行相应检查，确保他们的应用不会在运行 Android 7.0 的设备上崩溃。如果您的应用使用原生代码，则只能使用<a href="https://developer.android.com/ndk/guides/stable_apis.html" target="_blank" rel="noopener">公开 NDK API</a>。</p>
+<p>您的应用可通过以下三种方式尝试访问私有平台 API：</p>
+<ul>
+<li>您的应用直接访问私有平台库。您应更新您的应用以添加该应用的库副本，或使用<a href="https://developer.android.com/ndk/guides/stable_apis.html" target="_blank" rel="noopener">公开 NDK API</a>。</li>
+<li>您的应用使用一个可访问私有平台库的第三方库。即使您确定您的应用不会直接访问私有库，您仍应针对此情景测试您的应用。</li>
+<li>您的应用引用一个其 APK 中未包含的库。例如，如果您尝试使用您自己的 OpenSSL 副本，但忘记将它与应用的 APK 进行捆绑，则可能会出现此情况。正常情况下，此应用可在包含 libcrypto.so 的 Android 平台版本上运行。不过，此应用在不包含此库的新版 Android（例如，Android 6.0 和更高的版本）上会崩溃。为修复此问题，请确保您的 APK 捆绑您的所有非 NDK 库。</li>
+</ul>
+<p>应用不应使用 NDK 中未包含的原生库，因为这些库可能会发生更改或在不同 Android 版本之间的可用性不同。例如，从 OpenSSL 切换至 BoringSSL 即属于此类更改。此外，由于不属于 NDK 中的平台库没有兼容性要求，因此不同的设备可能提供不同级别的兼容性。</p>
+<p>为降低此限制可能对当前发布的应用的影响，面向 API 级别 23 或更低级别的应用在 Android N 上可暂时访问颇为常用的一组库，例如 <code>libandroid_runtime.so</code>、<code>libcutils.so</code>、<code>libcrypto.so</code> 和 <code>libssl.so</code>。如果您的应用加载其中某个库，logcat 会生成一个警告，并在目标设备上显示一个 Toast 来通知您。如果您看到这些警告，您应更新您的应用以添加该应用自己的库副本，或仅使用公开 NDK API。将来发布的 Android 平台可能会完全限制对私有库的使用，并导致您的应用崩溃。</p>
+<p>所有应用在调用既非公开又不可暂时访问的 API 时都会生成一个运行时错误。结果就是 <code>System.loadLibrary</code> 和 <code>dlopen(3)</code> 同时返回 NULL，并可能导致您的应用崩溃。您应检查应用代码以移除对私有平台 API 的使用，并使用预览版设备或模拟器全面测试应用。如果您不确定您的应用是否使用私有库，您可以检查 logcat 以识别运行时错误。</p>
+<p>下表描述的是根据应用使用的私有原生库及其目标 API 级别 (android:targetSdkVersion)，应用预期显示的行为。<br>| Item      |    Value | Qty  |<br>| :——– | ——–:| :–: |<br>| Computer  | 1600 USD |  5   |<br>| Phone     |   12 USD |  12  |<br>| Pipe      |    1 USD | 234  |</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">库</th>
+<th style="text-align:left">目标 API 级别</th>
+<th style="text-align:left">通过动态链接器进行运行时访问</th>
+<th style="text-align:left">N Developer Preview 行为</th>
+<th style="text-align:left">最终 Android N 版本行为</th>
+<th style="text-align:left">未来的 Android 平台行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">公开 NDK</td>
+<td style="text-align:left">任意</td>
+<td style="text-align:left">可访问</td>
+<td style="text-align:left">合乎预期</td>
+<td style="text-align:left">合乎预期</td>
+<td style="text-align:left">合乎预期</td>
+</tr>
+<tr>
+<td style="text-align:left">私有（暂时可访问的私有库）</td>
+<td style="text-align:left">23 或更低</td>
+<td style="text-align:left">暂时可访问</td>
+<td style="text-align:left">合乎预期，但您会在目标设备上收到一个 logcat 警告和一条消息。</td>
+<td style="text-align:left">合乎预期，但您会收到一个 logcat 警告。</td>
+<td style="text-align:left">运行时错误</td>
+</tr>
+<tr>
+<td style="text-align:left">私有（暂时可访问的私有库）</td>
+<td style="text-align:left">24 或更高</td>
+<td style="text-align:left">受限</td>
+<td style="text-align:left">运行时错误</td>
+<td style="text-align:left">运行时错误</td>
+<td style="text-align:left">运行时错误</td>
+</tr>
+<tr>
+<td style="text-align:left">私有（其他）</td>
+<td style="text-align:left">任意</td>
+<td style="text-align:left">受限</td>
+<td style="text-align:left">运行时错误</td>
+<td style="text-align:left">运行时错误</td>
+<td style="text-align:left">运行时错误</td>
+</tr>
+</tbody>
+</table>
+<h2 id="检查您的应用是否使用私有库"><a href="#检查您的应用是否使用私有库" class="headerlink" title="检查您的应用是否使用私有库"></a>检查您的应用是否使用私有库</h2><p>为帮助您识别加载私有库的问题，logcat 可能会生成一个警告或运行时错误。例如，如果您的应用面向 API 级别 23 或更低级别，并在运行 Android 7.0 的设备上尝试访问私有库，您可能会看到一个类似于下面所示的警告：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">03</span><span class="number">-21</span> <span class="number">17</span>:<span class="number">07</span>:<span class="number">51.502</span> <span class="number">31234</span> <span class="number">31234</span> W linker  : library <span class="string">"libandroid_runtime.so"</span></span><br><span class="line">(<span class="string">"/system/lib/libandroid_runtime.so"</span>) needed <span class="keyword">or</span> dlopened by</span><br><span class="line"><span class="string">"/data/app/com.popular-app.android-2/lib/arm/libapplib.so"</span> is <span class="keyword">not</span> accessible</span><br><span class="line"><span class="keyword">for</span> the <span class="keyword">namespace</span> <span class="string">"classloader-namespace"</span> - the access is temporarily granted</span><br><span class="line">as a workaround <span class="keyword">for</span> http:<span class="comment">//b/26394120</span></span><br></pre></td></tr></table></figure></p>
+<p>这些 logcat 警告通知您哪个库正在尝试访问私有平台 API，但不会导致您的应用崩溃。但是，如果应用面向 API 级别 24 或更高级别，logcat 会生成以下运行时错误，您的应用可能会崩溃：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java.lang.UnsatisfiedLinkError: dlopen failed: library <span class="string">"libcutils.so"</span></span><br><span class="line">(<span class="string">"/system/lib/libcutils.so"</span>) needed <span class="keyword">or</span> dlopened by</span><br><span class="line"><span class="string">"/system/lib/libnativeloader.so"</span> is <span class="keyword">not</span> accessible <span class="keyword">for</span> the <span class="keyword">namespace</span></span><br><span class="line"><span class="string">"classloader-namespace"</span></span><br><span class="line">  at java.lang.Runtime.loadLibrary0(Runtime.java:<span class="number">977</span>)</span><br><span class="line">  at java.lang.System.loadLibrary(System.java:<span class="number">1602</span>)</span><br></pre></td></tr></table></figure></p>
+<p>如果您的应用使用动态链接到私有平台 API 的第三方库，您可能也会看到上述 logcat 输出。利用 Android 7.0DK 中的 readelf 工具，您可以通过运行以下命令生成给定 .so 文件的所有动态链接的共享库列表：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aarch64-linux-android-readelf -dW libMyLibrary.so</span><br></pre></td></tr></table></figure></p>
+<h2 id="更新您的应用"><a href="#更新您的应用" class="headerlink" title="更新您的应用"></a>更新您的应用</h2><p>通过下面的一些步骤，您可以修复上述类型的错误并确保您的应用不会在将来的更新版平台上崩溃：</p>
+<ul>
+<li>如果您的应用使用私有平台库，您应更新它，以添加该应用自己的库副本或使用<a href="https://developer.android.com/ndk/guides/stable_apis.html" target="_blank" rel="noopener">公开 NDK API</a>。</li>
+<li>如果您的应用使用访问私有符号的第三方库，则联系库作者以更新库。</li>
+<li>请确保将您的所有非 NDK 库与您的 APK 打包在一起。</li>
+<li><p>使用标准 JNI 函数而非来自 libandroid_runtime.so 的 getJavaVM 和 getJNIEnv：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AndroidRuntime::getJavaVM -&gt; GetJavaVM from &lt;jni.h&gt;</span><br><span class="line">AndroidRuntime::getJNIEnv -&gt; JavaVM::GetEnv <span class="keyword">or</span></span><br><span class="line">JavaVM::AttachCurrentThread from &lt;jni.h&gt;.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <strong>system_property_get 而非来自 libcutils.so 的私有 property_get 符号。为此，请使用 </strong>system_property_get 及以下 include 函数：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/system_properties.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>注：</strong>系统属性的可用性和内容未通过 CTS 进行测试。应执行进一步修复以避免同时使用这些属性。</p>
+</blockquote>
+<ul>
+<li>使用来自 <code>libcrypto.so</code> 的 SSL_ctrl 符号的本地版本。例如，您应在您的 .so 文件中静态链接 <code>libcyrpto.a</code>，或从 <strong>BoringSSL/OpenSSL</strong> 添加一个动态链接的 <code>libcrypto.so</code> 版本，并将其打包到您的 APK 中。</li>
+</ul>
+<h1 id="Android-for-Work"><a href="#Android-for-Work" class="headerlink" title="Android for Work"></a>Android for Work</h1><hr>
+<p>Android 7.0 包含一些针对面向 Android for Work 的应用的变更，包括对证书安装、密码重置、二级用户管理、设备标识符访问权限的变更。如果您是要针对 Android for Work 环境开发应用，则应仔细检查这些变更并相应地修改您的应用。</p>
+<ul>
+<li>您必须先安装授权证书安装程序，然后 DPC 才能对其进行设置。对于面向 N SDK 的配置文件和设备所有者应用，您应在设备规范控制器 (DPC) 调用 <code>DevicePolicyManager.setCertInstallerPackage()</code> 之前安装授权证书安装程序。如果尚未安装此安装程序，则系统会引发 <code>IllegalArgumentException</code>。</li>
+<li>针对设备管理员的重置密码限制现在也适用于配置文件所有者。设备管理员无法再使用 <code>DevicePolicyManager.resetPassword()</code> 来清除或更改已经设置的密码。设备管理员仍可以设置密码，但只能在设备没有密码、PIN 码或图案时这样做。</li>
+<li>即使设置了限制，设备所有者和配置文件所有者仍可以管理帐户。而且，即使具有 <code>DISALLOW_MODIFY_ACCOUNTS</code> 用户限制，设备所有者和配置文件所有者仍可调用 Account Management API。</li>
+<li>设备所有者可以更轻松地管理二级用户。当设备在设备所有者模式下运行时，系统将自动设置 DISALLOW_ADD_USER 限制。这样可以防止用户创建非托管二级用户。此外，<code>CreateUser()</code> 和 <code>createAndInitializeUser()</code> 方法已弃用，取而代之的是 <code>DevicePolicyManager.createAndManageUser()</code> 方法。</li>
+<li>设备所有者可以访问设备标识符。设备所有者可以使用 <code>DevicePolicyManagewr.getWifiMacAddress()</code> 访问设备的 WLAN MAC 地址。如果设备上从未启用 WLAN，则此方法将返回一个 null 值。</li>
+<li>工作模式设置控制工作应用访问。当工作模式关闭时，系统启动器通过使工作应用显示为灰色来指示它们不可用。启用工作模式会再次恢复正常行为。</li>
+<li>从 Settings UI 安装包含客户端证书链和对应的私钥的 PKCS #12 文件时，系统不再将该证书链中的 CA 证书安装到受信任的凭据存储空间。当应用稍后尝试检索客户端证书链时，这不会影响 <code>KeyChain.getCertificateChain()</code> 的结果。如果需要，使用 .crt 或 .cer 文件扩展名的 DER 编码格式通过 Settings UI 单独将 CA 证书安装到受信任的凭据存储空间。</li>
+<li>从 Android 7.0 开始，可针对每个用户管理指纹登记和存储空间。如果配置文件所有者的设备规范客户端 (DPC) 面向 Android N 设备上的 Android N 之前的版本，则用户仍可以在该设备上设置指纹，但工作应用不能访问设备指纹。当 DPC 面向 Android N 和更高版本时，用户可以通过转到 <strong>Settings &gt; Security &gt; Work profile security</strong> 专门为托管配置文件设置指纹。</li>
+<li><code>DevicePolicyManager.getStorageEncryptionStatus()</code> 返回新的加密状态 <code>ENCRYPTION_STATUS_ACTIVE_PER_USER</code>，以表明加密处于活动状态，且加密密钥与用户关联。仅当 DPC 面向 API 级别 24 和更高级别时才会返回新的状态。对于面向更早的 API 级别的应用，即使加密密钥是用户或配置文件特有的，系统也会返回 <code>ENCRYPTION_STATUS_ACTIVE</code>。</li>
+<li>在 Android 7.0 中，如果设备通过单独的工作挑战安装了托管配置文件，则原本通常会影响整个设备的多个方法将会改变其行为方式。这些方法将仅应用于托管配置文件，而不是影响整个设备。（此类方法的完整列表位于 <code>DevicePolicyManager.getParentProfileInstance()</code> 文档中。）例如，<code>DevicePolicyManager.lockNow()</code> 只锁定托管配置文件，而不是锁定整个设备。对于上述每个方法，您可以通过对 DevicePolicyManager 的父实例调用该方法来获取以前的行为；您可以通过调用 <code>DevicePolicyManager.getParentProfileInstance()</code> 获取此父项。例如，如果您调用父实例的 <code>lockNow()</code> 方法，则整个设备将被锁定。</li>
+</ul>
+<p>如需了解有关 Android 7.0 中针对 Android for Work 所做变更的详细信息，请参阅 Android for Work 更新。</p>
+<h1 id="注解保留"><a href="#注解保留" class="headerlink" title="注解保留"></a>注解保留</h1><hr>
+<p>Android 7.0 修复了一个注解可见性被忽略的错误。这种问题会导致应用可在运行时访问原本不允许访问的注解。这些注解包括：</p>
+<ul>
+<li><code>VISIBILITY_BUILD</code>：仅应编译时可见。</li>
+<li><code>VISIBILITY_SYSTEM</code>：运行时应可见，但仅限底层系统。<br>如果您的应用依赖这种行为，请为运行时必须可用的注解添加保留政策。您可通过使用 <code>@Retention(RetentionPolicy.RUNTIME)</code> 来执行此操作。</li>
+</ul>
+<h1 id="其他重要说明"><a href="#其他重要说明" class="headerlink" title="其他重要说明"></a>其他重要说明</h1><hr>
+<ul>
+<li><p>如果一个应用在 Android 7.0 上运行，但却是针对更低 API 级别开发的，那么在用户更改显示尺寸时，系统将终止此应用进程。应用必须能够妥善处理此情景。否则，当用户从最近使用记录中恢复运行应用时，应用将会出现崩溃现象。<br>您应测试应用以确保不会发生此行为。要进行此测试，您可以通过 DDMS 手动终止应用，以造成相同的崩溃现象。<br>在密度发生更改时，系统不会自动终止面向 N 及更高版本的应用；不过，这些应用仍可能对配置变更做出不良响应。</p>
+</li>
+<li><p>Android 7.0 上的应用应能够妥善处理配置变更，并且在后续启动时不会出现崩溃现象。您可以通过更改字体大小 <code>(Setting &gt;Display &gt; Font size)</code> 并随后从最近使用记录中恢复运行应用，来验证应用行为。</p>
+</li>
+<li>由于之前的 Android 版本中的一项错误，系统未能将对主线程上的一个 TCP 套接字的写入操作举报为违反严格模式。Android 7.0 修复了此错误。呈现出这种行为的应用现在会引发 <code>android.os.NetworkOnMainThreadException</code>。一般情况下，我们不建议在主线程上执行网络操作，因为这些操作通常会出现可能导致 ANR 和卡顿的高尾延迟。</li>
+<li><code>Debug.startMethodTracing()</code> 方法系列现在默认在您的共享存储空间上的软件包特定目录中存储输出，而非 SD 卡根目录。这意味着应用不再需要请求 <code>WRITE_EXTERNAL_STORAGE</code> 权限来使用这些 API 。</li>
+<li>许多平台 API 现在开始检查在 <code>Binder</code> 事务间发送的大负载，系统现在会将 <code>TransactionTooLargeExceptions</code> 作为 RuntimeExceptions 再次引发，而不再只是默默记录或抑制它们。一个常见例子是在 <code>Activity.onSaveInstanceState()</code> 上存储过多数据，导致 ActivityThread.StopInfo 在您的应用面向 Android 7.0 时引发 RuntimeException。</li>
+<li>如果应用向 View 发布 <code>Runnable</code> 任务，并且 View 未附加到窗口，系统会用 View 为 <code>Runnable</code> 任务排队；在 View 附加到窗口之前，不会执行 <code>Runnable</code> 任务。此行为会修复以下错误：<ul>
+<li>如果一项应用是从并非预期窗口 UI 线程的其他线程发布到 View，则 <code>Runnable</code> 可能会因此运行错误的线程。</li>
+<li>如果 <code>Runnable</code> 任务是从并非环路线程的其他线程发布，则应用可能会曝光 Runnable 任务。</li>
+</ul>
+</li>
+<li>如果 Android 7.0 上一项有 <code>DELETE_PACKAGES</code> 权限的应用尝试删除一个软件包，但另一项应用已经安装了这个软件包，则系统需要用户进行确认。在这种情况下，应用在调用 <code>PackageInstaller.uninstall()</code> 时预计的返回状态应为 <code>STATUS_PENDING_USER_ACTION</code>。</li>
+<li>名为 Crypto 的 JCA 提供程序已弃用，因为它仅有的 SHA1PRNG 算法为弱加密。应用无法再使用 SHA1PRNG（不安全地）派生密钥，因为不再提供此提供程序。如需了解详细信息，请参阅博文 <a href="http://android-developers.blogspot.com/2016/06/security-crypto-provider-deprecated-in.html" target="_blank" rel="noopener">Android N 中已弃用“Crypto”安全提供程序</a>。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-30T07:17:43.890Z" itemprop="dateUpdated">2018-03-30 15:17:43</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/01/10/android-7-0-changes/" target="_blank" rel="external">http://yoursite.com/2017/01/10/android-7-0-changes/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="马建">
+            马建
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid/">Anroid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Anroid7-0/">Anroid7.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nougat/">Nougat</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/01/10/android-7-0-changes/&title=《Android 7.0 行为变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/01/10/android-7-0-changes/&title=《Android 7.0 行为变更》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/01/10/android-7-0-changes/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 7.0 行为变更》 — 随手记&url=http://yoursite.com/2017/01/10/android-7-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/01/10/android-7-0-changes/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/08/29/android-8-0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 8.0 功能和 API</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/12/30/android-7-0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 7.0 API 概览</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>马建 &copy; 2015 - 2018</span>
+            <span>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/01/10/android-7-0-changes/&title=《Android 7.0 行为变更》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/01/10/android-7-0-changes/&title=《Android 7.0 行为变更》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/01/10/android-7-0-changes/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android 7.0 行为变更》 — 随手记&url=http://yoursite.com/2017/01/10/android-7-0-changes/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/01/10/android-7-0-changes/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aS27DMBAEUd3/0so2QGyluscJQLK4CqRI5tNiwPlcF173t/V85edd8uzz9Y8tGTJkLMu4HxfZNNkc+Rz87guqDBkyDmC8i2Dkf0gAJaE5/V0ZMmTISMNremX++WTIkCGDBEG+rcnBUYYMGTJ4EttVup63Tg6RH87FZciQsSCDV93//+8/6W/IkCFjKcYdrvQ9PFiPdiVDhoytGTzATRLRSRDnwx8yZMjYlcHTxXRzvDE5H+CQIUPG3gweUslhLo70VSiP2wMyZMhYnNEV8bvtdgU+1MKUIUPGYQyednYDGWSoIgDIkCHjYAYv9HdjXmmh7ZdPLEOGjK0ZXWrajXzN3xnk4jJkyNiI8RxkuyBI3klS1gAmQ4aMYxgkaJL0chJe02ev9EvLkCFjQQZJEbvgS9JgkuLGPVgZMmRszeDBlJfP0uZBGr7jRqYMGTKWZfAUdNKM7IY5yrsyZMjYiJGONaSlNF7oT4ctXpTbZMiQsSmjC7X8JydF/65dIUOGjF0Z/HXdRnmQJeH17VMyZMg4gEGOaDwp7RLda7JkyJBxAIMf8tJPk45Z8H3G/Q0ZMmQsyLjDNSmocXA8NCZDhoytGd25K01l+fBEN5AhQ4aMExi8AcBbjJOwWB4fZciQcQCj21Ba3J+DUQ9WhgwZxzN4Sa5LYrvrMmTIkDEpqPHWJv80b/sbMmTI2JqRDqrOh7rmLVIZMmScw+hSx0kKSkppfOBMhgwZWzO+AJ3kfkxGQDnIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '瞎！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

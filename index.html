@@ -211,6 +211,101 @@ I...
         </li>
     
         <li class="post-list-item fade">
+            <article id="post-architecture-livedata"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-21 19:44:55" datetime="2017-09-21T11:44:55.000Z"  itemprop="datePublished">2017-09-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/21/architecture-livedata/">Android架构组件-LiveData</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        LiveData是一个可被观察的数据持有类。不同于常规的observable，LiveData是生命周期敏感的，也就意味着它尊重其他组件的生命周期，比如activities, fragments，或者services。这种特性确保了LiveData只会在一个激活的生命周期状态下更新应用组件下的observers。
+如果观察者的生命周期处于STARTED或RESUMED状态，则LiveData...
+    
+
+        <a href="/2017/09/21/architecture-livedata/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Architecture-Components/">Architecture Components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LiveData/">LiveData</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-architecture-lifecycle"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-15 15:14:25" datetime="2017-09-15T07:14:25.000Z"  itemprop="datePublished">2017-09-15</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/15/architecture-lifecycle/">Android架构组件-生命周期</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        android.arch.lifecycle包提供了类和接口，使得你可以构建“生命周期敏感的组件”——自动适应当前Fragment或者Activity的组件。
+
+注意：如何引入android.arch.lifecycle到你的安卓项目中，详见adding components to your project
+
+安卓框架所定义的大多数组件都有相关的生命周期。生命周期被操作系统或运行在你程序中的...
+    
+
+        <a href="/2017/09/15/architecture-lifecycle/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Architecture-Components/">Architecture Components</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lifecycle/">Lifecycle</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-android-8-0-changes"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -250,6 +345,103 @@ I...
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-8-0/">Android 8.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oreo/">Oreo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-architecture-adding-components"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-10 19:24:13" datetime="2017-09-10T11:24:13.000Z"  itemprop="datePublished">2017-09-10</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/10/architecture-adding-components/">添加组件到项目中</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        架构组件发布在谷歌的Maven仓库，可以通过遵循以下步骤使用它们：
+添加谷歌Maven仓库Android Studio项目默认没有配置对此仓库的访问。
+为了添加其到你的项目中，打开项目根下的build.gradle文件(不是app或module目录下的)然后修改以下内容：123456allprojects &#123;    repositories &#123;        jcente...
+    
+
+        <a href="/2017/09/10/architecture-adding-components/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Architecture-Components/">Architecture Components</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-architecture-guide"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-10 16:24:13" datetime="2017-09-10T08:24:13.000Z"  itemprop="datePublished">2017-09-10</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/09/10/architecture-guide/">Android架构组件-指导</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        这份文档用于已经掌握构建Android app基本技能，现在想要了解推荐的架构，想要实践如何构建健壮、生产级别app的开发者。
+
+注意：本文档假设读者已经熟悉Android框架。如果你刚跟接触Android，请访问[这里]的训练系列，该训练包含了本文档的所有预备知识。
+
+App开发者所面临的常见问题
+与之对应的传统桌面应用在大多数情况下含有一个单一的入口点（快捷图标）并运行作为一个单一的程序...
+    
+
+        <a href="/2017/09/10/architecture-guide/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Architecture-Components/">Architecture Components</a></li></ul>
 
     </div>
     
@@ -448,207 +640,15 @@ Android 7.0 包括旨在延长设备电池寿命和减少 RAM 使用的系统行
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-android-6-0"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-30 16:29:28" datetime="2016-04-30T08:29:28.000Z"  itemprop="datePublished">2016-04-30</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/04/30/android-6-0/">Android 6.0 API 概述</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Android 6.0 (M) 为用户和应用开发者提供了新功能。本文旨在介绍其中最值得关注的 API。
-着手开发要着手开发 Android 6.0 应用，您必须先获得 Android SDK，然后使用 SDK 管理器下载 Android 6.0 SDK Platform 和系统映像。
-更新目标 API 级别要进一步优化您的应用在运行 Android 的设备上的性能，请将您的 targetSd...
-    
-
-        <a href="/2016/04/30/android-6-0/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-6-0/">Android 6.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Marshmallow/">Marshmallow</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-android-5-0-changes"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2015-08-27 19:55:06" datetime="2015-08-27T11:55:06.000Z"  itemprop="datePublished">2015-08-27</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2015/08/27/android-5-0-changes/">Android 5.0 变更</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Android Runtime (ART)
-在 Android 5.0 中，ART 运行时取代 Dalvik 成为平台默认设置。Android 4.4 中已引入处于实验阶段的 ART 运行时。
-有关 ART 的新功能概述，请参阅 ART 简介部分主要的新功能包括：
-
-预先 (AOT) 编译
-改进的垃圾回收 (GC)
-改进的调试支持
-
-大多数 Android 应用无需任何更改就可以在 ART ...
-    
-
-        <a href="/2015/08/27/android-5-0-changes/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-5-0/">Android 5.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-android-5-0"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2015-08-23 22:12:13" datetime="2015-08-23T14:12:13.000Z"  itemprop="datePublished">2015-08-23</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2015/08/23/android-5-0/">Android 5.0 API 概述</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        用户界面
-Material Design 支持Android 5.0 添加了对 Android 的新 Material Design 样式的支持。您可以创建具有 Material Design 功能的应用，实现动态视觉效果，利用其中的 UI 元素转换赋予用户自然的感觉。此支持包括：
-
-Material Design 主题
-视图阴影
-RecyclerView 小部件
-可绘制动画和造型效果
-Ma...
-    
-
-        <a href="/2015/08/23/android-5-0/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-5-0/">Android  5.0</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Developers/">Android Developers</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-tasks-and-back-stack"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2014-04-10 09:27:34" datetime="2014-04-10T01:27:34.000Z"  itemprop="datePublished">2014-04-10</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2014/04/10/tasks-and-back-stack/">任务和返回栈</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        应用通常包含多个 Activity。每个 Activity 均应围绕用户可以执行的特定操作设计，并且能够启动其他 Activity。 例如，电子邮件应用可能有一个 Activity 显示新邮件的列表。用户选择某邮件时，会打开一个新 Activity 以查看该邮件。
-一个 Activity 甚至可以启动设备上其他应用中存在的 Activity。例如，如果应用想要发送电子邮件，则可将 Inten...
-    
-
-        <a href="/2014/04/10/tasks-and-back-stack/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaunchMode/">LaunchMode</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
+<nav id="page-nav">
+    <div class="inner">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </div>
+</nav>
+
 
 </div>
 

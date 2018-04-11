@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>添加组件到项目中 | 随手记 | 不积跬步无以至千里</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#03a9f4">
+    
+    
+    <meta name="keywords" content="Android,Architecture Components">
+    <meta name="description" content="架构组件发布在谷歌的Maven仓库，可以通过遵循以下步骤使用它们： 添加谷歌Maven仓库Android Studio项目默认没有配置对此仓库的访问。 为了添加其到你的项目中，打开项目根下的build.gradle文件(不是app或module目录下的)然后修改以下内容：123456allprojects &amp;#123;    repositories &amp;#123;        jcenter()">
+<meta name="keywords" content="Android,Architecture Components">
+<meta property="og:type" content="article">
+<meta property="og:title" content="添加组件到项目中">
+<meta property="og:url" content="http://yoursite.com/2017/09/10/architecture-adding-components/index.html">
+<meta property="og:site_name" content="随手记">
+<meta property="og:description" content="架构组件发布在谷歌的Maven仓库，可以通过遵循以下步骤使用它们： 添加谷歌Maven仓库Android Studio项目默认没有配置对此仓库的访问。 为了添加其到你的项目中，打开项目根下的build.gradle文件(不是app或module目录下的)然后修改以下内容：123456allprojects &amp;#123;    repositories &amp;#123;        jcenter()">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-10T08:56:32.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="添加组件到项目中">
+<meta name="twitter:description" content="架构组件发布在谷歌的Maven仓库，可以通过遵循以下步骤使用它们： 添加谷歌Maven仓库Android Studio项目默认没有配置对此仓库的访问。 为了添加其到你的项目中，打开项目根下的build.gradle文件(不是app或module目录下的)然后修改以下内容：123456allprojects &amp;#123;    repositories &amp;#123;        jcenter()">
+    
+        <link rel="alternate" type="application/atom+xml" title="随手记" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">马建</h5>
+          <a href="mailto:markjoker@126.com" title="markjoker@126.com" class="mail">markjoker@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/markjoker" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/cv"  >
+                <i class="icon icon-lg icon-file"></i>
+                简历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">添加组件到项目中</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">添加组件到项目中</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-10T11:24:13.000Z" itemprop="datePublished" class="page-time">
+  2017-09-10
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加谷歌Maven仓库"><span class="post-toc-number">1.</span> <span class="post-toc-text">添加谷歌Maven仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加架构组件"><span class="post-toc-number">2.</span> <span class="post-toc-text">添加架构组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主要依赖"><span class="post-toc-number">3.</span> <span class="post-toc-text">主要依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对Lifecycles的Java-8支持"><span class="post-toc-number">4.</span> <span class="post-toc-text">对Lifecycles的Java 8支持</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RxJava和ReactiveStreams可选的依赖"><span class="post-toc-number">5.</span> <span class="post-toc-text">RxJava和ReactiveStreams可选的依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Guava可选的依赖"><span class="post-toc-number">6.</span> <span class="post-toc-text">Guava可选的依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#只适用于轻量级Lifecycles的替代引入"><span class="post-toc-number">7.</span> <span class="post-toc-text">只适用于轻量级Lifecycles的替代引入</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-architecture-adding-components"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">添加组件到项目中</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-10 19:24:13" datetime="2017-09-10T11:24:13.000Z"  itemprop="datePublished">2017-09-10</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>架构组件发布在谷歌的Maven仓库，可以通过遵循以下步骤使用它们：</p>
+<h2 id="添加谷歌Maven仓库"><a href="#添加谷歌Maven仓库" class="headerlink" title="添加谷歌Maven仓库"></a>添加谷歌Maven仓库</h2><p>Android Studio项目默认没有配置对此仓库的访问。</p>
+<p>为了添加其到你的项目中，打开项目根下的build.gradle文件(不是app或module目录下的)然后修改以下内容：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">        google()<span class="comment">//添加谷歌仓库</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="添加架构组件"><a href="#添加架构组件" class="headerlink" title="添加架构组件"></a>添加架构组件</h2><p>打开app或module目录下的build.gradle文件，添加你需要的依赖，你可以添加所有或者根据需要添加部分。</p>
+<blockquote>
+<p><strong>注意：</strong>对于基于Kotlin的应用，应该确保你使用kapt而不是annotationProcessor。而且你应该添加kotlin-kapt插件。</p>
+</blockquote>
+<h2 id="主要依赖"><a href="#主要依赖" class="headerlink" title="主要依赖"></a>主要依赖</h2><p>包括<code>Lifecycles</code>,<code>LiveData</code>,<code>ViewModel</code>,<code>Room</code>和<code>Paging</code>.</p>
+<p>同时也包括了测试的工具用来测试LiveData和Room的迁移。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// ViewModel and LiveData</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:extensions:1.1.1"</span></span><br><span class="line">    <span class="comment">// alternatively, just ViewModel</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:viewmodel:1.1.1"</span></span><br><span class="line">    <span class="comment">// alternatively, just LiveData</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:livedata:1.1.1"</span></span><br><span class="line"></span><br><span class="line">    annotationProcessor <span class="string">"android.arch.lifecycle:compiler:1.1.1"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Room (use 1.1.0-beta2 for latest beta)</span></span><br><span class="line">    implementation <span class="string">"android.arch.persistence.room:runtime:1.0.0"</span></span><br><span class="line">    annotationProcessor <span class="string">"android.arch.persistence.room:compiler:1.0.0"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Paging</span></span><br><span class="line">    implementation <span class="string">"android.arch.paging:runtime:1.0.0-beta1"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Test helpers for LiveData</span></span><br><span class="line">    testImplementation <span class="string">"android.arch.core:core-testing:1.1.1"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Test helpers for Room</span></span><br><span class="line">    testImplementation <span class="string">"android.arch.persistence.room:testing:1.0.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="对Lifecycles的Java-8支持"><a href="#对Lifecycles的Java-8支持" class="headerlink" title="对Lifecycles的Java 8支持"></a>对Lifecycles的Java 8支持</h2><p>如果你的应用基于Java 8开发，我们建议使用下面依赖替代<code>android.arch.lifecycle:compiler</code>.<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// Java8 support for Lifecycles</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:common-java8:1.1.1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="RxJava和ReactiveStreams可选的依赖"><a href="#RxJava和ReactiveStreams可选的依赖" class="headerlink" title="RxJava和ReactiveStreams可选的依赖"></a>RxJava和ReactiveStreams可选的依赖</h2><p>添加可选依赖支持Room RxJava和LiveData ReactiveStreams。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// RxJava support for Room (use 1.1.0-beta2 for latest alpha)</span></span><br><span class="line">    implementation <span class="string">"android.arch.persistence.room:rxjava2:1.0.0"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// ReactiveStreams support for LiveData</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:reactivestreams:1.1.1"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// RxJava support for Paging</span></span><br><span class="line">    implementation <span class="string">"android.arch.paging:rxjava2:1.0.0-alpha1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Guava可选的依赖"><a href="#Guava可选的依赖" class="headerlink" title="Guava可选的依赖"></a>Guava可选的依赖</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// Guava support for Room</span></span><br><span class="line">    implementation <span class="string">"android.arch.persistence.room:guava:1.1.0-beta1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="只适用于轻量级Lifecycles的替代引入"><a href="#只适用于轻量级Lifecycles的替代引入" class="headerlink" title="只适用于轻量级Lifecycles的替代引入"></a>只适用于轻量级Lifecycles的替代引入</h2><p>支持库依赖此轻量导入。只提供Lifecycles的支持，不支持LiveData或ViewModel。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// Lifecycles only (no ViewModel or LiveData)</span></span><br><span class="line">    implementation <span class="string">"android.arch.lifecycle:runtime:1.1.1"</span></span><br><span class="line">    annotationProcessor <span class="string">"android.arch.lifecycle:compiler:1.1.1"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-10T08:56:32.329Z" itemprop="dateUpdated">2018-04-10 16:56:32</time>
+</span><br>
+
+
+        
+        如有错误，请留言指正。
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="马建">
+            马建
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Architecture-Components/">Architecture Components</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/10/architecture-adding-components/&title=《添加组件到项目中》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/10/architecture-adding-components/&title=《添加组件到项目中》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/10/architecture-adding-components/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《添加组件到项目中》 — 随手记&url=http://yoursite.com/2017/09/10/architecture-adding-components/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/10/architecture-adding-components/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/15/android-8-0-changes/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android 8.0 行为变更</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/10/architecture-guide/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android架构组件-指导</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>马建 &copy; 2015 - 2018</span>
+            <span>
+                
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/09/10/architecture-adding-components/&title=《添加组件到项目中》 — 随手记&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/09/10/architecture-adding-components/&title=《添加组件到项目中》 — 随手记&source=desc" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/10/architecture-adding-components/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《添加组件到项目中》 — 随手记&url=http://yoursite.com/2017/09/10/architecture-adding-components/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/10/architecture-adding-components/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aS27jMBAFwNz/0s52gMTyey0pGJHFlWHJEsuLBvvz9RWv1z/r5/fvPh9fzd9y2cLAwHgs43W4cka+xXdPzq/+8hYMDIwNGO9efLzd/J7kzjY0Y2BgYNzx4g9BEwMDA+NSxnHimvy2TX0xMDAwkmRyBpiF4xtzcQwMjAcy8qr733++pb+BgYHxKMarXLMGZBus611hYGAszcgD3PGx7EzKGiWoyV+GgYGxKGMWapOyfj4W1jZKf7kTAwNjS8aZgNv+9oKSHwYGxgaM2aEwf2U+WpFfvexsi4GB8d8zrmoAJIG7bW3OQj8GBsbajDxc5oe8qwJuMWCBgYGxHKMdt8rDbh5YzzyhzsUxMDAey6h7nnFBf1Zuywt8GBgYuzHa5uWs9Xi+DfBhWgQDA2NRRl4+a4trs8GLtkWKgYGxD6MdvJiNYsyeOZwZwcDAWILRtiRb5KxVOSv/YWBg7MA4k8S2gFuGLTAwMJZmJE3E/NF522BWYvsQiDEwMBZl5InlmTGv2R9UlOEwMDA2YLQFr7xtOWPXrQIMDIwNGHcAZgfQloSBgbE2445xirasP0txi3ohBgbGwxn5OtPCbA95baDHwMDYgZG3MNuSfR58Lzg+YmBgbMDIQ+f59ucsif1wJwYGBkZ8gLtqW3VRDwMDAyM48OUjre2RMSJhYGBswMjT0XaEYrbduqmAgYGxNKM9wM3K/e0mzqfWGBgYSzC+AZzOslDRoJc2AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '瞎！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

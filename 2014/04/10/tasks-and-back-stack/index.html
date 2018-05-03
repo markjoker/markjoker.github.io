@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://yoursite.com/2014/04/10/tasks-and-back-stack/diagram_multitasking.png">
 <meta property="og:image" content="http://yoursite.com/2014/04/10/tasks-and-back-stack/diagram_multiple_instances.png">
 <meta property="og:image" content="http://yoursite.com/2014/04/10/tasks-and-back-stack/diagram_backstack_singletask_multiactivity.png">
-<meta property="og:updated_time" content="2018-04-10T01:42:51.427Z">
+<meta property="og:updated_time" content="2018-05-03T03:06:13.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="任务和返回栈">
 <meta name="twitter:description" content="应用通常包含多个 Activity。每个 Activity 均应围绕用户可以执行的特定操作设计，并且能够启动其他 Activity。 例如，电子邮件应用可能有一个 Activity 显示新邮件的列表。用户选择某邮件时，会打开一个新 Activity 以查看该邮件。 一个 Activity 甚至可以启动设备上其他应用中存在的 Activity。例如，如果应用想要发送电子邮件，则可将 Intent 定">
@@ -176,7 +176,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用-Intent-标志"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用 Intent 标志</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理关联"><span class="post-toc-number"></span> <span class="post-toc-text">处理关联</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#清理返回栈"><span class="post-toc-number"></span> <span class="post-toc-text">清理返回栈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动任务"><span class="post-toc-number"></span> <span class="post-toc-text">启动任务</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#保存-Activity-状态"><span class="post-toc-number">1.</span> <span class="post-toc-text">保存 Activity 状态</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#管理任务"><span class="post-toc-number">2.</span> <span class="post-toc-text">管理任务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义启动模式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">定义启动模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用清单文件"><span class="post-toc-number">2.1.0.1.</span> <span class="post-toc-text">使用清单文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用-Intent-标志"><span class="post-toc-number">2.1.0.2.</span> <span class="post-toc-text">使用 Intent 标志</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理关联"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">处理关联</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#清理返回栈"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">清理返回栈</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动任务"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">启动任务</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -235,13 +235,60 @@
                 </div>
                 <div class="image-caption">t3</div>
             </figure>
-<font style="font-size:12px">图 3. 一个 Activity 将多次实例化。</font><br>由于返回栈中的 Activity 永远不会重新排列，因此如果应用允许用户从多个 Activity 中启动特定 Activity，则会创建该 Activity 的新实例并推入堆栈中（而不是将 Activity 的任一先前实例置于顶部）。 因此，应用中的一个 Activity 可能会多次实例化（即使 Activity 来自不同的任务），如图 3 所示。因此，如果用户使用“返回”按钮向后导航，则会按 Activity 每个实例的打开顺序显示这些实例（每个实例的 UI 状态各不相同）。 但是，如果您不希望 Activity 多次实例化，则可修改此行为。 具体操作方法将在后面的管理任务部分中讨论。<br><br>Activity 和任务的默认行为总结如下：<br><br>- 当 Activity A 启动 Activity B 时，Activity A 将会停止，但系统会保留其状态（例如，滚动位置和已输入表单中的文本）。如果用户在处于 Activity B 时按“返回”按钮，则 Activity A 将恢复其状态，继续执行。<br>- 用户通过按“主页”按钮离开任务时，当前 Activity 将停止且其任务会进入后台。 系统将保留任务中每个 Activity 的状态。如果用户稍后通过选择开始任务的启动器图标来恢复任务，则任务将出现在前台并恢复执行堆栈顶部的 Activity。<br>- 如果用户按“返回”按钮，则当前 Activity 会从堆栈弹出并被销毁。 堆栈中的前一个 Activity 恢复执行。销毁 Activity 时，系统不会保留该 Activity 的状态。<br>- 即使来自其他任务，Activity 也可以多次实例化。<br>&gt;<strong>导航设计</strong><br>如需了解有关 Android 应用导航工作方式的详细信息，请阅读 Android 设计的导航指南。<br><br># 保存 Activity 状态<br>—<br>正如上文所述，当 Activity 停止时，系统的默认行为会保留其状态。 这样一来，当用户导航回到上一个 Activity 时，其用户界面与用户离开时一样。 但是，在 Activity 被销毁且必须重建时，您可以而且应当主动使用回调方法保留 Activity 的状态。<br><br>系统停止您的一个 Activity 时（例如，新 Activity 启动或任务转到前台），如果系统需要回收系统内存资源，则可能会完全销毁该 Activity。 发生这种情况时，有关该 Activity 状态的信息将会丢失。如果发生这种情况，系统仍会知道该 Activity 存在于返回栈中，但是当该 Activity 被置于堆栈顶部时，系统一定会重建 Activity（而不是恢复 Activity）。 为了避免用户的工作丢失，您应主动通过在 Activity 中实现 onSaveInstanceState() 回调方法来保留工作。<br><br>如需了解有关如何保存 Activity 状态的详细信息，请参阅 Activity 文档。<br><br># 管理任务<br>—<br>Android 管理任务和返回栈的方式（如上所述，即：将所有连续启动的 Activity 放入同一任务和“后进先出”堆栈中）非常适用于大多数应用，而您不必担心 Activity 如何与任务关联或者如何存在于返回栈中。 但是，您可能会决定要中断正常行为。 也许您希望应用中的 Activity 在启动时开始新任务（而不是放置在当前任务中）；或者，当启动 Activity 时，您希望将其现有实例上移一层（而不是在返回栈的顶部创建新实例）；或者，您希望在用户离开任务时，清除返回栈中除根 Activity 以外的所有其他 Activity。<br><br>通过使用 <code>&lt;activity&gt;</code> 清单文件元素中的属性和传递给 <code>startActivity()</code> 的 Intent 中的标志，您可以执行所有这些操作以及其他操作。<br><br>在这一方面，您可以使用的主要 <code>&lt;activity&gt;</code> 属性包括：<br><br><code>taskAffinity</code><br><code>launchMode</code><br><code>allowTaskReparenting</code><br><code>clearTaskOnLaunch</code><br><code>alwaysRetainTaskState</code><br><code>finishOnTaskLaunch</code><br>您可以使用的主要 Intent 标志包括：<br><br><code>FLAG_ACTIVITY_NEW_TASK</code><br><code>FLAG_ACTIVITY_CLEAR_TOP</code><br><code>FLAG_ACTIVITY_SINGLE_TOP</code><br>在下文中，您将了解如何使用这些清单文件属性和 Intent 标志定义 Activity 与任务的关联方式，以及 Activity 在返回栈中的行为方式。<br><br>此外，我们还单独介绍了有关如何在概览屏幕中显示和管理任务与 Activity 的注意事项。 如需了解详细信息，请参阅概览屏幕。 通常，您应该允许系统定义任务和 Activity 在概览屏幕中的显示方法，并且无需修改此行为。<br><br>&gt;<strong>注意：</strong>大多数应用都不得中断 Activity 和任务的默认行为： 如果确定您的 Activity 必须修改默认行为，当使用“返回”按钮从其他 Activity 和任务导航回到该 Activity 时，请务必要谨慎并确保在启动期间测试该 Activity 的可用性。请确保测试导航行为是否有可能与用户的预期行为冲突。<br><br>## 定义启动模式<br>启动模式允许您定义 Activity 的新实例如何与当前任务关联。 您可以通过两种方法定义不同的启动模式：<br><br><strong>使用清单文件</strong><br>在清单文件中声明 Activity 时，您可以指定 Activity 在启动时应该如何与任务关联。<br><br><strong>使用 Intent 标志</strong><br>调用 <code>startActivity()</code> 时，可以在 <code>Intent</code> 中加入一个标志，用于声明新 Activity 如何（或是否）与当前任务关联。<br><br>因此，如果 Activity A 启动 Activity B，则 Activity B 可以在其清单文件中定义它应该如何与当前任务关联（如果可能），并且 Activity A 还可以请求 Activity B 应该如何与当前任务关联。如果这两个 Activity 均定义 Activity B 应该如何与任务关联，则 Activity A 的请求（如 Intent 中所定义）优先级要高于 Activity B 的请求（如其清单文件中所定义）。<br><br>&gt;<strong>注：</strong>某些适用于清单文件的启动模式不可用作 Intent 标志，同样，某些可用作 Intent 标志的启动模式无法在清单文件中定义。<br><br>#### 使用清单文件<br>在清单文件中声明 Activity 时，您可以使用 <code>&lt;activity&gt;</code> 元素的 <code>launchMode</code> 属性指定 Activity 应该如何与任务关联。<br><br><code>launchMode</code> 属性指定有关应如何将 Activity 启动到任务中的指令。您可以分配给 <code>launchMode</code> 属性的启动模式共有四种：<br><br><strong>“standard”（默认模式）</strong><br>默认。系统在启动 Activity 的任务中创建 Activity 的新实例并向其传送 Intent。Activity 可以多次实例化，而每个实例均可属于不同的任务，并且一个任务可以拥有多个实例。<br><strong>“singleTop”</strong><br>如果当前任务的顶部已存在 Activity 的一个实例，则系统会通过调用该实例的 <code>onNewIntent()</code> 方法向其传送 Intent，而不是创建 Activity 的新实例。Activity 可以多次实例化，而每个实例均可属于不同的任务，并且一个任务可以拥有多个实例（但前提是位于返回栈顶部的 Activity 并不是 Activity 的现有实例）。<br>例如，假设任务的返回栈包含根 Activity A 以及 Activity B、C 和位于顶部的 D（堆栈是 A-B-C-D；D 位于顶部）。收到针对 D 类 Activity 的 Intent。如果 D 具有默认的 “standard” 启动模式，则会启动该类的新实例，且堆栈会变成 A-B-C-D-D。但是，如果 D 的启动模式是 “singleTop”，则 D 的现有实例会通过 <code>onNewIntent()</code> 接收 Intent，因为它位于堆栈的顶部；而堆栈仍为 A-B-C-D。但是，如果收到针对 B 类 Activity 的 Intent，则会向堆栈添加 B 的新实例，即便其启动模式为 “singleTop” 也是如此。<br><br>&gt;<strong>注：</strong>为某个 Activity 创建新实例时，用户可以按“返回”按钮返回到前一个 Activity。 但是，当 Activity 的现有实例处理新 Intent 时，则在新 Intent 到达 onNewIntent() 之前，用户无法按“返回”按钮返回到 Activity 的状态。<br><br><strong>“singleTask”</strong><br>系统创建新任务并实例化位于新任务底部的 Activity。但是，如果该 Activity 的一个实例已存在于一个单独的任务中，则系统会通过调用现有实例的 onNewIntent() 方法向其传送 Intent，而不是创建新实例。一次只能存在 Activity 的一个实例。<br>&gt;<strong>注：</strong>尽管 Activity 在新任务中启动，但是用户按“返回”按钮仍会返回到前一个 Activity。<br><br><strong>“singleInstance”.</strong><br>与 “singleTask” 相同，只是系统不会将任何其他 Activity 启动到包含实例的任务中。该 Activity 始终是其任务唯一仅有的成员；由此 Activity 启动的任何 Activity 均在单独的任务中打开。<br><br>我们再来看另一示例，Android 浏览器应用声明网络浏览器 Activity 应始终在其自己的任务中打开（通过在 <code>&lt;activity&gt;</code> 元素中指定 singleTask 启动模式）。这意味着，如果您的应用发出打开 Android 浏览器的 Intent，则其 Activity 与您的应用位于不同的任务中。相反，系统会为浏览器启动新任务，或者如果浏览器已有任务正在后台运行，则会将该任务上移一层以处理新 Intent。<br><br>无论 Activity 是在新任务中启动，还是在与启动 Activity 相同的任务中启动，用户按“返回”按钮始终会转到前一个 Activity。 但是，如果启动指定 <code>singleTask</code> 启动模式的 Activity，则当某后台任务中存在该 Activity 的实例时，整个任务都会转移到前台。此时，返回栈包括上移到堆栈顶部的任务中的所有 Activity。 图 4 显示了这种情况。<br><figure class="image-bubble">
+<font style="font-size:12px">图 3. 一个 Activity 将多次实例化。</font>
+
+<p>由于返回栈中的 Activity 永远不会重新排列，因此如果应用允许用户从多个 Activity 中启动特定 Activity，则会创建该 Activity 的新实例并推入堆栈中（而不是将 Activity 的任一先前实例置于顶部）。 因此，应用中的一个 Activity 可能会多次实例化（即使 Activity 来自不同的任务），如图 3 所示。因此，如果用户使用“返回”按钮向后导航，则会按 Activity 每个实例的打开顺序显示这些实例（每个实例的 UI 状态各不相同）。 但是，如果您不希望 Activity 多次实例化，则可修改此行为。 具体操作方法将在后面的管理任务部分中讨论。</p>
+<p><strong>Activity 和任务的默认行为总结如下：</strong></p>
+<ul>
+<li>当 Activity A 启动 Activity B 时，Activity A 将会停止，但系统会保留其状态（例如，滚动位置和已输入表单中的文本）。如果用户在处于 Activity B 时按“返回”按钮，则 Activity A 将恢复其状态，继续执行。</li>
+<li>用户通过按“主页”按钮离开任务时，当前 Activity 将停止且其任务会进入后台。 系统将保留任务中每个 Activity 的状态。如果用户稍后通过选择开始任务的启动器图标来恢复任务，则任务将出现在前台并恢复执行堆栈顶部的 Activity。</li>
+<li>如果用户按“返回”按钮，则当前 Activity 会从堆栈弹出并被销毁。 堆栈中的前一个 Activity 恢复执行。销毁 Activity 时，系统不会保留该 Activity 的状态。</li>
+<li>即使来自其他任务，Activity 也可以多次实例化。</li>
+</ul>
+<blockquote>
+<p><strong>导航设计</strong><br>如需了解有关 Android 应用导航工作方式的详细信息，请阅读 Android 设计的导航指南。</p>
+</blockquote>
+<h1 id="保存-Activity-状态"><a href="#保存-Activity-状态" class="headerlink" title="保存 Activity 状态"></a>保存 Activity 状态</h1><hr>
+<p>正如上文所述，当 Activity 停止时，系统的默认行为会保留其状态。 这样一来，当用户导航回到上一个 Activity 时，其用户界面与用户离开时一样。 但是，在 Activity 被销毁且必须重建时，您可以而且应当主动使用回调方法保留 Activity 的状态。</p>
+<p>系统停止您的一个 Activity 时（例如，新 Activity 启动或任务转到前台），如果系统需要回收系统内存资源，则可能会完全销毁该 Activity。 发生这种情况时，有关该 Activity 状态的信息将会丢失。如果发生这种情况，系统仍会知道该 Activity 存在于返回栈中，但是当该 Activity 被置于堆栈顶部时，系统一定会重建 Activity（而不是恢复 Activity）。 为了避免用户的工作丢失，您应主动通过在 Activity 中实现 onSaveInstanceState() 回调方法来保留工作。</p>
+<p>如需了解有关如何保存 Activity 状态的详细信息，请参阅 Activity 文档。</p>
+<h1 id="管理任务"><a href="#管理任务" class="headerlink" title="管理任务"></a>管理任务</h1><hr>
+<p>Android 管理任务和返回栈的方式（如上所述，即：将所有连续启动的 Activity 放入同一任务和“后进先出”堆栈中）非常适用于大多数应用，而您不必担心 Activity 如何与任务关联或者如何存在于返回栈中。 但是，您可能会决定要中断正常行为。 也许您希望应用中的 Activity 在启动时开始新任务（而不是放置在当前任务中）；或者，当启动 Activity 时，您希望将其现有实例上移一层（而不是在返回栈的顶部创建新实例）；或者，您希望在用户离开任务时，清除返回栈中除根 Activity 以外的所有其他 Activity。</p>
+<p>通过使用 <code>&lt;activity&gt;</code> 清单文件元素中的属性和传递给 <code>startActivity()</code> 的 Intent 中的标志，您可以执行所有这些操作以及其他操作。</p>
+<p>在这一方面，您可以使用的主要 <code>&lt;activity&gt;</code> 属性包括：</p>
+<p><code>taskAffinity</code><br><code>launchMode</code><br><code>allowTaskReparenting</code><br><code>clearTaskOnLaunch</code><br><code>alwaysRetainTaskState</code><br><code>finishOnTaskLaunch</code><br>您可以使用的主要 Intent 标志包括：</p>
+<p><code>FLAG_ACTIVITY_NEW_TASK</code><br><code>FLAG_ACTIVITY_CLEAR_TOP</code><br><code>FLAG_ACTIVITY_SINGLE_TOP</code><br>在下文中，您将了解如何使用这些清单文件属性和 Intent 标志定义 Activity 与任务的关联方式，以及 Activity 在返回栈中的行为方式。</p>
+<p>此外，我们还单独介绍了有关如何在概览屏幕中显示和管理任务与 Activity 的注意事项。 如需了解详细信息，请参阅概览屏幕。 通常，您应该允许系统定义任务和 Activity 在概览屏幕中的显示方法，并且无需修改此行为。</p>
+<blockquote>
+<p><strong>注意：</strong>大多数应用都不得中断 Activity 和任务的默认行为： 如果确定您的 Activity 必须修改默认行为，当使用“返回”按钮从其他 Activity 和任务导航回到该 Activity 时，请务必要谨慎并确保在启动期间测试该 Activity 的可用性。请确保测试导航行为是否有可能与用户的预期行为冲突。</p>
+</blockquote>
+<h2 id="定义启动模式"><a href="#定义启动模式" class="headerlink" title="定义启动模式"></a>定义启动模式</h2><p>启动模式允许您定义 Activity 的新实例如何与当前任务关联。 您可以通过两种方法定义不同的启动模式：</p>
+<p><strong>使用清单文件</strong><br>在清单文件中声明 Activity 时，您可以指定 Activity 在启动时应该如何与任务关联。</p>
+<p><strong>使用 Intent 标志</strong><br>调用 <code>startActivity()</code> 时，可以在 <code>Intent</code> 中加入一个标志，用于声明新 Activity 如何（或是否）与当前任务关联。</p>
+<p>因此，如果 Activity A 启动 Activity B，则 Activity B 可以在其清单文件中定义它应该如何与当前任务关联（如果可能），并且 Activity A 还可以请求 Activity B 应该如何与当前任务关联。如果这两个 Activity 均定义 Activity B 应该如何与任务关联，则 Activity A 的请求（如 Intent 中所定义）优先级要高于 Activity B 的请求（如其清单文件中所定义）。</p>
+<blockquote>
+<p><strong>注：</strong>某些适用于清单文件的启动模式不可用作 Intent 标志，同样，某些可用作 Intent 标志的启动模式无法在清单文件中定义。</p>
+</blockquote>
+<h4 id="使用清单文件"><a href="#使用清单文件" class="headerlink" title="使用清单文件"></a>使用清单文件</h4><p>在清单文件中声明 Activity 时，您可以使用 <code>&lt;activity&gt;</code> 元素的 <code>launchMode</code> 属性指定 Activity 应该如何与任务关联。</p>
+<p><code>launchMode</code> 属性指定有关应如何将 Activity 启动到任务中的指令。您可以分配给 <code>launchMode</code> 属性的启动模式共有四种：</p>
+<p><strong>“standard”（默认模式）</strong><br>默认。系统在启动 Activity 的任务中创建 Activity 的新实例并向其传送 Intent。Activity 可以多次实例化，而每个实例均可属于不同的任务，并且一个任务可以拥有多个实例。<br><strong>“singleTop”</strong><br>如果当前任务的顶部已存在 Activity 的一个实例，则系统会通过调用该实例的 <code>onNewIntent()</code> 方法向其传送 Intent，而不是创建 Activity 的新实例。Activity 可以多次实例化，而每个实例均可属于不同的任务，并且一个任务可以拥有多个实例（但前提是位于返回栈顶部的 Activity 并不是 Activity 的现有实例）。<br>例如，假设任务的返回栈包含根 Activity A 以及 Activity B、C 和位于顶部的 D（堆栈是 A-B-C-D；D 位于顶部）。收到针对 D 类 Activity 的 Intent。如果 D 具有默认的 “standard” 启动模式，则会启动该类的新实例，且堆栈会变成 A-B-C-D-D。但是，如果 D 的启动模式是 “singleTop”，则 D 的现有实例会通过 <code>onNewIntent()</code> 接收 Intent，因为它位于堆栈的顶部；而堆栈仍为 A-B-C-D。但是，如果收到针对 B 类 Activity 的 Intent，则会向堆栈添加 B 的新实例，即便其启动模式为 “singleTop” 也是如此。</p>
+<blockquote>
+<p><strong>注：</strong>为某个 Activity 创建新实例时，用户可以按“返回”按钮返回到前一个 Activity。 但是，当 Activity 的现有实例处理新 Intent 时，则在新 Intent 到达 onNewIntent() 之前，用户无法按“返回”按钮返回到 Activity 的状态。</p>
+</blockquote>
+<p><strong>“singleTask”</strong><br>系统创建新任务并实例化位于新任务底部的 Activity。但是，如果该 Activity 的一个实例已存在于一个单独的任务中，则系统会通过调用现有实例的 onNewIntent() 方法向其传送 Intent，而不是创建新实例。一次只能存在 Activity 的一个实例。</p>
+<blockquote>
+<p><strong>注：</strong>尽管 Activity 在新任务中启动，但是用户按“返回”按钮仍会返回到前一个 Activity。</p>
+</blockquote>
+<p><strong>“singleInstance”.</strong><br>与 “singleTask” 相同，只是系统不会将任何其他 Activity 启动到包含实例的任务中。该 Activity 始终是其任务唯一仅有的成员；由此 Activity 启动的任何 Activity 均在单独的任务中打开。</p>
+<p>我们再来看另一示例，Android 浏览器应用声明网络浏览器 Activity 应始终在其自己的任务中打开（通过在 <code>&lt;activity&gt;</code> 元素中指定 singleTask 启动模式）。这意味着，如果您的应用发出打开 Android 浏览器的 Intent，则其 Activity 与您的应用位于不同的任务中。相反，系统会为浏览器启动新任务，或者如果浏览器已有任务正在后台运行，则会将该任务上移一层以处理新 Intent。</p>
+<p>无论 Activity 是在新任务中启动，还是在与启动 Activity 相同的任务中启动，用户按“返回”按钮始终会转到前一个 Activity。 但是，如果启动指定 <code>singleTask</code> 启动模式的 Activity，则当某后台任务中存在该 Activity 的实例时，整个任务都会转移到前台。此时，返回栈包括上移到堆栈顶部的任务中的所有 Activity。 图 4 显示了这种情况。<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2014/04/10/tasks-and-back-stack/diagram_backstack_singletask_multiactivity.png" alt="t4" title="">
                 </div>
                 <div class="image-caption">t4</div>
-            </figure><br><br><font style="font-size:14px">图 4. 显示如何将启动模式为“singleTask”的 Activity 添加到返回栈。 如果 Activity 已经是某个拥有自己的返回栈的后台任务的一部分，则整个返回栈也会上移到当前任务的顶部。</font>
+            </figure></p>
+<font style="font-size:14px">图 4. 显示如何将启动模式为“singleTask”的 Activity 添加到返回栈。 如果 Activity 已经是某个拥有自己的返回栈的后台任务的一部分，则整个返回栈也会上移到当前任务的顶部。</font>
 
 <p>如需了解有关在清单文件中使用启动模式的详细信息，请参阅 <activity> 元素文档，其中更详细地讨论了 launchMode 属性和可接受的值。</activity></p>
 <blockquote>
@@ -284,7 +331,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-10T01:42:51.427Z" itemprop="dateUpdated">2018-04-10 09:42:51</time>
+    最后更新时间：<time datetime="2018-05-03T03:06:13.764Z" itemprop="dateUpdated">2018-05-03 11:06:13</time>
 </span><br>
 
 
